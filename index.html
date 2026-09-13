@@ -3,56 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Raio-X da Operação — Ju Leme Hair</title>
-<meta name="description" content="Auditoria completa da operação de mídia paga — Ju Leme Hair">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Ju Leme Hair — Painel de Performance</title>
 <link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231D1D1F'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='-apple-system,Inter,sans-serif' font-size='13' font-weight='700' fill='%23fff'%3EJL%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-<div class="wrap">
+<!-- Gate de senha. O dado (data/GLOBAL_DATASET.public.enc) é AES-256-GCM; a chave deriva da senha (PBKDF2).
+     Nada do painel (scripts, dado) é carregado antes do desbloqueio. Mesma senha do relatório anterior. -->
+<div class="gate" id="gate">
+  <form class="gate-box" id="gate-form" autocomplete="off">
+    <div class="brand"><div class="brand-mk">JL</div><div class="brand-t">Ju Leme Hair</div></div>
+    <h1>Painel de Performance</h1>
+    <p>Conteúdo restrito. Digite a senha para acessar.</p>
+    <input type="text" name="username" value="julemhair" autocomplete="username" hidden tabindex="-1" aria-hidden="true">
+    <input type="password" id="gate-pw" placeholder="Senha" autofocus autocomplete="current-password">
+    <button type="submit" class="btn pri" id="gate-btn">Entrar</button>
+    <div class="gate-err" id="gate-err" role="alert"></div>
+  </form>
+</div>
+<div class="shell" id="shell" hidden>
   <aside class="side" id="side">
-    <div class="side-h">
-      <div class="brand">
-        <div class="brand-mk">JL</div>
-        <div><div class="brand-t">Ju Leme Hair</div><div class="brand-s">Raio-X da operação</div></div>
-      </div>
-    </div>
-    <nav class="nav">
-      <div class="nav-g">Diagnóstico</div>
-      <div class="nav-i" data-s="resumo"><span class="nav-ic">◆</span>Resumo executivo</div>
-      <div class="nav-i" data-s="plano"><span class="nav-ic">▸</span>Plano de ação</div>
-      <div class="nav-g">Desempenho</div>
-      <div class="nav-i" data-s="meta"><span class="nav-ic">▤</span>Meta Ads</div>
-      <div class="nav-i" data-s="criativo"><span class="nav-ic">▶</span>Criativos e vídeo</div>
-      <div class="nav-i" data-s="plataforma"><span class="nav-ic">◈</span>Plataformas</div>
-      <div class="nav-i" data-s="publico"><span class="nav-ic">◉</span>Público</div>
-      <div class="nav-g">Loja</div>
-      <div class="nav-i" data-s="loja"><span class="nav-ic">▣</span>Loja &middot; Nuvemshop</div>
-      <div class="nav-i" data-s="origem"><span class="nav-ic">◇</span>Origem e cupons</div>
-      <div class="nav-g">Infraestrutura</div>
-      <div class="nav-i" data-s="auditoria"><span class="nav-ic">⚑</span>Auditoria estrutural</div>
-      <div class="nav-i" data-s="track"><span class="nav-ic">◎</span>Rastreamento</div>
-    </nav>
-    <div class="side-f">Dados extraídos da API oficial da Meta<br>Graph API v23.0 &middot; conta act_982323270220584</div>
+    <div class="side-h"><div class="brand"><div class="brand-mk">JL</div><div class="brand-t">Ju Leme Hair</div></div></div>
+    <nav class="nav" id="nav"></nav>
+    <div class="side-f">Meta Graph v23 · Nuvemshop · Pixel<br>Infinity API · atualizado 12/09/2026</div>
   </aside>
-
-  <main class="main">
+  <main class="main" id="main">
     <header class="top">
-      <div class="top-l">
-        <button class="tbtn" id="menuBtn" title="Menu">&#9776;</button>
-        <span class="crumb" id="crumb">Resumo executivo</span>
-      </div>
+      <div class="top-l"><div class="crumb" id="crumb"></div></div>
       <div class="top-r">
-        <span class="acct" id="acctLabel"></span>
-        <span class="per" id="perLabel"></span>
-        <button class="tbtn" id="prtBtn" title="Imprimir ou salvar em PDF">&#8631;</button>
+        <span class="per"><b>13/08 – 11/09</b> · vs 14/07 – 12/08</span>
+        <button class="btn" id="btnPrint" title="Exportar PDF"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg>PDF</button>
       </div>
     </header>
     <div class="view" id="view"></div>
-    <div class="backdrop" id="backdrop"></div>
   </main>
 </div>
-<script src="data.js"></script>
-<script src="app.js"></script>
+<aside class="panel" id="panel"><div class="pn-h"><div class="lbl" id="pnLbl"></div><button class="pn-x" id="pnX" aria-label="Fechar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="pn-b" id="pnB"></div></aside>
+<div class="fab" id="fab"><span id="fabTxt"></span><button id="fabGo">Comparar</button><button class="x" id="fabX">×</button></div>
+<div class="ov" id="ov"><div class="md"><div class="md-h"><span class="h2" id="mdT">Comparação</span><button class="pn-x" id="mdX">✕</button></div><div class="md-b" id="mdB"></div></div></div>
+<script>
+(function () {
+  'use strict';
+  /* SHA-256 da senha (mesma do relatório anterior). Comparação pelo hash evita o texto puro no fonte;
+     a proteção real é a criptografia do dado: sem a senha correta o AES-GCM falha na autenticação. */
+  const HASH = 'cd18bfc4b6b088175fe6116a83f1e23af1e11ffc179e653ad00b28f8adc0f1e0';
+  const DATA = 'data/GLOBAL_DATASET.public.enc';
+  const SCRIPTS = ['core.js', 'sections/resumo.js', 'sections/plano.js', 'sections/meta.js', 'sections/criativos.js', 'sections/fadiga.js', 'sections/plataformas.js', 'sections/publico.js', 'sections/loja.js', 'sections/origem.js', 'sections/influenciadoras.js', 'sections/rastreamento.js', 'sections/publicos.js', 'sections/auditoria.js', 'sections/conta.js', 'app.js'];
+  const CHART = { src: 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js', integrity: 'sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4' };
+  const $ = id => document.getElementById(id);
+  const form = $('gate-form'), pw = $('gate-pw'), btn = $('gate-btn'), err = $('gate-err');
+  const enc = new TextEncoder();
+  const hex = b => Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2, '0')).join('');
+  const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+  const load = (src, attrs = {}) => new Promise((ok, ko) => { const s = document.createElement('script'); s.src = src; Object.assign(s, attrs); s.onload = ok; s.onerror = () => ko(new Error('falha ao carregar ' + src)); document.body.appendChild(s); });
+  async function decrypt(pkg, pass) {
+    const km = await crypto.subtle.importKey('raw', enc.encode(pass), 'PBKDF2', false, ['deriveKey']);
+    const key = await crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: b64(pkg.salt), iterations: pkg.iter }, km, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(pkg.iv), additionalData: enc.encode(pkg.aad) }, key, b64(pkg.ct));
+    const stream = new Blob([plain]).stream().pipeThrough(new DecompressionStream('gzip'));
+    return JSON.parse(await new Response(stream).text());
+  }
+  let busy = false;
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); if (busy) return;
+    const pass = pw.value; err.textContent = '';
+    if (!pass) return;
+    const h = hex(await crypto.subtle.digest('SHA-256', enc.encode(pass)));
+    if (h !== HASH) { err.textContent = 'Senha incorreta.'; pw.value = ''; pw.focus(); return; }
+    busy = true; btn.disabled = true; btn.textContent = 'Abrindo…'; const t0 = performance.now();
+    try {
+      const r = await fetch(DATA, { cache: 'no-store' }); if (!r.ok) throw new Error('dados indisponíveis (' + r.status + ')');
+      window.G = await decrypt(await r.json(), pass);
+      pw.value = '';
+      await load(CHART.src, { integrity: CHART.integrity, crossOrigin: 'anonymous' });
+      for (const s of SCRIPTS) await load(s);
+      window.__UNLOCK_MS = Math.round(performance.now() - t0);
+      $('gate').remove(); $('shell').hidden = false;
+    } catch (ex) {
+      console.warn('[gate]', ex);
+      err.textContent = 'Não foi possível abrir o painel: ' + ex.message; busy = false; btn.disabled = false; btn.textContent = 'Entrar';
+    }
+  });
+})();
+</script>
 </body>
 </html>
