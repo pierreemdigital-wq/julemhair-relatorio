@@ -31,7 +31,7 @@
   </aside>
   <main class="main" id="main">
     <header class="top">
-      <div class="top-l"><div class="crumb" id="crumb"></div></div>
+      <div class="top-l"><button class="menu-btn" id="btnMenu" aria-label="Abrir menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><div class="crumb" id="crumb"></div></div>
       <div class="top-r">
         <span class="per"><b>13/08 – 11/09</b> · vs 14/07 – 12/08</span>
         <button class="btn" id="btnPrint" title="Exportar PDF"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg>PDF</button>
@@ -40,6 +40,7 @@
     <div class="view" id="view"></div>
   </main>
 </div>
+<div class="nav-ov" id="navOv" aria-hidden="true"></div>
 <aside class="panel" id="panel"><div class="pn-h"><div class="lbl" id="pnLbl"></div><button class="pn-x" id="pnX" aria-label="Fechar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="pn-b" id="pnB"></div></aside>
 <div class="fab" id="fab"><span id="fabTxt"></span><button id="fabGo">Comparar</button><button class="x" id="fabX">×</button></div>
 <div class="ov" id="ov"><div class="md"><div class="md-h"><span class="h2" id="mdT">Comparação</span><button class="pn-x" id="mdX">✕</button></div><div class="md-b" id="mdB"></div></div></div>
@@ -50,7 +51,7 @@
      a proteção real é a criptografia do dado: sem a senha correta o AES-GCM falha na autenticação. */
   const HASH = '521f43540497e21fcb5bc3908949c7a0354ed62ab8a31cb79a10ce735b84d62f';
   const DATA = 'data/GLOBAL_DATASET.public.enc';
-  const SCRIPTS = ['core.js', 'sections/resumo.js', 'sections/plano.js', 'sections/meta.js', 'sections/criativos.js', 'sections/fadiga.js', 'sections/plataformas.js', 'sections/publico.js', 'sections/loja.js', 'sections/origem.js', 'sections/influenciadoras.js', 'sections/rastreamento.js', 'sections/publicos.js', 'sections/auditoria.js', 'sections/conta.js', 'app.js'];
+  const SCRIPTS = ['core.js', 'sections/resumo.js', 'sections/plano.js', 'sections/meta.js', 'sections/criativos.js', 'sections/fadiga.js', 'sections/plataformas.js', 'sections/publico.js', 'sections/loja.js', 'sections/origem.js', 'sections/influenciadoras.js', 'sections/rastreamento.js', 'sections/publicos.js', 'sections/auditoria.js', 'sections/conta.js', 'sections/ga4.js', 'sections/google-ads.js', 'app.js'];
   const CHART = { src: 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js', integrity: 'sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4' };
   const $ = id => document.getElementById(id);
   const form = $('gate-form'), pw = $('gate-pw'), btn = $('gate-btn'), err = $('gate-err');

@@ -4,8 +4,8 @@
   const U = window.UI, SEC = window.SEC = window.SEC || {};
   const NAV = [
     ['Visão', [['resumo', 'Resumo executivo'], ['plano', 'Plano de ação']]],
-    ['Mídia paga', [['meta', 'Meta Ads'], ['criativos', 'Criativos & vídeo'], ['fadiga', 'Fadiga'], ['plataformas', 'Plataformas'], ['publico', 'Público & horários']]],
-    ['Loja', [['loja', 'Vendas & produtos'], ['origem', 'Origem & cupons'], ['influenciadoras', 'Influenciadoras']]],
+    ['Mídia paga', [['meta', 'Meta Ads'], ['google-ads', 'Google Ads'], ['criativos', 'Criativos & vídeo'], ['fadiga', 'Fadiga'], ['plataformas', 'Plataformas'], ['publico', 'Público & horários']]],
+    ['Loja', [['loja', 'Vendas & produtos'], ['origem', 'Origem & cupons'], ['influenciadoras', 'Influenciadoras'], ['ga4', 'GA4']]],
     ['Infraestrutura', [['rastreamento', 'Rastreamento'], ['publicos', 'Públicos salvos'], ['auditoria', 'Auditoria estrutural'], ['conta', 'Conta & atividade']]],
   ];
   const safeCount = id => { try { return SEC[id]?.count ? SEC[id].count() : null; } catch (e) { return null; } };
@@ -48,10 +48,15 @@
     crumb.innerHTML = parts.map((p, i) => i < parts.length - 1 ? `<button data-ci="${i}">${U.fmt.esc(p)}</button><span class="sep">›</span>` : `<span>${U.fmt.esc(p)}</span>`).join('');
     crumb.querySelectorAll('button').forEach(b => b.onclick = () => handlers?.[+b.dataset.ci]?.());
   }
+  const side = document.getElementById('side'), menuBtn = document.getElementById('btnMenu'), navOv = document.getElementById('navOv');
+  function setMenu(open) { side.classList.toggle('mobile-on', open); navOv.classList.toggle('on', open); menuBtn?.setAttribute('aria-expanded', String(open)); }
+  menuBtn?.addEventListener('click', () => setMenu(!side.classList.contains('mobile-on')));
+  navOv?.addEventListener('click', () => setMenu(false));
   document.addEventListener('click', e => {
-    const n = e.target.closest('.nav-i'); if (n) { go(n.dataset.s, undefined, true); return; }
+    const n = e.target.closest('.nav-i'); if (n) { setMenu(false); go(n.dataset.s, undefined, true); return; }
     if (e.target.closest('#btnPrint')) { window.print(); return; }
   });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
   /* thumbnails do fbcdn expiram (URLs assinadas): troca por placeholder neutro no erro de carga */
   document.addEventListener('error', e => { const t = e.target; if (t && t.tagName === 'IMG' && t.dataset.ph && t.src !== U.PLACEHOLDER) { t.src = U.PLACEHOLDER; t.classList.add('ph'); } }, true);
   window.addEventListener('hashchange', () => { const [id, sub] = location.hash.slice(1).split('/'); if (id !== current) go(id, sub); });
