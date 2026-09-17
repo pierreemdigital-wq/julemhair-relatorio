@@ -1,0 +1,1525 @@
+<!doctype html><html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ju Leme Hair — Relatório Semanal · 11–17/09/2026</title>
+<style>/* ===== Ju Leme Hair — Relatório Semanal · Design System (Syncora × casa) ===== */
+:root{
+  --bg:#FBFBFD; --surface:#FFFFFF; --surface-2:#F4F4F7; --ink:#0B0B0F; --ink-2:#5B5B66;
+  --ink-3:#9A9AA6; --line:#E6E6EC; --line-2:#D7D7DF;
+  --accent:#8E6BA8; --accent-ink:#6E4E88; --accent-soft:#F1EBF6;
+  --pos:#1F8A54; --neg:#C4384A; --warn:#B5852A; --neutral:#6E6E78;
+  --dark:#0B0B0F; --dark-ink:#F2F2F5;
+  --r:14px; --r-s:10px;
+  --f-ui:-apple-system,"SF Pro Text","Inter",system-ui,sans-serif;
+  --f-disp:"Inter","SF Pro Display",-apple-system,system-ui,sans-serif;
+  --maxw:1180px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-ui);
+  font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--f-disp);font-weight:680;letter-spacing:-.02em;margin:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+.mono{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.02em;color:var(--ink-3)}
+
+/* ---- Header / editorial hero ---- */
+.top{position:sticky;top:0;z-index:60;background:rgba(251,251,253,.82);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:60px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--f-disp);font-weight:720;letter-spacing:.02em}
+.brand .glyph{width:22px;height:22px;border-radius:6px;background:var(--accent);display:inline-block;position:relative;flex:0 0 auto}
+.brand .glyph::after{content:"";position:absolute;inset:5px;border:2px solid #fff;border-radius:50%;border-right-color:transparent;transform:rotate(20deg)}
+.nav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
+.nav a{font-size:12.5px;color:var(--ink-2);text-decoration:none;padding:7px 11px;border-radius:8px;font-weight:550;white-space:nowrap}
+.nav a:hover{background:var(--surface-2);color:var(--ink)}
+.nav a.on{color:var(--accent-ink);background:var(--accent-soft)}
+
+.hero{padding:64px 0 30px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero .idx{position:absolute;right:28px;top:40px;text-align:right;line-height:1.35}
+.hero h1{font-size:clamp(44px,8vw,104px);line-height:.9;font-weight:760;letter-spacing:-.045em}
+.hero h1 .lila{color:var(--accent)}
+.hero .sub{margin-top:22px;max-width:640px;font-size:16px;color:var(--ink-2)}
+.hero .meta-line{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap}
+.hero .meta-line div{border-left:2px solid var(--accent);padding-left:12px}
+.hero .meta-line b{display:block;font-family:var(--f-disp);font-size:20px;font-weight:680}
+.hero .meta-line span{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+
+/* ---- Section scaffolding ---- */
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:26px}
+.sec-head .no{font-family:var(--f-disp);font-weight:680;font-size:13px;color:var(--accent);letter-spacing:.04em;padding-top:5px}
+.sec-head h2{font-size:clamp(26px,4vw,40px);letter-spacing:-.03em}
+.sec-head .tag{margin-left:auto;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+.lead{font-size:17px;line-height:1.55;color:var(--ink);max-width:760px;margin:0 0 26px;font-weight:450}
+.lead b{font-weight:660}
+.lead .hl{background:linear-gradient(transparent 62%, #E8DDF2 62%);padding:0 2px}
+
+/* ---- KPI cards ---- */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;position:relative}
+.kpi.dark{background:var(--dark);color:var(--dark-ink);border-color:#1c1c22}
+.kpi .k-label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3);font-weight:600}
+.kpi.dark .k-label{color:#9a9aa6}
+.kpi .k-val{font-family:var(--f-disp);font-size:30px;font-weight:700;letter-spacing:-.03em;margin-top:9px;line-height:1}
+.kpi .k-cmp{margin-top:10px;font-size:12.5px;display:flex;align-items:center;gap:6px}
+.k-delta{font-weight:640;padding:1px 7px;border-radius:20px;font-size:11.5px}
+.k-delta.pos{color:var(--pos);background:rgba(31,138,84,.10)}
+.k-delta.neg{color:var(--neg);background:rgba(196,56,74,.10)}
+.k-delta.flat{color:var(--neutral);background:var(--surface-2)}
+.kpi .k-prev{color:var(--ink-3)}
+.kpi.dark .k-prev{color:#7a7a86}
+.kpi-row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:14px}
+.kpi-sm{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-s);padding:13px}
+.kpi-sm .k-val{font-size:20px}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.kpi-row{grid-template-columns:repeat(2,1fr)}}
+
+/* ---- Charts ---- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.card h3{font-size:15px;font-weight:640;letter-spacing:-.01em}
+.card .chd{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.card .chd .tag{margin-left:auto;font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em}
+.grid2{display:grid;grid-template-columns:1.6fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr}}
+.metric-picker{display:flex;gap:7px;flex-wrap:wrap;margin:2px 0 14px}
+.mp{font-size:12px;font-weight:560;padding:7px 13px;border-radius:22px;border:1px solid var(--line-2);
+  background:var(--surface);color:var(--ink-2);cursor:pointer;transition:all .18s ease}
+.mp:hover{border-color:var(--accent);color:var(--accent-ink)}
+.mp.on{background:var(--accent);border-color:var(--accent);color:#fff}
+canvas{display:block;width:100%}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+/* ---- Tables ---- */
+.tbl-wrap{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.tbl-tools{display:flex;gap:10px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--line)}
+.tbl-tools input{flex:1;border:1px solid var(--line-2);border-radius:8px;padding:8px 11px;font-size:13px;font-family:inherit;background:var(--surface-2)}
+.tbl-tools input:focus{outline:none;border-color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{background:var(--surface);text-align:right;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--ink-3);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line);cursor:pointer;user-select:none;white-space:nowrap}
+thead th:first-child{text-align:left}
+thead th.sortable:hover{color:var(--accent-ink)}
+tbody td{padding:10px 14px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+tbody td:first-child{text-align:left;white-space:normal;max-width:340px;color:var(--ink);font-weight:500}
+tbody tr:hover{background:var(--surface-2)}
+tbody tr:last-child td{border-bottom:0}
+.badge{font-size:10.5px;font-weight:640;padding:2px 8px;border-radius:20px;letter-spacing:.02em}
+.b-esc{color:var(--pos);background:rgba(31,138,84,.12)}
+.b-man{color:#2563A8;background:rgba(37,99,168,.12)}
+.b-tes{color:var(--warn);background:rgba(181,133,42,.14)}
+.b-low{color:var(--neg);background:rgba(196,56,74,.12)}
+.b-nb{color:var(--neutral);background:var(--surface-2)}
+.d-up{color:var(--pos);font-weight:600}
+.d-dn{color:var(--neg);font-weight:600}
+.d-fl{color:var(--neutral)}
+.bar-cell{position:relative}
+.bar-cell .bar{position:absolute;left:0;top:0;bottom:0;background:var(--accent-soft);z-index:0}
+.bar-cell span{position:relative;z-index:1}
+
+/* ---- Callouts / verdicts ---- */
+.callout{border:1px solid var(--line);border-left:3px solid var(--accent);background:var(--surface);
+  border-radius:var(--r-s);padding:15px 17px;margin:12px 0}
+.callout.win{border-left-color:var(--pos)} .callout.risk{border-left-color:var(--neg)} .callout.watch{border-left-color:var(--warn)}
+.callout .ct{font-weight:640;font-size:13.5px;margin-bottom:3px}
+.callout .cb{font-size:13.5px;color:var(--ink-2)}
+.callout .act{font-size:12.5px;margin-top:7px;color:var(--accent-ink);font-weight:560}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:820px){.two{grid-template-columns:1fr}}
+.md h4{font-size:15px;margin:20px 0 8px} .md h3{font-size:17px;margin:24px 0 10px}
+.md p{color:var(--ink-2);margin:8px 0} .md ul{margin:8px 0;padding-left:20px;color:var(--ink-2)} .md li{margin:4px 0}
+.md table{margin:12px 0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.md strong{color:var(--ink)}
+.pill{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--accent-soft);color:var(--accent-ink);margin:2px}
+
+/* ---- roteiro cards ---- */
+.script{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;margin:12px 0}
+.script .sh{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.script .who{font-family:var(--f-disp);font-weight:680;font-size:17px}
+.hooks{display:grid;gap:6px;margin:8px 0}
+.hooks .h{background:var(--surface-2);border-radius:8px;padding:8px 11px;font-size:13px}
+.hooks .h b{color:var(--accent-ink);font-size:11px;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:2px}
+
+footer{padding:40px 0 70px;color:var(--ink-3);font-size:12px}
+footer .wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+
+/* ---- reveal animation ---- */
+.rv{opacity:0;transform:translateY(18px)}
+.rv.in{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.rv-d1{transition-delay:.06s}.rv-d2{transition-delay:.12s}.rv-d3{transition-delay:.18s}.rv-d4{transition-delay:.24s}
+.progress{position:fixed;left:0;top:0;height:3px;background:var(--accent);z-index:100;width:0}
+@media(prefers-reduced-motion:reduce){
+  .rv,.rv.in{opacity:1!important;transform:none!important;transition:none!important}
+  .progress{display:none}
+}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  html,body{background:#fff!important}
+  .top,.progress,.metric-picker,.tbl-tools{display:none!important}
+  .rv{opacity:1!important;transform:none!important}
+  section{page-break-inside:auto;border-color:#ddd}
+  .kpi,.card,.callout,.script,tr,thead{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group} h1,h2,h3{page-break-after:avoid}
+  @page{size:A4;margin:11mm 9mm}
+}
+</style></head><body>
+<div class="progress"></div>
+<div class="top"><div class="wrap">
+  <div class="brand"><span class="glyph"></span> JU LEME HAIR</div>
+  <nav class="nav">
+    <a href="#resumo" class="on">Resumo</a>
+    <a href="#consolidado">Mídia paga</a>
+    <a href="#criativo">Criativo</a>
+    <a href="#abo">Teste ABO</a>
+    <a href="#nutri">Nutri/Leave</a>
+    <a href="#lucro">Lucro</a>
+    <a href="#plano">Plano</a>
+    <a href="#roteiros">Roteiros</a>
+    <a href="#loja">Loja</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="idx mono">RELATÓRIO SEMANAL<br>Nº 01 · V.2026<br>INFINITY × JU LEME</div>
+  <div class="eyebrow rv">Otimização fina de criativo &amp; campanha</div>
+  <h1 class="rv">RELATÓRIO<br>DE <span class="lila">PERFORMANCE</span></h1>
+  <p class="sub rv rv-d1">Auditoria de mídia paga da conta Ju Leme Hair — semana <b>11 a 17 de setembro de 2026</b>,
+  comparada com a semana anterior (04–10/09). Cada número vem de consulta real: loja Nuvemshop (verdade),
+  Meta Graph, GA4 e Google Ads. Análise por criativo ativo, teste ABO, economia unitária e plano de escala.</p>
+  <div class="meta-line rv rv-d2">
+    <div><b class="num">R$ 193.315</b><span>Faturamento loja</span></div>
+    <div><b class="num">3,09x</b><span>MER blended</span></div>
+    <div><b class="num">R$ 62.479</b><span>Verba total</span></div>
+    <div><b class="num">1.040</b><span>Pedidos pagos</span></div>
+  </div>
+</div></header>
+<section id="resumo"><div class="wrap">
+  <div class="sec-head rv"><span class="no">01</span><h2>Resumo executivo</h2><span class="tag">11–17 SET vs 04–10 SET</span></div>
+  <p class="lead rv">A loja faturou <b>R$ 193.315</b> (1.040 pedidos), <span class="hl">−29,3%</span> vs. a semana anterior.
+  <b>Mas a leitura honesta é composição, não colapso:</b> a semana de 04–10/09 foi o pico do lançamento do <b>Kit Nutri Frizz + Leave-in</b>, que sozinho caiu <b>−R$ 35.236</b> (≈44% de toda a queda). Removido o efeito-lançamento, a base segue firme e lucrativa — <b>MER 3,09x</b>, muito acima do break-even.
+  A prioridade da semana não é injetar verba no broad saturado (freq 3,98, subindo), e sim <span class="hl">desbloquear Google Shopping/PMax (ROAS 4,4 com só 1,6% da verba) e forçar orçamento nos criativos novos que já provaram</span>.</p>
+
+  <div class="kpis">
+    <div class="kpi dark rv">
+      <div class="k-label">Faturamento loja</div>
+      <div class="k-val num" data-val="193315.15" data-fmt="brl">R$ 193.315</div>
+      <div class="k-cmp"><span class="k-delta neg">↓ 29,3%</span><span class="k-prev num">vs R$ 273.490</span></div>
+    </div>
+    <div class="kpi rv">
+      <div class="k-label">Investimento total</div>
+      <div class="k-val num" data-val="62479.48" data-fmt="brl">R$ 62.479</div>
+      <div class="k-cmp"><span class="k-delta pos">↓ 9,0%</span><span class="k-prev num">vs R$ 68.665</span></div>
+    </div>
+    <div class="kpi rv">
+      <div class="k-label">MER blended</div>
+      <div class="k-val num" data-val="3.09" data-fmt="x">3,09x</div>
+      <div class="k-cmp"><span class="k-delta neg">↓ 22,4%</span><span class="k-prev num">vs 3,98x</span></div>
+    </div>
+    <div class="kpi rv">
+      <div class="k-label">Pedidos pagos</div>
+      <div class="k-val num" data-val="1040" data-fmt="num">1.040</div>
+      <div class="k-cmp"><span class="k-delta neg">↓ 26,1%</span><span class="k-prev num">vs 1.408</span></div>
+    </div>
+  </div>
+  <div class="kpi-row">
+    <div class="kpi-sm rv"><div class="k-label">ROAS Meta</div><div class="k-val num" data-val="2.78" data-fmt="x">2,78x</div><div class="k-cmp"><span class="k-delta neg">↓ 15,8%</span></div></div>
+    <div class="kpi-sm rv"><div class="k-label">CAC / pedido</div><div class="k-val num" data-val="60.08" data-fmt="brl">R$ 60</div><div class="k-cmp"><span class="k-delta neg">↑ 23,2%</span></div></div>
+    <div class="kpi-sm rv"><div class="k-label">Ticket loja</div><div class="k-val num" data-val="185.88" data-fmt="brl">R$ 186</div><div class="k-cmp"><span class="k-delta neg">↓ 4,3%</span></div></div>
+    <div class="kpi-sm rv"><div class="k-label">Frequência</div><div class="k-val num" data-val="3.98" data-fmt="x">3,98</div><div class="k-cmp"><span class="k-delta neg">↑ 6,4%</span></div></div>
+    <div class="kpi-sm rv"><div class="k-label">Sessões GA4</div><div class="k-val num" data-val="44681" data-fmt="num">44.681</div><div class="k-cmp"><span class="k-delta neg">↓ 23,1%</span></div></div>
+    <div class="kpi-sm rv"><div class="k-label">CTR Meta</div><div class="k-val num" data-val="1.765" data-fmt="pct">1,76%</div><div class="k-cmp"><span class="k-delta neg">↓ 8,7%</span></div></div>
+  </div>
+
+  <div class="card rv" style="margin-top:20px" data-chart="daily">
+    <div class="chd"><h3>Série diária — selecione a métrica</h3><span class="tag">7 dias · Meta × Loja</span></div>
+    <div class="metric-picker" id="mp-daily">
+      <button class="mp on" data-m="store_rev">Faturamento loja</button>
+      <button class="mp" data-m="spend">Investimento Meta</button>
+      <button class="mp" data-m="roas">ROAS Meta</button>
+      <button class="mp" data-m="purch">Compras Meta</button>
+      <button class="mp" data-m="store_orders">Pedidos loja</button>
+    </div>
+    <canvas id="cv-daily" height="280"></canvas>
+    <div class="legend"><span><i style="background:#8E6BA8"></i> semana atual</span></div>
+  </div>
+</div></section>
+<section id="consolidado"><div class="wrap">
+  <div class="sec-head rv"><span class="no">02</span><h2>Mídia paga consolidada</h2><span class="tag">META + GOOGLE</span></div>
+  <p class="lead rv">Verba total de <b>R$ 62.479</b> — <b>96,2% Meta</b>, 3,8% Google. O ROAS agregado do Google (14,3) <b>engana</b>: é inflado pela campanha de <b>marca</b> (Institucional, ROAS 34,8), que colhe demanda já existente. A <span class="hl">prospecção real do Google (Shopping + PMax) rende ROAS 4,4 com apenas R$ 991 — 1,6% da verba</span>. É a maior alavanca ociosa da conta.</p>
+  <div class="grid2">
+    <div class="card rv" data-chart="channels">
+      <div class="chd"><h3>Verba por canal</h3></div>
+      <canvas id="cv-channels" height="220"></canvas>
+    </div>
+    <div class="card rv" data-chart="gads">
+      <div class="chd"><h3>Google Ads — marca × prospecção</h3></div>
+      <canvas id="cv-gads" height="220"></canvas>
+    </div>
+  </div>
+  <div class="two" style="margin-top:14px">
+    <div class="callout win rv"><div class="ct">Prospecção Google subalimentada</div><div class="cb">Shopping + PMax: ROAS 4,4 movendo só R$ 991. Shopping subiu conversões 14→20 sem saturar.</div><div class="act">Ação: dobrar a verba (teto R$ 3.000).</div></div>
+    <div class="callout risk rv rv-d1"><div class="ct">Meta broad saturando</div><div class="cb">Freq da conta 3,98 (subindo); C9 Catálogo freq 3,09 e ROAS 3,35→2,41; C3 Classe A 3,72→2,00.</div><div class="act">Ação: congelar verba do broad, renovar criativo.</div></div>
+  </div>
+</div></section>
+<section id="criativo"><div class="wrap">
+  <div class="sec-head rv"><span class="no">03</span><h2>Análise de criativo</h2><span class="tag">SÓ COM ENTREGA · SPEND&gt;0</span></div>
+  <div class="md rv"><p> Leitura executiva do criativo da conta</p>
+<table><thead><tr><th>Métrica (conta)</th><th>04–10/09</th><th>11–17/09</th><th>Δ</th></tr></thead><tbody><tr><td>Investimento</td><td>R$ 66.391,14</td><td>R$ 60.088,51</td><td>−9,5%</td></tr><tr><td>Receita (Meta)</td><td>R$ 219.147,53</td><td>R$ 166.977,07</td><td>−23,8%</td></tr><tr><td>ROAS</td><td>3,30x</td><td>2,78x</td><td>−0,52</td></tr><tr><td>Compras</td><td>1.137</td><td>899</td><td>−20,9%</td></tr><tr><td>CPA</td><td>R$ 58,39</td><td>R$ 66,84</td><td>+14,5%</td></tr><tr><td>Ticket</td><td>R$ 192,74</td><td>R$ 185,74</td><td>−3,6%</td></tr><tr><td>Frequência</td><td>3,74</td><td>3,98</td><td>+0,24</td></tr><tr><td>CTR</td><td>1,93%</td><td>1,77%</td><td>−0,16 p.p.</td></tr><tr><td>Hook rate (p25/plays)</td><td>—</td><td>8,4%</td><td>—</td></tr><tr><td>Hold rate (p100/plays)</td><td>—</td><td>2,3%</td><td>—</td></tr></tbody></table>
+<p><strong>O que realmente mudou (não é &quot;o criativo piorou&quot;):</strong></p>
+<ul><li><strong>A queda de ROAS 3,30→2,78 é majoritariamente composição, não deterioração de criativo.</strong> A semana anterior foi o pico do lançamento do Kit Nutri Frizz + Leave-in. A linha Nutri/Frizz/Leave caiu de <strong>R$ 45.982</strong> de receita para <strong>R$ 10.746</strong>, quase toda a queda de receita da conta. O motor de vendas base (KIT-FAIXA/Colab, Touca, Catálogo) segue firme.</li><li><strong>C6 | Colab Influenciadoras é a âncora saudável e melhorou:</strong> R$ 12.226 de spend, ROAS <strong>3,89x</strong> (prev 3,64), CPA R$ 56,9 — maior campanha e a única grande subindo.</li><li><strong>Estreou o TESTE [GPT] ABO Kit Queridinhos</strong> (R$ 4.935, ROAS 2,21x): 4º maior gasto da conta na 1ª semana. É teste de aprendizado, não motor de receita — ver teardown na §5.</li><li><strong>CTR caiu 0,16 p.p. e freq subiu para 3,98</strong> — pressão de frequência concentrada em Catálogo (§4). Hook médio de 8,4% é sadio; o gargalo está no <strong>hold (2,3%)</strong>: as pessoas entram no vídeo e não sustentam.</li></ul>
+<hr class='rule' style='margin:18px 0'></div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card rv" data-chart="hookbubble">
+      <div class="chd"><h3>Hook × Hold dos criativos ativos</h3><span class="tag">tamanho = spend</span></div>
+      <canvas id="cv-hook" height="300"></canvas>
+    </div>
+    <div class="card rv" data-chart="topads">
+      <div class="chd"><h3>Top criativos por ROAS (spend material)</h3></div>
+      <canvas id="cv-topads" height="300"></canvas>
+    </div>
+  </div>
+  <h3 style="margin:26px 0 12px;font-size:16px">Todas as campanhas com entrega no período</h3>
+  <div class="tbl-wrap rv">
+    <div class="tbl-tools"><input placeholder="Filtrar campanha…"></div>
+    <table><thead><tr>
+      <th>Campanha</th><th class="sortable">Investido</th><th class="sortable">ROAS vs ant.</th>
+      <th class="sortable">Compras</th><th class="sortable">CPA</th><th class="sortable">Freq</th><th>Veredito</th>
+    </tr></thead><tbody><tr>
+        <td>C6 | VENDAS | Colab Influenciadoras | AD CODE</td>
+        <td class="bar-cell" data-sort="12225.75"><span class="bar" style="width:100%"></span><span class="num">R$ 12.226</span></td>
+        <td class="num" data-sort="3.89">3,89x <span class="d-up">↑ 6,9%</span></td>
+        <td class="num" data-sort="215.0">215</td>
+        <td class="num" data-sort="56.86">R$ 57</td>
+        <td class="num" data-sort="2.31">2,31</td>
+        <td data-sort="3.89"><span class="badge b-esc">Escalar</span></td>
+        </tr><tr>
+        <td>C14 I VENDA I KitFaixa I Matriz X -Ago26</td>
+        <td class="bar-cell" data-sort="8224.03"><span class="bar" style="width:67%"></span><span class="num">R$ 8.224</span></td>
+        <td class="num" data-sort="2.69">2,69x <span class="d-dn">↓ 12,9%</span></td>
+        <td class="num" data-sort="98.0">98</td>
+        <td class="num" data-sort="83.92">R$ 84</td>
+        <td class="num" data-sort="2.61">2,61</td>
+        <td data-sort="2.69"><span class="badge b-tes">Teste</span></td>
+        </tr><tr>
+        <td>C9 | VENDAS | Catalogo | Prod Diversos</td>
+        <td class="bar-cell" data-sort="6556.01"><span class="bar" style="width:54%"></span><span class="num">R$ 6.556</span></td>
+        <td class="num" data-sort="2.41">2,41x <span class="d-dn">↓ 28,1%</span></td>
+        <td class="num" data-sort="94.0">94</td>
+        <td class="num" data-sort="69.74">R$ 70</td>
+        <td class="num" data-sort="3.09">3,09</td>
+        <td data-sort="2.41"><span class="badge b-low">Baixo</span></td>
+        </tr><tr>
+        <td>TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel</td>
+        <td class="bar-cell" data-sort="4935.19"><span class="bar" style="width:40%"></span><span class="num">R$ 4.935</span></td>
+        <td class="num" data-sort="2.21">2,21x <span class="d-fl">—</span></td>
+        <td class="num" data-sort="57.0">57</td>
+        <td class="num" data-sort="86.58">R$ 87</td>
+        <td class="num" data-sort="2.77">2,77</td>
+        <td data-sort="2.21"><span class="badge b-low">Baixo</span></td>
+        </tr><tr>
+        <td>C3 | VENDAS | Classe A | Prod Diversos</td>
+        <td class="bar-cell" data-sort="4290.45"><span class="bar" style="width:35%"></span><span class="num">R$ 4.290</span></td>
+        <td class="num" data-sort="2.0">2,00x <span class="d-dn">↓ 46,2%</span></td>
+        <td class="num" data-sort="70.0">70</td>
+        <td class="num" data-sort="61.29">R$ 61</td>
+        <td class="num" data-sort="1.25">1,25</td>
+        <td data-sort="2.0"><span class="badge b-low">Baixo</span></td>
+        </tr><tr>
+        <td>C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)</td>
+        <td class="bar-cell" data-sort="3966.23"><span class="bar" style="width:32%"></span><span class="num">R$ 3.966</span></td>
+        <td class="num" data-sort="2.58">2,58x <span class="d-dn">↓ 12,5%</span></td>
+        <td class="num" data-sort="56.0">56</td>
+        <td class="num" data-sort="70.83">R$ 71</td>
+        <td class="num" data-sort="1.65">1,65</td>
+        <td data-sort="2.58"><span class="badge b-tes">Teste</span></td>
+        </tr><tr>
+        <td>C10 | ASC | Vendas amplo + Advantage+</td>
+        <td class="bar-cell" data-sort="3933.57"><span class="bar" style="width:32%"></span><span class="num">R$ 3.934</span></td>
+        <td class="num" data-sort="2.2">2,20x <span class="d-dn">↓ 19,1%</span></td>
+        <td class="num" data-sort="67.0">67</td>
+        <td class="num" data-sort="58.71">R$ 59</td>
+        <td class="num" data-sort="1.3">1,30</td>
+        <td data-sort="2.2"><span class="badge b-low">Baixo</span></td>
+        </tr><tr>
+        <td>C8 | VENDAS | UGC + Influenciadoras</td>
+        <td class="bar-cell" data-sort="3333.69"><span class="bar" style="width:27%"></span><span class="num">R$ 3.334</span></td>
+        <td class="num" data-sort="2.35">2,35x <span class="d-dn">↓ 45,9%</span></td>
+        <td class="num" data-sort="32.0">32</td>
+        <td class="num" data-sort="104.18">R$ 104</td>
+        <td class="num" data-sort="2.02">2,02</td>
+        <td data-sort="2.35"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C7 | VENDAS | REMARKETING</td>
+        <td class="bar-cell" data-sort="2781.95"><span class="bar" style="width:23%"></span><span class="num">R$ 2.782</span></td>
+        <td class="num" data-sort="2.95">2,95x <span class="d-dn">↓ 19,4%</span></td>
+        <td class="num" data-sort="62.0">62</td>
+        <td class="num" data-sort="44.87">R$ 45</td>
+        <td class="num" data-sort="1.55">1,55</td>
+        <td data-sort="2.95"><span class="badge b-man">Manter</span></td>
+        </tr><tr>
+        <td>C2 | VENDAS | Kit Nutri Frizz</td>
+        <td class="bar-cell" data-sort="2338.53"><span class="bar" style="width:19%"></span><span class="num">R$ 2.339</span></td>
+        <td class="num" data-sort="2.72">2,72x <span class="d-dn">↓ 44,3%</span></td>
+        <td class="num" data-sort="29.0">29</td>
+        <td class="num" data-sort="80.64">R$ 81</td>
+        <td class="num" data-sort="2.77">2,77</td>
+        <td data-sort="2.72"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C4 | VENDAS | Touca Banho | Prod Diversos</td>
+        <td class="bar-cell" data-sort="2336.95"><span class="bar" style="width:19%"></span><span class="num">R$ 2.337</span></td>
+        <td class="num" data-sort="1.47">1,47x <span class="d-dn">↓ 41,4%</span></td>
+        <td class="num" data-sort="32.0">32</td>
+        <td class="num" data-sort="73.03">R$ 73</td>
+        <td class="num" data-sort="1.13">1,13</td>
+        <td data-sort="1.47"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C4 [lp] | VENDAS | Touca Banho | ISOLADA | 29/08</td>
+        <td class="bar-cell" data-sort="1603.98"><span class="bar" style="width:13%"></span><span class="num">R$ 1.604</span></td>
+        <td class="num" data-sort="2.94">2,94x <span class="d-up">↑ 33,6%</span></td>
+        <td class="num" data-sort="29.0">29</td>
+        <td class="num" data-sort="55.31">R$ 55</td>
+        <td class="num" data-sort="1.21">1,21</td>
+        <td data-sort="2.94"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+</td>
+        <td class="bar-cell" data-sort="1354.34"><span class="bar" style="width:11%"></span><span class="num">R$ 1.354</span></td>
+        <td class="num" data-sort="2.93">2,93x <span class="d-fl">—</span></td>
+        <td class="num" data-sort="19.0">19</td>
+        <td class="num" data-sort="71.28">R$ 71</td>
+        <td class="num" data-sort="2.22">2,22</td>
+        <td data-sort="2.93"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C1 | VENDAS | BloomOil | Criativos Variados</td>
+        <td class="bar-cell" data-sort="1310.34"><span class="bar" style="width:11%"></span><span class="num">R$ 1.310</span></td>
+        <td class="num" data-sort="2.41">2,41x <span class="d-dn">↓ 41,6%</span></td>
+        <td class="num" data-sort="16.0">16</td>
+        <td class="num" data-sort="81.9">R$ 82</td>
+        <td class="num" data-sort="1.96">1,96</td>
+        <td data-sort="2.41"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>CX | Madrugada</td>
+        <td class="bar-cell" data-sort="551.53"><span class="bar" style="width:5%"></span><span class="num">R$ 552</span></td>
+        <td class="num" data-sort="7.43">7,43x <span class="d-up">↑ 8,3%</span></td>
+        <td class="num" data-sort="18.0">18</td>
+        <td class="num" data-sort="30.64">R$ 31</td>
+        <td class="num" data-sort="1.63">1,63</td>
+        <td data-sort="7.43"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>[LIVE] [11-09] venda</td>
+        <td class="bar-cell" data-sort="345.97"><span class="bar" style="width:3%"></span><span class="num">R$ 346</span></td>
+        <td class="num" data-sort="3.87">3,87x <span class="d-fl">—</span></td>
+        <td class="num" data-sort="5.0">5</td>
+        <td class="num" data-sort="69.19">R$ 69</td>
+        <td class="num" data-sort="1.47">1,47</td>
+        <td data-sort="3.87"><span class="badge b-nb">sem base</span></td>
+        </tr></tbody></table>
+  </div>
+  <h3 style="margin:26px 0 12px;font-size:16px">Criativos ativos — hook, hold e eficiência</h3>
+  <div class="tbl-wrap rv">
+    <div class="tbl-tools"><input placeholder="Filtrar criativo…"></div>
+    <table><thead><tr>
+      <th>Criativo</th><th class="sortable">Investido</th><th class="sortable">ROAS</th>
+      <th class="sortable">Compras</th><th class="sortable">CPA</th><th class="sortable">Hook</th><th class="sortable">Hold</th><th>Veredito</th>
+    </tr></thead><tbody><tr>
+        <td>AD127 [AS21] [C9] | CAT | [CATALOGO] | Catálogo+ {cr945710}</td>
+        <td class="bar-cell" data-sort="6556.01"><span class="bar" style="width:100%"></span><span class="num">R$ 6.556</span></td>
+        <td class="num" data-sort="2.41">2,41x</td>
+        <td class="num" data-sort="94.0">94</td>
+        <td class="num" data-sort="69.74">R$ 70</td>
+        <td class="num" data-sort="3.0">3,0%</td>
+        <td class="num" data-sort="0.5">0,5%</td>
+        <td data-sort="2.41"><span class="badge b-low">Baixo</span></td>
+        </tr><tr>
+        <td>AD58 [AS3] [C3] | ADV | [TOUCA-CETIM] | Touca de cetim 01 - Vídeo {cr114711}</td>
+        <td class="bar-cell" data-sort="4100.48"><span class="bar" style="width:63%"></span><span class="num">R$ 4.100</span></td>
+        <td class="num" data-sort="1.99">1,99x</td>
+        <td class="num" data-sort="67.0">67</td>
+        <td class="num" data-sort="61.2">R$ 61</td>
+        <td class="num" data-sort="3.0">3,0%</td>
+        <td class="num" data-sort="0.4">0,4%</td>
+        <td data-sort="1.99"><span class="badge b-low">Baixo</span></td>
+        </tr><tr>
+        <td>AD77 [AS7] [C6] | INFL | [KIT-FAIXA] | Kit faixa - Colab Ju leme {cr489118}</td>
+        <td class="bar-cell" data-sort="3986.47"><span class="bar" style="width:61%"></span><span class="num">R$ 3.986</span></td>
+        <td class="num" data-sort="3.67">3,67x</td>
+        <td class="num" data-sort="65.0">65</td>
+        <td class="num" data-sort="61.33">R$ 61</td>
+        <td class="num" data-sort="9.1">9,1%</td>
+        <td class="num" data-sort="5.1">5,1%</td>
+        <td data-sort="3.67"><span class="badge b-esc">Escalar</span></td>
+        </tr><tr>
+        <td>PROSP | ADV | [TOUCA-CETIM] | ToucaCetim vídeo {cr495164}</td>
+        <td class="bar-cell" data-sort="3571.82"><span class="bar" style="width:54%"></span><span class="num">R$ 3.572</span></td>
+        <td class="num" data-sort="2.33">2,33x</td>
+        <td class="num" data-sort="64.0">64</td>
+        <td class="num" data-sort="55.81">R$ 56</td>
+        <td class="num" data-sort="22.9">22,9%</td>
+        <td class="num" data-sort="4.7">4,7%</td>
+        <td data-sort="2.33"><span class="badge b-low">Baixo</span></td>
+        </tr><tr>
+        <td>AD78 [AS8] [C6] | INFL | [KIT-NOTURNO] | Kit noturno - colab Lua Andrade 10/06/26 {cr598406}</td>
+        <td class="bar-cell" data-sort="3073.17"><span class="bar" style="width:47%"></span><span class="num">R$ 3.073</span></td>
+        <td class="num" data-sort="3.1">3,10x</td>
+        <td class="num" data-sort="44.0">44</td>
+        <td class="num" data-sort="69.84">R$ 70</td>
+        <td class="num" data-sort="9.0">9,0%</td>
+        <td class="num" data-sort="3.3">3,3%</td>
+        <td data-sort="3.1"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD93 [AS17] [C7] | ADV | [TOUCA-BANHO] | Video 01 - Chegou a touca de banho {cr779874}</td>
+        <td class="bar-cell" data-sort="2602.69"><span class="bar" style="width:40%"></span><span class="num">R$ 2.603</span></td>
+        <td class="num" data-sort="3.02">3,02x</td>
+        <td class="num" data-sort="60.0">60</td>
+        <td class="num" data-sort="43.38">R$ 43</td>
+        <td class="num" data-sort="9.4">9,4%</td>
+        <td class="num" data-sort="2.2">2,2%</td>
+        <td data-sort="3.02"><span class="badge b-man">Manter</span></td>
+        </tr><tr>
+        <td>AD82 [AS12] [C6] | INFL | [KIT-FAIXA] | Kit Faixa - Colab Fe Tumas - 29/07/2026 {cr832258}</td>
+        <td class="bar-cell" data-sort="2369.4"><span class="bar" style="width:36%"></span><span class="num">R$ 2.369</span></td>
+        <td class="num" data-sort="4.26">4,26x</td>
+        <td class="num" data-sort="45.0">45</td>
+        <td class="num" data-sort="52.65">R$ 53</td>
+        <td class="num" data-sort="5.5">5,5%</td>
+        <td class="num" data-sort="1.1">1,1%</td>
+        <td data-sort="4.26"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD60 [AS4] [C4] | ADV | [TOUCA-BANHO] | Touca de Banho - Carol Castilho - 4/08 {cr329577}</td>
+        <td class="bar-cell" data-sort="2336.95"><span class="bar" style="width:36%"></span><span class="num">R$ 2.337</span></td>
+        <td class="num" data-sort="1.47">1,47x</td>
+        <td class="num" data-sort="32.0">32</td>
+        <td class="num" data-sort="73.03">R$ 73</td>
+        <td class="num" data-sort="17.7">17,7%</td>
+        <td class="num" data-sort="1.5">1,5%</td>
+        <td data-sort="1.47"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>MATRIZ_X | ANGULO | Paula Froner {cr107026}</td>
+        <td class="bar-cell" data-sort="1640.09"><span class="bar" style="width:25%"></span><span class="num">R$ 1.640</span></td>
+        <td class="num" data-sort="2.39">2,39x</td>
+        <td class="num" data-sort="19.0">19</td>
+        <td class="num" data-sort="86.32">R$ 86</td>
+        <td class="num" data-sort="5.9">5,9%</td>
+        <td class="num" data-sort="2.1">2,1%</td>
+        <td data-sort="2.39"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>MATRIZ_X | DSB | Alanna CPA12 {cr322323}</td>
+        <td class="bar-cell" data-sort="1639.53"><span class="bar" style="width:25%"></span><span class="num">R$ 1.640</span></td>
+        <td class="num" data-sort="2.26">2,26x</td>
+        <td class="num" data-sort="15.0">15</td>
+        <td class="num" data-sort="109.3">R$ 109</td>
+        <td class="num" data-sort="3.3">3,3%</td>
+        <td class="num" data-sort="0.7">0,7%</td>
+        <td data-sort="2.26"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>MATRIZ_X | UGC | UGC ROTINA {cr512656}</td>
+        <td class="bar-cell" data-sort="1559.01"><span class="bar" style="width:24%"></span><span class="num">R$ 1.559</span></td>
+        <td class="num" data-sort="3.2">3,20x</td>
+        <td class="num" data-sort="20.0">20</td>
+        <td class="num" data-sort="77.95">R$ 78</td>
+        <td class="num" data-sort="9.4">9,4%</td>
+        <td class="num" data-sort="2.5">2,5%</td>
+        <td data-sort="3.2"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD125 [AS19] [C8] | ADV | [BLOOM] | Bloom Oil Óleo Capilar ANA LIDIA 14/05 {cr491247}</td>
+        <td class="bar-cell" data-sort="1524.25"><span class="bar" style="width:23%"></span><span class="num">R$ 1.524</span></td>
+        <td class="num" data-sort="2.48">2,48x</td>
+        <td class="num" data-sort="15.0">15</td>
+        <td class="num" data-sort="101.62">R$ 102</td>
+        <td class="num" data-sort="4.4">4,4%</td>
+        <td class="num" data-sort="0.8">0,8%</td>
+        <td data-sort="2.48"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD02 [AS22] [C11] | ADV | [TOUCA-CETIM] | Touca de cetim 01 - Vídeo {cr114711}</td>
+        <td class="bar-cell" data-sort="1313.91"><span class="bar" style="width:20%"></span><span class="num">R$ 1.314</span></td>
+        <td class="num" data-sort="2.49">2,49x</td>
+        <td class="num" data-sort="22.0">22</td>
+        <td class="num" data-sort="59.72">R$ 60</td>
+        <td class="num" data-sort="3.9">3,9%</td>
+        <td class="num" data-sort="0.5">0,5%</td>
+        <td data-sort="2.49"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD15 [AS1] [C1] | ADV | [BLOOM] | CIUMES DE INDICAR - 05/06/2026 {cr766359}</td>
+        <td class="bar-cell" data-sort="1299.59"><span class="bar" style="width:20%"></span><span class="num">R$ 1.300</span></td>
+        <td class="num" data-sort="2.43">2,43x</td>
+        <td class="num" data-sort="16.0">16</td>
+        <td class="num" data-sort="81.22">R$ 81</td>
+        <td class="num" data-sort="8.1">8,1%</td>
+        <td class="num" data-sort="2.0">2,0%</td>
+        <td data-sort="2.43"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD34 [AS27] [C11] | INFL | [KIT-NOTURNO] | Kit Noturno colab Vitória Jansen {cr354621}</td>
+        <td class="bar-cell" data-sort="1152.6"><span class="bar" style="width:18%"></span><span class="num">R$ 1.153</span></td>
+        <td class="num" data-sort="1.91">1,91x</td>
+        <td class="num" data-sort="11.0">11</td>
+        <td class="num" data-sort="104.78">R$ 105</td>
+        <td class="num" data-sort="3.3">3,3%</td>
+        <td class="num" data-sort="0.7">0,7%</td>
+        <td data-sort="1.91"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V02 | Raquel | Kit Queridinhos | Conceitos</td>
+        <td class="bar-cell" data-sort="1144.93"><span class="bar" style="width:17%"></span><span class="num">R$ 1.145</span></td>
+        <td class="num" data-sort="2.5">2,50x</td>
+        <td class="num" data-sort="17.0">17</td>
+        <td class="num" data-sort="67.35">R$ 67</td>
+        <td class="num" data-sort="14.8">14,8%</td>
+        <td class="num" data-sort="3.2">3,2%</td>
+        <td data-sort="2.5"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V01 | Raquel | Kit Queridinhos | Ângulos</td>
+        <td class="bar-cell" data-sort="1071.88"><span class="bar" style="width:16%"></span><span class="num">R$ 1.072</span></td>
+        <td class="num" data-sort="3.36">3,36x</td>
+        <td class="num" data-sort="16.0">16</td>
+        <td class="num" data-sort="66.99">R$ 67</td>
+        <td class="num" data-sort="16.6">16,6%</td>
+        <td class="num" data-sort="4.4">4,4%</td>
+        <td data-sort="3.36"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD23 [AS26] [C11] | INFL | [KIT-FAIXA] | Kit Faixa colab Ju Leme {cr489118}</td>
+        <td class="bar-cell" data-sort="1054.81"><span class="bar" style="width:16%"></span><span class="num">R$ 1.055</span></td>
+        <td class="num" data-sort="3.19">3,19x</td>
+        <td class="num" data-sort="16.0">16</td>
+        <td class="num" data-sort="65.93">R$ 66</td>
+        <td class="num" data-sort="8.4">8,4%</td>
+        <td class="num" data-sort="4.4">4,4%</td>
+        <td data-sort="3.19"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD76 [AS6] [C6] | INFL | [KIT-FAIXA] | [R01] Kit Faixa - Colab Suzana - 27/05/2026 {cr598596}</td>
+        <td class="bar-cell" data-sort="1028.06"><span class="bar" style="width:16%"></span><span class="num">R$ 1.028</span></td>
+        <td class="num" data-sort="5.18">5,18x</td>
+        <td class="num" data-sort="25.0">25</td>
+        <td class="num" data-sort="41.12">R$ 41</td>
+        <td class="num" data-sort="4.6">4,6%</td>
+        <td class="num" data-sort="1.2">1,2%</td>
+        <td data-sort="5.18"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>MATRIZ_X | CONCEITO | Alanna Copia {cr324316}</td>
+        <td class="bar-cell" data-sort="991.31"><span class="bar" style="width:15%"></span><span class="num">R$ 991</span></td>
+        <td class="num" data-sort="1.01">1,01x</td>
+        <td class="num" data-sort="5.0">5</td>
+        <td class="num" data-sort="198.26">R$ 198</td>
+        <td class="num" data-sort="3.2">3,2%</td>
+        <td class="num" data-sort="0.7">0,7%</td>
+        <td data-sort="1.01"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>MATRIZ_X | FULLFUNNEL | Dani Albino Atualiz {cr738310}</td>
+        <td class="bar-cell" data-sort="914.97"><span class="bar" style="width:14%"></span><span class="num">R$ 915</span></td>
+        <td class="num" data-sort="3.66">3,66x</td>
+        <td class="num" data-sort="17.0">17</td>
+        <td class="num" data-sort="53.82">R$ 54</td>
+        <td class="num" data-sort="10.2">10,2%</td>
+        <td class="num" data-sort="5.6">5,6%</td>
+        <td data-sort="3.66"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD47 [LP] - Video -  Quem inventou essa touca — Cópia — Cópia</td>
+        <td class="bar-cell" data-sort="800.98"><span class="bar" style="width:12%"></span><span class="num">R$ 801</span></td>
+        <td class="num" data-sort="2.97">2,97x</td>
+        <td class="num" data-sort="13.0">13</td>
+        <td class="num" data-sort="61.61">R$ 62</td>
+        <td class="num" data-sort="12.4">12,4%</td>
+        <td class="num" data-sort="2.6">2,6%</td>
+        <td data-sort="2.97"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD07 [AS23] [C11] [LP] | ADV | [TOUCA-BANHO] | Video 01 - Chegou a touca de banho {cr779874} — Cópia</td>
+        <td class="bar-cell" data-sort="799.41"><span class="bar" style="width:12%"></span><span class="num">R$ 799</span></td>
+        <td class="num" data-sort="2.92">2,92x</td>
+        <td class="num" data-sort="16.0">16</td>
+        <td class="num" data-sort="49.96">R$ 50</td>
+        <td class="num" data-sort="11.8">11,8%</td>
+        <td class="num" data-sort="2.6">2,6%</td>
+        <td data-sort="2.92"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V10 | Giovanna | Kit Queridinhos | P04 Full Funnel | Vídeo</td>
+        <td class="bar-cell" data-sort="784.36"><span class="bar" style="width:12%"></span><span class="num">R$ 784</span></td>
+        <td class="num" data-sort="0.99">0,99x</td>
+        <td class="num" data-sort="3.0">3</td>
+        <td class="num" data-sort="261.45">R$ 261</td>
+        <td class="num" data-sort="16.5">16,5%</td>
+        <td class="num" data-sort="2.2">2,2%</td>
+        <td data-sort="0.99"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD110 [AS20] [C8] | ADV | [STICK] | {PDP} LINHA ANTI-FRIZZ 23/06 {cr606874} — Cópia</td>
+        <td class="bar-cell" data-sort="776.28"><span class="bar" style="width:12%"></span><span class="num">R$ 776</span></td>
+        <td class="num" data-sort="2.44">2,44x</td>
+        <td class="num" data-sort="12.0">12</td>
+        <td class="num" data-sort="64.69">R$ 65</td>
+        <td class="num" data-sort="8.9">8,9%</td>
+        <td class="num" data-sort="2.8">2,8%</td>
+        <td data-sort="2.44"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>ad 04-10 kit nutri frizz [atatic]01</td>
+        <td class="bar-cell" data-sort="751.15"><span class="bar" style="width:11%"></span><span class="num">R$ 751</span></td>
+        <td class="num" data-sort="3.22">3,22x</td>
+        <td class="num" data-sort="11.0">11</td>
+        <td class="num" data-sort="68.29">R$ 68</td>
+        <td class="num" data-sort="0.4">0,4%</td>
+        <td class="num" data-sort="0.4">0,4%</td>
+        <td data-sort="3.22"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD39 [AS29] [C11] | ADV | [KIT-ANTIFRIZZ] | PDP Kit Antifrizz Beatriz Clarão {cr977263}</td>
+        <td class="bar-cell" data-sort="734.7"><span class="bar" style="width:11%"></span><span class="num">R$ 735</span></td>
+        <td class="num" data-sort="2.77">2,77x</td>
+        <td class="num" data-sort="6.0">6</td>
+        <td class="num" data-sort="122.45">R$ 122</td>
+        <td class="num" data-sort="28.6">28,6%</td>
+        <td class="num" data-sort="8.1">8,1%</td>
+        <td data-sort="2.77"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>MATRIZ_X | FULLFUNNEL | Ju Leme volume {cr489118}</td>
+        <td class="bar-cell" data-sort="733.65"><span class="bar" style="width:11%"></span><span class="num">R$ 734</span></td>
+        <td class="num" data-sort="3.77">3,77x</td>
+        <td class="num" data-sort="10.0">10</td>
+        <td class="num" data-sort="73.36">R$ 73</td>
+        <td class="num" data-sort="9.5">9,5%</td>
+        <td class="num" data-sort="4.9">4,9%</td>
+        <td data-sort="3.77"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD116 [AS19] [C8] | ADV | [BLOOM] | {PDP} Bloom - Iris Felicio - 14/07 {cr869844}</td>
+        <td class="bar-cell" data-sort="706.13"><span class="bar" style="width:11%"></span><span class="num">R$ 706</span></td>
+        <td class="num" data-sort="2.98">2,98x</td>
+        <td class="num" data-sort="10.0">10</td>
+        <td class="num" data-sort="70.61">R$ 71</td>
+        <td class="num" data-sort="6.1">6,1%</td>
+        <td class="num" data-sort="0.9">0,9%</td>
+        <td data-sort="2.98"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD101 [AS20] [C8] | ADV | [BLOOM] | {PDP} Bloom - Iris Felicio - 14/07 {cr869844}</td>
+        <td class="bar-cell" data-sort="669.9"><span class="bar" style="width:10%"></span><span class="num">R$ 670</span></td>
+        <td class="num" data-sort="1.56">1,56x</td>
+        <td class="num" data-sort="4.0">4</td>
+        <td class="num" data-sort="167.47">R$ 167</td>
+        <td class="num" data-sort="5.9">5,9%</td>
+        <td class="num" data-sort="1.1">1,1%</td>
+        <td data-sort="1.56"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD79 [AS9] [C6] | INFL | [KIT-FAIXA] | Kit Faixa - colab Bianca Rodrigues - 29/05/2026 {cr136366}</td>
+        <td class="bar-cell" data-sort="655.92"><span class="bar" style="width:10%"></span><span class="num">R$ 656</span></td>
+        <td class="num" data-sort="4.59">4,59x</td>
+        <td class="num" data-sort="14.0">14</td>
+        <td class="num" data-sort="46.85">R$ 47</td>
+        <td class="num" data-sort="2.5">2,5%</td>
+        <td class="num" data-sort="0.4">0,4%</td>
+        <td data-sort="4.59"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>MATRIZ_X | CONCEITO | PDP Lua Andrade {cr910672}</td>
+        <td class="bar-cell" data-sort="642.21"><span class="bar" style="width:10%"></span><span class="num">R$ 642</span></td>
+        <td class="num" data-sort="3.41">3,41x</td>
+        <td class="num" data-sort="11.0">11</td>
+        <td class="num" data-sort="58.38">R$ 58</td>
+        <td class="num" data-sort="7.4">7,4%</td>
+        <td class="num" data-sort="3.4">3,4%</td>
+        <td data-sort="3.41"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD85 [AS15] [C6] | ADV | [KIT-FAIXA] | [PDP] Kit Faixa - Lua Andrade - 29/07 {cr910672}</td>
+        <td class="bar-cell" data-sort="633.78"><span class="bar" style="width:10%"></span><span class="num">R$ 634</span></td>
+        <td class="num" data-sort="4.72">4,72x</td>
+        <td class="num" data-sort="13.0">13</td>
+        <td class="num" data-sort="48.75">R$ 49</td>
+        <td class="num" data-sort="4.9">4,9%</td>
+        <td class="num" data-sort="2.2">2,2%</td>
+        <td data-sort="4.72"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V12 | Giovanna | Kit Queridinhos | P05 Creator/UGC | Vídeo</td>
+        <td class="bar-cell" data-sort="618.35"><span class="bar" style="width:9%"></span><span class="num">R$ 618</span></td>
+        <td class="num" data-sort="2.22">2,22x</td>
+        <td class="num" data-sort="6.0">6</td>
+        <td class="num" data-sort="103.06">R$ 103</td>
+        <td class="num" data-sort="7.5">7,5%</td>
+        <td class="num" data-sort="1.7">1,7%</td>
+        <td data-sort="2.22"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C20 | P02 | Imagem do Codex 9 de set. de 2026, 09_07_04</td>
+        <td class="bar-cell" data-sort="539.6"><span class="bar" style="width:8%"></span><span class="num">R$ 540</span></td>
+        <td class="num" data-sort="2.95">2,95x</td>
+        <td class="num" data-sort="7.0">7</td>
+        <td class="num" data-sort="77.09">R$ 77</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td data-sort="2.95"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD - Madrugada</td>
+        <td class="bar-cell" data-sort="534.82"><span class="bar" style="width:8%"></span><span class="num">R$ 535</span></td>
+        <td class="num" data-sort="7.66">7,66x</td>
+        <td class="num" data-sort="18.0">18</td>
+        <td class="num" data-sort="29.71">R$ 30</td>
+        <td class="num" data-sort="0.0">0,0%</td>
+        <td class="num" data-sort="0.0">0,0%</td>
+        <td data-sort="7.66"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V08 | Giovanna | Kit Queridinhos | P03 DSB | Vídeo</td>
+        <td class="bar-cell" data-sort="524.73"><span class="bar" style="width:8%"></span><span class="num">R$ 525</span></td>
+        <td class="num" data-sort="1.56">1,56x</td>
+        <td class="num" data-sort="5.0">5</td>
+        <td class="num" data-sort="104.95">R$ 105</td>
+        <td class="num" data-sort="16.1">16,1%</td>
+        <td class="num" data-sort="2.7">2,7%</td>
+        <td data-sort="1.56"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD86 [AS16] [C6] | INFL | [KIT-NUTRI] | [AD CODE] Colab Lua Andrade - 14/08 {cr665106}</td>
+        <td class="bar-cell" data-sort="478.95"><span class="bar" style="width:7%"></span><span class="num">R$ 479</span></td>
+        <td class="num" data-sort="3.74">3,74x</td>
+        <td class="num" data-sort="8.0">8</td>
+        <td class="num" data-sort="59.87">R$ 60</td>
+        <td class="num" data-sort="11.6">11,6%</td>
+        <td class="num" data-sort="2.4">2,4%</td>
+        <td data-sort="3.74"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C20 | Vídeo | React</td>
+        <td class="bar-cell" data-sort="459.21"><span class="bar" style="width:7%"></span><span class="num">R$ 459</span></td>
+        <td class="num" data-sort="3.71">3,71x</td>
+        <td class="num" data-sort="9.0">9</td>
+        <td class="num" data-sort="51.02">R$ 51</td>
+        <td class="num" data-sort="13.2">13,2%</td>
+        <td class="num" data-sort="3.0">3,0%</td>
+        <td data-sort="3.71"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>Novo anúncio de Vendas</td>
+        <td class="bar-cell" data-sort="345.97"><span class="bar" style="width:5%"></span><span class="num">R$ 346</span></td>
+        <td class="num" data-sort="3.87">3,87x</td>
+        <td class="num" data-sort="5.0">5</td>
+        <td class="num" data-sort="69.19">R$ 69</td>
+        <td class="num" data-sort="0.0">0,0%</td>
+        <td class="num" data-sort="0.0">0,0%</td>
+        <td data-sort="3.87"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V07 | Arathy | Kit Queridinhos | P03 DSB | Vídeo</td>
+        <td class="bar-cell" data-sort="300.39"><span class="bar" style="width:5%"></span><span class="num">R$ 300</span></td>
+        <td class="num" data-sort="0.67">0,67x</td>
+        <td class="num" data-sort="1.0">1</td>
+        <td class="num" data-sort="300.39">R$ 300</td>
+        <td class="num" data-sort="12.3">12,3%</td>
+        <td class="num" data-sort="2.3">2,3%</td>
+        <td data-sort="0.67"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C20 | P02 | Ad 02 - Storie - Lançamento - LeaveIn - 0909</td>
+        <td class="bar-cell" data-sort="237.0"><span class="bar" style="width:4%"></span><span class="num">R$ 237</span></td>
+        <td class="num" data-sort="1.81">1,81x</td>
+        <td class="num" data-sort="1.0">1</td>
+        <td class="num" data-sort="237.0">R$ 237</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td data-sort="1.81"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V11 | Arathy | Kit Queridinhos | P05 Creator/UGC | Vídeo</td>
+        <td class="bar-cell" data-sort="231.0"><span class="bar" style="width:4%"></span><span class="num">R$ 231</span></td>
+        <td class="num" data-sort="1.57">1,57x</td>
+        <td class="num" data-sort="2.0">2</td>
+        <td class="num" data-sort="115.5">R$ 116</td>
+        <td class="num" data-sort="15.1">15,1%</td>
+        <td class="num" data-sort="2.5">2,5%</td>
+        <td data-sort="1.57"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD22 [AS26] [C11] | INFL | [KIT-FAIXA] | Kit Faixa colab Fe Tumas {cr832258}</td>
+        <td class="bar-cell" data-sort="228.98"><span class="bar" style="width:3%"></span><span class="num">R$ 229</span></td>
+        <td class="num" data-sort="2.92">2,92x</td>
+        <td class="num" data-sort="3.0">3</td>
+        <td class="num" data-sort="76.33">R$ 76</td>
+        <td class="num" data-sort="5.3">5,3%</td>
+        <td class="num" data-sort="1.2">1,2%</td>
+        <td data-sort="2.92"><span class="badge b-nb">sem base</span></td>
+        </tr></tbody></table>
+  </div>
+  <div class="md rv" style="margin-top:22px"><h3>Melhor / pior ângulo e hook Melhor / pior ANGLE e melhor / pior HOOK</h3></div>
+</div></section>
+<section id="abo"><div class="wrap">
+  <div class="sec-head rv"><span class="no">04</span><h2>Teste ABO — Kit Queridinhos</h2><span class="tag">TESTE [GPT] [11-09] · RAQUEL</span></div>
+  <p class="lead rv">Teste de 5 pilares criativos (Ângulos, Conceitos, DSB, Full Funnel, Creator/UGC) a R$ 200/conjunto, com 3 influenciadoras. Total: <b>R$ 4.935 · ROAS 2,21x · 57 compras</b>. Veredito claro já na 1ª semana: <span class="hl">Ângulos vence (3,65x), Full Funnel queima verba (0,93x)</span>; Raquel é a creator âncora, Arathy tem upside só em Ângulo.</p>
+  <div class="grid2">
+    <div class="card rv" data-chart="abopillars">
+      <div class="chd"><h3>ROAS por pilar</h3></div>
+      <canvas id="cv-abo" height="240"></canvas>
+    </div>
+    <div class="card rv" data-chart="aboinflu">
+      <div class="chd"><h3>ROAS por influenciadora (no teste)</h3></div>
+      <canvas id="cv-influ" height="240"></canvas>
+    </div>
+  </div>
+  <h3 style="margin:24px 0 12px;font-size:16px">Criativos do teste — por influenciadora e pilar</h3>
+  <div class="tbl-wrap rv">
+    <table><thead><tr>
+      <th>Criativo</th><th class="sortable">Investido</th><th class="sortable">ROAS</th>
+      <th class="sortable">Compras</th><th class="sortable">CPA</th><th class="sortable">Hook</th><th class="sortable">Hold</th>
+    </tr></thead><tbody><tr>
+        <td>V02 | Raquel | Kit Queridinhos | Conceitos</td>
+        <td class="bar-cell" data-sort="1144.93"><span class="bar" style="width:100%"></span><span class="num">R$ 1.145</span></td>
+        <td class="num" data-sort="2.5">2,50x</td>
+        <td class="num" data-sort="17.0">17</td>
+        <td class="num" data-sort="67.35">R$ 67</td>
+        <td class="num" data-sort="14.8">14,8%</td>
+        <td class="num" data-sort="3.2">3,2%</td>
+        <td data-sort="2.5"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V01 | Raquel | Kit Queridinhos | Ângulos</td>
+        <td class="bar-cell" data-sort="1071.88"><span class="bar" style="width:94%"></span><span class="num">R$ 1.072</span></td>
+        <td class="num" data-sort="3.36">3,36x</td>
+        <td class="num" data-sort="16.0">16</td>
+        <td class="num" data-sort="66.99">R$ 67</td>
+        <td class="num" data-sort="16.6">16,6%</td>
+        <td class="num" data-sort="4.4">4,4%</td>
+        <td data-sort="3.36"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V10 | Giovanna | Kit Queridinhos | P04 Full Funnel | Vídeo</td>
+        <td class="bar-cell" data-sort="784.36"><span class="bar" style="width:69%"></span><span class="num">R$ 784</span></td>
+        <td class="num" data-sort="0.99">0,99x</td>
+        <td class="num" data-sort="3.0">3</td>
+        <td class="num" data-sort="261.45">R$ 261</td>
+        <td class="num" data-sort="16.5">16,5%</td>
+        <td class="num" data-sort="2.2">2,2%</td>
+        <td data-sort="0.99"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V12 | Giovanna | Kit Queridinhos | P05 Creator/UGC | Vídeo</td>
+        <td class="bar-cell" data-sort="618.35"><span class="bar" style="width:54%"></span><span class="num">R$ 618</span></td>
+        <td class="num" data-sort="2.22">2,22x</td>
+        <td class="num" data-sort="6.0">6</td>
+        <td class="num" data-sort="103.06">R$ 103</td>
+        <td class="num" data-sort="7.5">7,5%</td>
+        <td class="num" data-sort="1.7">1,7%</td>
+        <td data-sort="2.22"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V08 | Giovanna | Kit Queridinhos | P03 DSB | Vídeo</td>
+        <td class="bar-cell" data-sort="524.73"><span class="bar" style="width:46%"></span><span class="num">R$ 525</span></td>
+        <td class="num" data-sort="1.56">1,56x</td>
+        <td class="num" data-sort="5.0">5</td>
+        <td class="num" data-sort="104.95">R$ 105</td>
+        <td class="num" data-sort="16.1">16,1%</td>
+        <td class="num" data-sort="2.7">2,7%</td>
+        <td data-sort="1.56"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V07 | Arathy | Kit Queridinhos | P03 DSB | Vídeo</td>
+        <td class="bar-cell" data-sort="300.39"><span class="bar" style="width:26%"></span><span class="num">R$ 300</span></td>
+        <td class="num" data-sort="0.67">0,67x</td>
+        <td class="num" data-sort="1.0">1</td>
+        <td class="num" data-sort="300.39">R$ 300</td>
+        <td class="num" data-sort="12.3">12,3%</td>
+        <td class="num" data-sort="2.3">2,3%</td>
+        <td data-sort="0.67"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V11 | Arathy | Kit Queridinhos | P05 Creator/UGC | Vídeo</td>
+        <td class="bar-cell" data-sort="231.0"><span class="bar" style="width:20%"></span><span class="num">R$ 231</span></td>
+        <td class="num" data-sort="1.57">1,57x</td>
+        <td class="num" data-sort="2.0">2</td>
+        <td class="num" data-sort="115.5">R$ 116</td>
+        <td class="num" data-sort="15.1">15,1%</td>
+        <td class="num" data-sort="2.5">2,5%</td>
+        <td data-sort="1.57"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V03 | Arathy | Kit Queridinho | Angulos</td>
+        <td class="bar-cell" data-sort="124.58"><span class="bar" style="width:11%"></span><span class="num">R$ 125</span></td>
+        <td class="num" data-sort="6.41">6,41x</td>
+        <td class="num" data-sort="6.0">6</td>
+        <td class="num" data-sort="20.76">R$ 21</td>
+        <td class="num" data-sort="8.9">8,9%</td>
+        <td class="num" data-sort="1.5">1,5%</td>
+        <td data-sort="6.41"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V05 | Arathy | Kit Queridinhos | P02 Conceitos | Vídeo</td>
+        <td class="bar-cell" data-sort="52.85"><span class="bar" style="width:5%"></span><span class="num">R$ 53</span></td>
+        <td class="num" data-sort="0.0">0,00x</td>
+        <td class="num" data-sort="0.0">0</td>
+        <td class="num" data-sort="0">R$ 0</td>
+        <td class="num" data-sort="14.1">14,1%</td>
+        <td class="num" data-sort="2.9">2,9%</td>
+        <td data-sort="0.0"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V09 | Arathy | Kit Queridinhos | P04 Full Funnel | Vídeo</td>
+        <td class="bar-cell" data-sort="52.67"><span class="bar" style="width:5%"></span><span class="num">R$ 53</span></td>
+        <td class="num" data-sort="0.0">0,00x</td>
+        <td class="num" data-sort="0.0">0</td>
+        <td class="num" data-sort="0">R$ 0</td>
+        <td class="num" data-sort="11.5">11,5%</td>
+        <td class="num" data-sort="2.4">2,4%</td>
+        <td data-sort="0.0"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V06 | Giovanna | Kit Queridinhos | P02 Conceitos | Vídeo</td>
+        <td class="bar-cell" data-sort="18.4"><span class="bar" style="width:2%"></span><span class="num">R$ 18</span></td>
+        <td class="num" data-sort="6.04">6,04x</td>
+        <td class="num" data-sort="1.0">1</td>
+        <td class="num" data-sort="18.4">R$ 18</td>
+        <td class="num" data-sort="19.4">19,4%</td>
+        <td class="num" data-sort="1.8">1,8%</td>
+        <td data-sort="6.04"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V04 | Giovanna | Kit Queridinhos | P01 Ângulos | Vídeo</td>
+        <td class="bar-cell" data-sort="7.57"><span class="bar" style="width:1%"></span><span class="num">R$ 8</span></td>
+        <td class="num" data-sort="0.0">0,00x</td>
+        <td class="num" data-sort="0.0">0</td>
+        <td class="num" data-sort="0">R$ 0</td>
+        <td class="num" data-sort="15.6">15,6%</td>
+        <td class="num" data-sort="2.7">2,7%</td>
+        <td data-sort="0.0"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>V03 | Arathy | Kit Queridinhos | P01 Ângulos | Vídeo</td>
+        <td class="bar-cell" data-sort="3.48"><span class="bar" style="width:0%"></span><span class="num">R$ 3</span></td>
+        <td class="num" data-sort="0.0">0,00x</td>
+        <td class="num" data-sort="0.0">0</td>
+        <td class="num" data-sort="0">R$ 0</td>
+        <td class="num" data-sort="12.4">12,4%</td>
+        <td class="num" data-sort="1.2">1,2%</td>
+        <td data-sort="0.0"><span class="badge b-nb">sem base</span></td>
+        </tr></tbody></table>
+  </div>
+  <div class="md rv" style="margin-top:20px"><h4>Ranking de influenciadores</h4>
+<table><thead><tr><th>#</th><th>Influ.</th><th>Nº crtvs</th><th>Spend</th><th>ROAS</th><th>Compras</th><th>CPA</th><th>Leitura</th></tr></thead><tbody><tr><td>🥇</td><td><strong>Raquel</strong></td><td>2</td><td>R$ 2.217</td><td><strong>2,92x</strong></td><td>33</td><td>R$ 67</td><td>Único ROAS confiável + hold alto (V01 4,4%). Apresentadora do teste — confirma-se</td></tr><tr><td>🥈</td><td>Arathy</td><td>5</td><td>R$ 761</td><td>1,79x</td><td>9</td><td>R$ 85</td><td>Bimodal: brilha no ângulo (V03 6,41x, CPA R$ 21, sem base) e afunda no DSB (0,67x). Re-testar Ângulo com verba</td></tr><tr><td>🥉</td><td>Giovanna</td><td>3</td><td>R$ 1.927</td><td>1,54x</td><td>14</td><td>R$ 138</td><td>Gastou quase como Raquel e converteu metade. Hooks altos, hold baixo. Full Funnel dela foi o pior criativo material</td></tr></tbody></table>
+<p><strong>Aprendizados (1 linha cada):</strong></p>
+<ul><li><strong>Ângulo &gt; tudo:</strong> 3,65x vs 0,93x do Full Funnel.</li><li><strong>Full Funnel e DSB não funcionam para o Kit Queridinhos</strong> — cortar P03/P04, realocar para P01.</li><li><strong>Raquel é a creator âncora; Arathy tem upside só em Ângulo</strong> (V03 promissor, precisa de volume).</li><li>Hook alto de Giovanna sem hold = problema de roteiro no 2º ato.</li></ul>
+<hr class='rule' style='margin:18px 0'></div>
+</div></section>
+<section id="nutri"><div class="wrap">
+  <div class="sec-head rv"><span class="no">05</span><h2>Linha Nutrifreez / Leave-in</h2><span class="tag">ÚLTIMOS 7 DIAS</span></div>
+  <div class="md rv"><table><thead><tr><th>Campanha</th><th>Spend</th><th>ROAS</th><th>prev ROAS</th><th>Receita</th><th>Compras</th><th>CPA</th></tr></thead><tbody><tr><td>C2 Kit Nutri Frizz</td><td>R$ 2.338,53</td><td>2,72x</td><td>4,88x</td><td>R$ 6.352</td><td>29</td><td>R$ 80,6</td></tr><tr><td>C20 Aniversário Nutri + Leave-in (Adv+)</td><td>R$ 1.354,34</td><td>2,93x</td><td>estreia</td><td>R$ 3.965</td><td>19</td><td>R$ 71,3</td></tr></tbody></table>
+<p><strong>Leitura:</strong></p>
+<ul><li>A linha <strong>não piorou de criativo — perdeu o empurrão de lançamento.</strong> Ainda opera perto do guardrail (CPA R$ 80 é o ponto de atenção).</li><li><strong>Vídeo bate estático nesta linha:</strong> P01 Advantage+ Vídeos (3,46x, CPA R$ 51) &gt; P02 Estáticos (2,55x, CPA R$ 99). O melhor gancho da conta (AD39 anti-frizz, hook 28,6%/hold 8,1%) está aqui e subinvestido. <strong>Alavanca: mais verba no vídeo anti-frizz.</strong></li><li>Leave-in ainda embrionário (2 criativos, spend ínfimo) — sem base.</li></ul></div>
+  <h3 style="margin:20px 0 12px;font-size:16px">Criativos da linha com entrega</h3>
+  <div class="tbl-wrap rv">
+    <table><thead><tr>
+      <th>Criativo</th><th class="sortable">Investido</th><th class="sortable">ROAS</th>
+      <th class="sortable">Compras</th><th class="sortable">CPA</th><th class="sortable">Hook</th><th class="sortable">Hold</th>
+    </tr></thead><tbody><tr>
+        <td>AD110 [AS20] [C8] | ADV | [STICK] | {PDP} LINHA ANTI-FRIZZ 23/06 {cr606874} — Cópia</td>
+        <td class="bar-cell" data-sort="776.28"><span class="bar" style="width:100%"></span><span class="num">R$ 776</span></td>
+        <td class="num" data-sort="2.44">2,44x</td>
+        <td class="num" data-sort="12.0">12</td>
+        <td class="num" data-sort="64.69">R$ 65</td>
+        <td class="num" data-sort="8.9">8,9%</td>
+        <td class="num" data-sort="2.8">2,8%</td>
+        <td data-sort="2.44"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>ad 04-10 kit nutri frizz [atatic]01</td>
+        <td class="bar-cell" data-sort="751.15"><span class="bar" style="width:97%"></span><span class="num">R$ 751</span></td>
+        <td class="num" data-sort="3.22">3,22x</td>
+        <td class="num" data-sort="11.0">11</td>
+        <td class="num" data-sort="68.29">R$ 68</td>
+        <td class="num" data-sort="0.4">0,4%</td>
+        <td class="num" data-sort="0.4">0,4%</td>
+        <td data-sort="3.22"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD39 [AS29] [C11] | ADV | [KIT-ANTIFRIZZ] | PDP Kit Antifrizz Beatriz Clarão {cr977263}</td>
+        <td class="bar-cell" data-sort="734.7"><span class="bar" style="width:95%"></span><span class="num">R$ 735</span></td>
+        <td class="num" data-sort="2.77">2,77x</td>
+        <td class="num" data-sort="6.0">6</td>
+        <td class="num" data-sort="122.45">R$ 122</td>
+        <td class="num" data-sort="28.6">28,6%</td>
+        <td class="num" data-sort="8.1">8,1%</td>
+        <td data-sort="2.77"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD86 [AS16] [C6] | INFL | [KIT-NUTRI] | [AD CODE] Colab Lua Andrade - 14/08 {cr665106}</td>
+        <td class="bar-cell" data-sort="478.95"><span class="bar" style="width:62%"></span><span class="num">R$ 479</span></td>
+        <td class="num" data-sort="3.74">3,74x</td>
+        <td class="num" data-sort="8.0">8</td>
+        <td class="num" data-sort="59.87">R$ 60</td>
+        <td class="num" data-sort="11.6">11,6%</td>
+        <td class="num" data-sort="2.4">2,4%</td>
+        <td data-sort="3.74"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C20 | P02 | Ad 02 - Storie - Lançamento - LeaveIn - 0909</td>
+        <td class="bar-cell" data-sort="237.0"><span class="bar" style="width:31%"></span><span class="num">R$ 237</span></td>
+        <td class="num" data-sort="1.81">1,81x</td>
+        <td class="num" data-sort="1.0">1</td>
+        <td class="num" data-sort="237.0">R$ 237</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td data-sort="1.81"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C20 | Vídeos + Estáticos | Lançamento Leave-in</td>
+        <td class="bar-cell" data-sort="93.56"><span class="bar" style="width:12%"></span><span class="num">R$ 94</span></td>
+        <td class="num" data-sort="2.55">2,55x</td>
+        <td class="num" data-sort="2.0">2</td>
+        <td class="num" data-sort="46.78">R$ 47</td>
+        <td class="num" data-sort="14.6">14,6%</td>
+        <td class="num" data-sort="2.7">2,7%</td>
+        <td data-sort="2.55"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD35 [AS28] [C11] | ADV | [KIT-NUTRI] | PDP Kit Nutrifrizz Karol Almeida {cr840660} — Cópia</td>
+        <td class="bar-cell" data-sort="76.4"><span class="bar" style="width:10%"></span><span class="num">R$ 76</span></td>
+        <td class="num" data-sort="0.0">0,00x</td>
+        <td class="num" data-sort="0.0">0</td>
+        <td class="num" data-sort="0">R$ 0</td>
+        <td class="num" data-sort="4.0">4,0%</td>
+        <td class="num" data-sort="1.4">1,4%</td>
+        <td data-sort="0.0"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C20 | P02 | Ad 02 - Feed - Lançamento - LeaveIn - 0909</td>
+        <td class="bar-cell" data-sort="6.07"><span class="bar" style="width:1%"></span><span class="num">R$ 6</span></td>
+        <td class="num" data-sort="0.0">0,00x</td>
+        <td class="num" data-sort="0.0">0</td>
+        <td class="num" data-sort="0">R$ 0</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td data-sort="0.0"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C20 | P02 | Ad 01 - Storie - Lançamento - LeaveIn - 0909</td>
+        <td class="bar-cell" data-sort="5.26"><span class="bar" style="width:1%"></span><span class="num">R$ 5</span></td>
+        <td class="num" data-sort="0.0">0,00x</td>
+        <td class="num" data-sort="0.0">0</td>
+        <td class="num" data-sort="0">R$ 0</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td data-sort="0.0"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C20 | P02 | Ad 03 - Storie- Lançamento - LeaveIn - 0909</td>
+        <td class="bar-cell" data-sort="2.44"><span class="bar" style="width:0%"></span><span class="num">R$ 2</span></td>
+        <td class="num" data-sort="0.0">0,00x</td>
+        <td class="num" data-sort="0.0">0</td>
+        <td class="num" data-sort="0">R$ 0</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td data-sort="0.0"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C20 | P02 | Ad 03 - Feed - Lançamento - LeaveIn - 0909</td>
+        <td class="bar-cell" data-sort="1.66"><span class="bar" style="width:0%"></span><span class="num">R$ 2</span></td>
+        <td class="num" data-sort="0.0">0,00x</td>
+        <td class="num" data-sort="0.0">0</td>
+        <td class="num" data-sort="0">R$ 0</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td data-sort="0.0"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>C20 | P02 | Ad 01 - Feed - Lançamento - LeaveIn - 0909</td>
+        <td class="bar-cell" data-sort="0.6"><span class="bar" style="width:0%"></span><span class="num">R$ 1</span></td>
+        <td class="num" data-sort="0.0">0,00x</td>
+        <td class="num" data-sort="0.0">0</td>
+        <td class="num" data-sort="0">R$ 0</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td data-sort="0.0"><span class="badge b-nb">sem base</span></td>
+        </tr><tr>
+        <td>AD90 [AS17] [C7] | DEPO | [KIT-NUTRI] | Avaliação Kit Nutrição - 29/07 {cr894967}</td>
+        <td class="bar-cell" data-sort="0.01"><span class="bar" style="width:0%"></span><span class="num">R$ 0</span></td>
+        <td class="num" data-sort="0.0">0,00x</td>
+        <td class="num" data-sort="0.0">0</td>
+        <td class="num" data-sort="0">R$ 0</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td class="num" data-sort="0">0,0%</td>
+        <td data-sort="0.0"><span class="badge b-nb">sem base</span></td>
+        </tr></tbody></table>
+  </div>
+</div></section>
+<section id="lucro"><div class="wrap">
+  <div class="sec-head rv"><span class="no">06</span><h2>Economia unitária &amp; lucro</h2><span class="tag">COGS [PROXY] · LACUNA DECLARADA</span></div>
+  <div class="grid3 rv" style="margin-bottom:20px">
+    <div class="card"><div class="k-label">MER blended</div><div class="k-val num" style="font-size:32px;font-family:var(--f-disp);font-weight:700">3,09x</div><div class="k-cmp"><span class="k-delta neg">↓ 22,4%</span> <span class="k-prev">break-even ~1,46x</span></div></div>
+    <div class="card"><div class="k-label">CAC / pedido</div><div class="k-val num" style="font-size:32px;font-family:var(--f-disp);font-weight:700">R$ 60</div><div class="k-cmp"><span class="k-delta neg">↑ 23,2%</span></div></div>
+    <div class="card"><div class="k-label">% receita em mídia</div><div class="k-val num" style="font-size:32px;font-family:var(--f-disp);font-weight:700">32,3%</div></div>
+  </div>
+  <div class="md rv"><p>MER = <strong>receita paga da loja ÷ verba total (Meta + Google)</strong> — o único ROAS que não se auto-engana.</p>
+<table><thead><tr><th>Métrica</th><th>11–17/09</th><th>04–10/09</th><th>Δ</th></tr></thead><tbody><tr><td>Receita loja (verdade)</td><td>R$ 193.315,15</td><td>R$ 273.489,57</td><td><strong>−29,3%</strong></td></tr><tr><td>Meta spend</td><td>R$ 60.088,51</td><td>R$ 66.391,14</td><td>−9,5%</td></tr><tr><td>Google Ads cost</td><td>R$ 2.390,97</td><td>R$ 2.274,34</td><td>+5,1%</td></tr><tr><td><strong>Verba total</strong></td><td><strong>R$ 62.479,48</strong></td><td><strong>R$ 68.665,48</strong></td><td>−9,0%</td></tr><tr><td><strong>MER blended</strong></td><td><strong>3,09×</strong></td><td><strong>3,98×</strong></td><td><strong>−22,3%</strong></td></tr></tbody></table>
+<p><strong>Leitura:</strong> a verba caiu 9%, mas a receita caiu 29% — cortamos menos do que perdemos. O MER despencou. Ainda muito acima do break-even, mas a <strong>eficiência marginal do investimento piorou</strong>.</p>
+<hr class='rule' style='margin:18px 0'>
+<h3>2. ROAS de Break-even [PROXY]</h3>
+<p>Sem COGS real, break-even do MER = <strong>1 ÷ margem de contribuição</strong>.</p>
+<table><thead><tr><th>Cenário</th><th>COGS (% preço)</th><th>Margem</th><th><strong>ROAS break-even</strong></th></tr></thead><tbody><tr><td>Conservador</td><td>35%</td><td>65%</td><td><strong>1,54×</strong></td></tr><tr><td>Central</td><td>31,5%</td><td>68,5%</td><td><strong>1,46×</strong></td></tr><tr><td>Otimista</td><td>28%</td><td>72%</td><td><strong>1,39×</strong></td></tr></tbody></table>
+<p><strong>MER blended 3,09× está bem acima do break-even em qualquer cenário.</strong> O negócio consolidado é lucrativo. O risco não é prejuízo agregado — é <strong>queda de margem marginal em campanhas específicas</strong>.</p>
+<h4>Campanha em risco</h4>
+<p><strong>C4 | Touca Banho Prod Diversos: ROAS 1,47 (2,51→1,47), lucro contribuição [PROXY] ≈ R$ 16</strong> → no break-even conservador (1,54×) <strong>já dá prejuízo</strong>. Nenhuma outra campanha Meta abaixo do BE central, mas vários motores rentáveis desabaram (C3 3,72→2,00, C9 3,35→2,41, C8 4,34→2,35, C1 4,13→2,41).</p>
+<h4>Google Ads — todas acima do break-even</h4>
+<p>Search Institucional infla ROAS (34,79) capturando demanda de marca já existente; <strong>não é aquisição incremental</strong>. Prospecção real = Shopping/PMax (~4,4×).</p>
+<hr class='rule' style='margin:18px 0'>
+<h3>3. CAC Real Blended [aproximação declarada]</h3>
+<div class="callout"><div class="cb"><strong>Aproximação:</strong> o digest <strong>não tem flag de novo vs. recorrente</strong>. Uso pedidos pagos da loja → é <strong>CPA blended por pedido</strong>, não CAC de cliente novo puro. O CAC de cliente NOVO real é maior.</div></div>
+<table><thead><tr><th>Métrica</th><th>11–17/09</th><th>04–10/09</th><th>Δ</th></tr></thead><tbody><tr><td>Verba total</td><td>R$ 62.479,48</td><td>R$ 68.665,48</td><td>−9,0%</td></tr><tr><td>Pedidos pagos (loja)</td><td>1.040</td><td>1.408</td><td>−26,1%</td></tr><tr><td><strong>CAC/CPO blended</strong></td><td><strong>R$ 60,08</strong></td><td><strong>R$ 48,77</strong></td><td><strong>+23,2%</strong></td></tr><tr><td>Ticket médio loja</td><td>R$ 185,88</td><td>R$ 194,24</td><td>−4,3%</td></tr></tbody></table>
+<p><strong>Leitura:</strong> custo por pedido +23% e ticket −4% — pinça de margem por ambos os lados. Com margem [PROXY] 68,5% (R$ 127 contribuição/pedido), o CAC de R$ 60 ainda cabe, mas o <strong>espaço encolheu</strong>.</p>
+<hr class='rule' style='margin:18px 0'>
+<h3>4. Produtos — crescimento, queda e custo de aquisição</h3>
+<table><thead><tr><th></th><th>Produto</th><th>Rev cur</th><th>Rev prev</th><th>Δ</th></tr></thead><tbody><tr><td>📉 <strong>Maior queda</strong></td><td><strong>Kit Nutri Frizz + Leave-in</strong></td><td>R$ 10.746</td><td>R$ 45.982</td><td><strong>−R$ 35.236 (−77%)</strong></td></tr><tr><td>📉</td><td>Kit Faixa + Fix + Touca</td><td>R$ 65.367</td><td>R$ 74.163</td><td>−R$ 8.796</td></tr><tr><td>📉</td><td>Touca de Banho</td><td>R$ 25.937</td><td>R$ 33.005</td><td>−R$ 7.068</td></tr><tr><td>📈 <strong>Maior crescimento</strong></td><td>Kit Noturno (Cetim+Óleo)</td><td>R$ 7.815</td><td>R$ 6.796</td><td>+R$ 1.019</td></tr></tbody></table>
+<p><strong>O colapso do Kit Nutri Frizz (−R$ 35 mil) sozinho explica ~44% da queda de receita da loja.</strong> Excluindo brinde/itens marginais, o único crescimento orgânico relevante é o <strong>Kit Noturno</strong>.</p>
+<h4>Custo de aquisição relativo por família [PROXY]</h4>
+<table><thead><tr><th>Família</th><th>Spend Meta</th><th>Rev loja</th><th>Eficiência (rev/spend)</th><th>Aquisição</th></tr></thead><tbody><tr><td><strong>Kit Faixa (+Fix/Faixa)</strong></td><td>R$ 10.183</td><td>R$ 74.456</td><td><strong>7,31</strong></td><td>🥇 melhor em escala</td></tr><tr><td>Touca de Banho</td><td>R$ 5.956</td><td>R$ 25.937</td><td>4,35</td><td>🟢</td></tr><tr><td>Kit Queridinhos</td><td>R$ 4.906</td><td>R$ 16.494</td><td>3,36</td><td>🟢</td></tr><tr><td>Touca de Cetim</td><td>R$ 8.986</td><td>R$ 21.804</td><td>2,43</td><td>🟡</td></tr><tr><td>Kit Noturno</td><td>R$ 4.386</td><td>R$ 7.815</td><td>1,78</td><td>🔴</td></tr><tr><td><strong>Bloom Oil</strong></td><td>R$ 4.561</td><td>R$ 6.115</td><td><strong>1,34</strong></td><td>🔴 <strong>Pior</strong></td></tr></tbody></table>
+<div class="callout"><div class="cb"><strong>Melhor custo de aquisição real e escalável: Kit Faixa</strong> (eficiência 7,31 movendo R$ 74 mil, o carro-chefe). <strong>Pior: Bloom Oil</strong> (1,34 — receita mal cobre 1,3× a mídia).</div></div>
+<hr class='rule' style='margin:18px 0'>
+<h3>Síntese executiva</h3>
+<ul><li><strong>Negócio segue lucrativo no agregado:</strong> MER 3,09× &gt;&gt; break-even [PROXY] 1,46×. Contribuição estimada da semana: <strong>R$ 63–77 mil [PROXY]</strong>, antes de frete/taxas/opex.</li><li><strong>Mas a tendência é ruim:</strong> receita −29%, MER −22%, CAC/pedido +23%, ticket −4%.</li><li><strong>Causa raiz #1:</strong> colapso do <strong>Kit Nutri Frizz</strong> (−R$ 35 mil ≈ 44% da queda) — ligado à retração da mídia da família.</li><li><strong>Ações de maior alavanca:</strong> escalar <strong>C6 Colab</strong> e <strong>Madrugada</strong>; cortar <strong>C4 Touca Prod Diversos</strong> e <strong>Bloom Oil</strong>; reativar <strong>Nutri Frizz</strong> com teste controlado.</li><li><strong>Bloqueio de qualidade:</strong> sem COGS real, todo lucro/BE é <strong>[PROXY]</strong>. Para corte definitivo, exigir COGS por SKU ao cliente — <strong>LACUNA DECLARADA</strong>.</li></ul></div>
+</div></section>
+<section id="plano"><div class="wrap">
+  <div class="sec-head rv"><span class="no">07</span><h2>Plano de otimização</h2><span class="tag">PRÓXIMA SEMANA</span></div>
+  <div class="md rv"><p> — Escalar / Manter / Cortar (degraus +20–30%/sem)</p>
+<h4>🟢 ESCALAR</h4>
+<table><thead><tr><th>Entidade</th><th>ROAS</th><th>Freq</th><th>Ação</th><th>Teto</th></tr></thead><tbody><tr><td><strong>Google Shopping + PMax</strong></td><td>4,43</td><td>—</td><td><strong>Dobrar</strong> verba starved</td><td>R$ 3.000 (de R$ 990)</td></tr><tr><td>C7 Remarketing</td><td>2,95</td><td>1,55</td><td>+30% (folga de freq)</td><td>R$ 3.600</td></tr><tr><td>C6 adsets AS6/AS9/AS12/AS15</td><td>4,3–5,2</td><td>1,3–1,6</td><td>+20–30% só nesses</td><td>+R$ 1.500</td></tr><tr><td>CX Madrugada</td><td>7,43</td><td>1,63</td><td>Reverter corte + forçar</td><td>R$ 900</td></tr></tbody></table>
+<h4>🟡 MANTER</h4>
+<p>C14 KitFaixa (2,69) · C11 Test Suite (2,58) · C4 [lp] Touca ISOLADA (2,94) · C20 Nutri/Leave-in (2,93) · <strong>C9 Catálogo (2,41) SEM aumentar</strong> — freq 3,09 é o teto.</p>
+<h4>🔴 CORTAR / CONGELAR</h4>
+<table><thead><tr><th>Entidade</th><th>ROAS</th><th>Motivo</th></tr></thead><tbody><tr><td><strong>C4 Touca Banho Prod Diversos</strong></td><td>1,47</td><td>pior campanha com spend relevante; realoca R$ 2,3k</td></tr><tr><td>V10 Giovanna P04 Full Funnel</td><td>0,99</td><td>R$ 784, 3 vendas</td></tr><tr><td>V07 Arathy P03 DSB</td><td>0,67</td><td>R$ 300, 1 venda</td></tr><tr><td>MATRIZ_X CONCEITO Alanna Copia</td><td>1,01</td><td>CPA R$ 198</td></tr><tr><td><strong>C3 Classe A</strong> — congelar verba</td><td>2,00</td><td>broad saturado; sem +verba até renovar criativo</td></tr></tbody></table>
+<p><strong>Realocação líquida:</strong> ~R$ 3,3k → 60% Google Shopping+PMax, 40% candidatos §4.</p>
+<hr class='rule' style='margin:18px 0'>
+<h3>4) Candidatos a FORÇAR ORÇAMENTO (gastaram pouco, já provaram)</h3>
+<table><thead><tr><th>Candidato</th><th>Spend</th><th>ROAS</th><th>Prova</th><th>Incremento</th><th><strong>Teto</strong></th><th>Parada</th></tr></thead><tbody><tr><td><strong>CX Madrugada</strong></td><td>R$ 552</td><td><strong>7,43</strong></td><td>18 vendas, CPA R$ 30,64</td><td>+30% agora</td><td><strong>R$ 900</strong></td><td>ROAS &lt; 5</td></tr><tr><td><strong>V03 Arathy Ângulos</strong></td><td>R$ 125</td><td><strong>6,41</strong></td><td>6 vendas, CPA R$ 20,76</td><td><strong>Isolar</strong>, forçar p/ R$ 300</td><td><strong>R$ 500</strong></td><td>ROAS &lt; 3</td></tr><tr><td><strong>[LIVE] [11-09]</strong></td><td>R$ 346</td><td><strong>3,87</strong></td><td>ticket R$ 267, freq 1,47</td><td>+30% → ~R$ 450</td><td><strong>R$ 700</strong></td><td>ROAS &lt; 2,5</td></tr><tr><td>AD85 Kit Faixa Lua PDP</td><td>R$ 634</td><td>4,72</td><td>13 vendas, freq 1,28</td><td>+25%</td><td>R$ 900</td><td>ROAS &lt; 3,5</td></tr><tr><td>AS9 Colab Bianca</td><td>R$ 656</td><td>4,59</td><td>14 vendas, CPA R$ 46</td><td>+25%</td><td>R$ 900</td><td>ROAS &lt; 3,5</td></tr><tr><td>C20 Vídeo React</td><td>R$ 459</td><td>3,71</td><td>9 vendas, hook 13,2</td><td>+30%</td><td>R$ 700</td><td>ROAS &lt; 2,8</td></tr></tbody></table>
+<hr class='rule' style='margin:18px 0'>
+<h3>5) Guardrails</h3>
+<ul><li><strong>Kill-switch (checagem 48h):</strong> pausar ad/adset com <strong>spend ≥ R$ 400 e ROAS &lt; 1,6</strong> OU <strong>CPA &gt; R$ 132</strong>.</li><li><strong>Teto por campanha:</strong> nenhum aumento único &gt; <strong>+30%/semana</strong>. Sempre em degrau (avaliar 3–4 dias).</li><li><strong>Teto de frequência:</strong> congelar broad com <strong>freq ≥ 3,0</strong> (hoje C9 3,09). Renovar criativo antes de reabrir.</li><li><strong>Rollback declarado:</strong> se MER consolidado cair &lt; 2,8 por 3 dias OU ROAS Meta agregado &lt; 2,5, reverter todos os aumentos ao baseline e reter escala só em Google Shopping/PMax e Madrugada.</li><li><strong>Marca ≠ escala:</strong> proibido &quot;escalar&quot; [P][Institucional].</li></ul>
+<hr class='rule' style='margin:18px 0'></div>
+  <div class="md rv" style="margin-top:18px"><h3>6) Tese do cliente — VALIDADA (com ressalva sobre &quot;piorou&quot;)</h3>
+<p><strong>Tese:</strong> <em>o próximo ganho NÃO é +verba em Meta broad saturado, é desbloquear Shopping/PMax de prospecção e renovar criativo Meta.</em></p>
+<p><strong>Veredito: VALIDADA pelos 3 vetores do dado desta semana.</strong></p>
+<p>1. <strong>Shopping/PMax subalimentado e performando:</strong> ROAS <strong>4,43</strong> com apenas <strong>R$ 990 (1,6% da verba)</strong>. Shopping subiu conv 14,1→20 sem saturar — <strong>escala não-saturada disponível</strong>. Maior alavanca ociosa.</p>
+<p>2. <strong>Meta broad saturado:</strong> freq 3,74→3,98; C9 freq 3,09; C3 3,72→2,00. +verba broad = ROAS decrescente.</p>
+<p>3. <strong>Criativo novo é onde nasce ROAS alto:</strong> V03 Arathy 6,41, CX Madrugada 7,43, [LIVE] 3,87, colabs C6 4–5.</p>
+<p><strong>Ressalva obrigatória — &quot;piorou&quot; é enganoso:</strong> o ROAS Meta 3,30→2,78 <strong>não é deterioração operacional pura</strong>. A semana anterior teve o pico de lançamento do Kit Nutri Frizz + Leave-in, que sozinho caiu <strong>−R$ 43.887</strong> na receita da loja (56% da queda total). Removido o efeito-lançamento, a base broad segue estável-declinante por saturação — não colapso.</p>
+<h4>Resumo de 1 linha para a cliente</h4>
+<p>Cortar/congelar o broad saturado, <strong>dobrar Google Shopping/PMax</strong> (ROAS 4,4 com só 1,6% da verba) e <strong>forçar orçamento controlado</strong> nos achados novos (Madrugada 7,4 · V03 Arathy 6,4 · LIVE 3,9) — sem tocar em marca.</p></div>
+</div></section>
+<section id="roteiros"><div class="wrap">
+  <div class="sec-head rv"><span class="no">08</span><h2>Novos roteiros &amp; copy</h2><span class="tag">RAQUEL · LARISSA · GIOVANNA · ARATHY</span></div>
+  <div class="md rv"><p> que ancora cada decisão</p>
+<table><thead><tr><th>Criativo</th><th>Influ.</th><th>Pilar</th><th>ROAS</th><th>Spend</th><th>Hook</th><th>Hold</th><th>Leitura</th></tr></thead><tbody><tr><td>V01</td><td>Raquel</td><td><strong>Ângulos</strong></td><td><strong>3,36</strong></td><td>R$ 1.072</td><td>16,6%</td><td>4,4%</td><td><strong>Vencedor do ABO.</strong> Melhor hold da conta → escalar</td></tr><tr><td>V02</td><td>Raquel</td><td>Conceitos</td><td>2,50</td><td>R$ 1.145</td><td>14,8%</td><td>3,2%</td><td>Sólido, sustenta volume</td></tr><tr><td>V03</td><td>Arathy</td><td><strong>Ângulos</strong></td><td><strong>6,41</strong></td><td>R$ 125</td><td>8,9%</td><td>1,5%</td><td><strong>Sinal pequeno mas forte</strong> (CPA R$ 20,76) → dar volume</td></tr><tr><td>V12</td><td>Giovanna</td><td><strong>UGC</strong></td><td><strong>2,22</strong></td><td>R$ 618</td><td>7,5%</td><td>1,7%</td><td>Melhor da Giovanna → dobrar em UGC</td></tr><tr><td>V10</td><td>Giovanna</td><td>Full Funnel</td><td>0,99</td><td>R$ 784</td><td>16,5%</td><td>2,2%</td><td><strong>Fraco.</strong> Pausar Full Funnel para ela</td></tr></tbody></table>
+<p><strong>Larissa:</strong> <em>sem histórico nenhum no dado desta semana</em> — roteiros de <strong>entrada (cold start)</strong>, por analogia à linha vencedora, não por performance própria.</p>
+<p><strong>Diretriz derivada:</strong> <strong>Ângulos</strong> é o motor da conta (2 dos 2 melhores ROAS). <strong>UGC</strong> é o segundo motor. <strong>Full Funnel e DSB</strong> só reentram reangulados.</p>
+<hr class='rule' style='margin:18px 0'>
+<h3>1) RAQUEL — escalar o vencedor (Ângulos ROAS 3,36 · melhor hold da conta)</h3>
+<p>Não reinventar — <strong>multiplicar variações de HOOK sobre o ângulo e mecanismo vencedores</strong>, migrando o campeão do Kit Queridinhos para o <strong>Kit Faixa</strong> (ticket maior).</p>
+<h4>Roteiro R1 — &quot;O erro de R$ 200 no espelho&quot; (escala direta do V01)</h4>
+<ul><li><strong>Pilar:</strong> Ângulo · <strong>Produto:</strong> Kit Faixa + Fix + Touca</li><li><strong>HOOK (0–3s):</strong></li></ul>
+<p>  1. <em>&quot;Você não perde cabelo bom. Você perde ele no travesseiro.&quot;</em></p>
+<p>  2. <em>&quot;Gastei R$ 200 numa escova que durou até o primeiro banho. Aí descobri o que faltava.&quot;</em></p>
+<p>  3. <em>&quot;Ninguém te conta: o problema não é a escova, é o que você faz DEPOIS dela.&quot;</em></p>
+<ul><li><strong>Desenvolvimento:</strong> hook + reveal (0–3s) → dor concreta do frizz ao acordar (3–8s) → mecanismo único: faixa alinha, fix trava, touca protege (8–15s) → prova: acorda intacto (15–22s) → oferta do Kit &quot;o que mais sai aqui&quot; (22–28s).</li><li><strong>CTA:</strong> <em>&quot;Toca em &#x27;Comprar&#x27; e para de refazer o cabelo toda manhã.&quot;</em></li><li><strong>Hipótese:</strong> Se levarmos o ângulo vencedor da Raquel para o Kit Faixa, então ROAS ≥ 3,0 com ticket maior, porque o ângulo já provou segurar atenção (hold 4,4%) e o Kit Faixa é o de maior demanda orgânica.</li><li><strong>Parada:</strong> matar se ROAS &lt; 2,2 após R$ 600 OU hold &lt; 2,5% nos 1os R$ 300.</li></ul>
+<h4>Roteiro R2 — &quot;3 hooks, mesmo corpo&quot; (teste de abertura puro)</h4>
+<ul><li><strong>Pilar:</strong> Ângulo · <strong>Produto:</strong> Kit Queridinhos (isola a variável hook)</li><li><strong>HOOK:</strong> 1. <em>&quot;Se você faz escova e ela não dura 2 dias, o erro não é seu.&quot;</em> · 2. <em>&quot;Testei por 7 noites. Olha o que aconteceu.&quot;</em> · 3. <em>&quot;Meu cabeleireiro me proibiu de dormir sem isso.&quot;</em></li><li><strong>Desenvolvimento:</strong> mantém EXATAMENTE o corpo do V01, troca só o hook.</li><li><strong>CTA:</strong> <em>&quot;Escolhe teu kit no link. Teu cabelo de amanhã agradece.&quot;</em></li><li><strong>Hipótese:</strong> Se mantivermos o corpo do V01 e trocarmos só o hook, então ≥1 das 3 aberturas bate hook_rate &gt; 16,6%, porque o corpo já está validado e o gargalo de escala é a retenção nos 3s.</li><li><strong>Parada:</strong> desligar cada hook se hook_rate &lt; 12% após 3.000 impressões.</li></ul>
+<h4>Roteiro R3 — &quot;Conceito de rotina noturna&quot; (cruza Kit Noturno em alta)</h4>
+<ul><li><strong>Pilar:</strong> Conceito · <strong>Produto:</strong> Kit Noturno (Touca de Cetim + Óleo)</li><li><strong>HOOK:</strong> 1. <em>&quot;Minha rotina noturna de 40 segundos que salva meu cabelo enquanto durmo.&quot;</em> · 2. <em>&quot;O que eu faço TODA noite antes de deitar.&quot;</em> · 3. <em>&quot;Cabelo bonito não se faz de manhã. Se faz na noite anterior.&quot;</em></li><li><strong>Hipótese:</strong> Se usarmos Conceito (2,5 no V02) sobre o Kit Noturno em alta, então ROAS ≥ 2,2 com CPA &lt; R$ 90, porque Conceito já converte para a Raquel e o Noturno tem tração crescente.</li><li><strong>Parada:</strong> matar se ROAS &lt; 1,8 após R$ 500 OU CPA &gt; R$ 110.</li></ul>
+<hr class='rule' style='margin:18px 0'>
+<h3>2) ARATHY — dar volume ao ângulo (V03 ROAS 6,41, CPA R$ 20,76)</h3>
+<p>Sinal pequeno (R$ 125) e ainda não confiável. Prioridade: <strong>dar VOLUME ao mesmo ângulo</strong> para validar. Não insistir em DSB (0,67) nem Full Funnel.</p>
+<h4>Roteiro A1 — &quot;Escala do ângulo campeão&quot; (volume direto no V03)</h4>
+<ul><li><strong>Pilar:</strong> Ângulo · <strong>Produto:</strong> Kit Queridinhos → Kit Faixa</li><li><strong>HOOK:</strong> 1. <em>&quot;Descobri por que meu cabelo nunca durava — e não era o shampoo.&quot;</em> · 2. <em>&quot;R$ 20 foi o que me custou parar de perder meu cabelo todo dia.&quot;</em> · 3. <em>&quot;Faz isso hoje à noite e me conta amanhã como acordou.&quot;</em></li><li><strong>Hipótese:</strong> Se dermos 5–8x mais budget ao ângulo do V03 com 3 hooks novos, então ROAS estabiliza ≥ 3,0 em spend &gt; R$ 800, porque o sinal inicial é forte mas frágil; o objetivo é confirmar o ângulo em volume, não repetir o pico.</li><li><strong>Parada:</strong> manter enquanto ROAS ≥ 2,8; pausar se &lt; 2,2 após R$ 800.</li></ul>
+<h4>Roteiro A2 — &quot;Ângulo do custo escondido&quot;</h4>
+<ul><li><strong>Pilar:</strong> Ângulo · <strong>Produto:</strong> Kit Faixa</li><li><strong>HOOK:</strong> 1. <em>&quot;Some quanto você já gastou refazendo o cabelo. Assusta.&quot;</em> · 2. <em>&quot;Escova + prancha + produto toda semana. E dura 1 dia. Faz sentido?&quot;</em> · 3. <em>&quot;Parei de ir no salão toda semana com uma coisa de R$ 100.&quot;</em></li><li><strong>Hipótese:</strong> Se usarmos ângulo de economia no produto líder, então ROAS ≥ 3,0, porque Ângulo é o pilar mais forte da Arathy e o argumento econômico casa com ticket maior.</li><li><strong>Parada:</strong> matar se ROAS &lt; 2,2 após R$ 500 OU hook_rate &lt; 9% após R$ 250.</li></ul>
+<h4>Roteiro A3 — &quot;UGC de reforço&quot; (dobra V11, 1,57)</h4>
+<ul><li><strong>Pilar:</strong> UGC · <strong>Produto:</strong> Kit Queridinhos</li><li><strong>HOOK:</strong> 1. <em>&quot;Comprei sem muita fé. Vim pedir desculpa pro meu cabelo.&quot;</em> · 2. <em>&quot;3 semanas usando. Depoimento 100% real.&quot;</em> · 3. <em>&quot;Ninguém me pagou pra dizer isso, mas precisa saber.&quot;</em></li><li><strong>Parada:</strong> matar se ROAS &lt; 1,5 após R$ 400.</li></ul>
+<hr class='rule' style='margin:18px 0'>
+<h3>3) GIOVANNA — mover para onde ela performa (UGC/Conceito), sair do Full Funnel</h3>
+<p>Performance irregular. <strong>Full Funnel morreu (V10 0,99) — pausar.</strong> Melhor dela é <strong>UGC (V12 2,22)</strong>. DSB tem hook altíssimo (16,1%) mas converte mal — problema de oferta, não atenção.</p>
+<h4>Roteiro G1 — &quot;Escala do UGC vencedor&quot; (dobra V12)</h4>
+<ul><li><strong>Pilar:</strong> UGC · <strong>Produto:</strong> Kit Queridinhos</li><li><strong>HOOK:</strong> 1. <em>&quot;Vou te mostrar meu cabelo ao acordar. Sem edição.&quot;</em> · 2. <em>&quot;A pergunta que mais recebo: &#x27;como teu cabelo dura tanto?&#x27;&quot;</em> · 3. <em>&quot;Isso mudou minha rotina e preciso dividir.&quot;</em></li><li><strong>Hipótese:</strong> Se escalarmos o UGC (único pilar consistentemente positivo dela) com hooks de &quot;cabelo ao acordar&quot;, então ROAS ≥ 2,2 em spend maior, porque é onde a entrega natural dela converte melhor.</li><li><strong>Parada:</strong> matar se ROAS &lt; 1,8 após R$ 500 OU CPA &gt; R$ 110.</li></ul>
+<h4>Roteiro G2 — &quot;Reangular o DSB em Conceito&quot; (resgata hook 16,1% do V08)</h4>
+<ul><li><strong>Pilar:</strong> Conceito · <strong>Produto:</strong> Touca de Cetim</li><li><strong>HOOK:</strong> 1. <em>&quot;O vilão do teu cabelo não é o frizz. É o teu travesseiro.&quot;</em> · 2. <em>&quot;Por que você acorda com o cabelo pior do que dormiu?&quot;</em> · 3. <em>&quot;Cetim vs algodão: a diferença que ninguém te mostrou.&quot;</em></li><li><strong>Hipótese:</strong> Se migrarmos o poder de hook do DSB para um Conceito educativo com fechamento mais forte, então ROAS supera o V08 (1,56) e passa de 2,0, porque a atenção já existia; o gargalo era a ponte para a oferta.</li><li><strong>Parada:</strong> matar se ROAS &lt; 1,6 após R$ 450; NÃO reinvestir em Full Funnel.</li></ul>
+<h4>Roteiro G3 — &quot;UGC de objeção&quot;</h4>
+<ul><li><strong>Pilar:</strong> UGC · <strong>Produto:</strong> Kit Faixa</li><li><strong>HOOK:</strong> 1. <em>&quot;&#x27;Será que funciona no meu cabelo?&#x27; Tenho cacho, então olha isso.&quot;</em> · 2. <em>&quot;Achei que era mais uma promessa de internet. Não era.&quot;</em> · 3. <em>&quot;Deixa eu responder a dúvida que TODO mundo me manda no direct.&quot;</em></li><li><strong>Parada:</strong> matar se ROAS &lt; 1,6 após R$ 450.</li></ul>
+<hr class='rule' style='margin:18px 0'>
+<h3>4) LARISSA — roteiros de ENTRADA (⚠️ SEM HISTÓRICO no dado desta semana)</h3>
+<div class="callout"><div class="cb"><strong>Declaração obrigatória:</strong> Larissa <strong>não aparece</strong> no DIGEST — não há ROAS, hook, hold ou spend dela. Roteiros são <strong>cold start</strong>, por analogia à linha vencedora. O primeiro objetivo é <strong>gerar sinal</strong>, não escalar.</div></div>
+<h4>Roteiro L1 — &quot;Entrada em Ângulo&quot; (clona V01/V03)</h4>
+<ul><li><strong>Pilar:</strong> Ângulo · <strong>Produto:</strong> Kit Faixa</li><li><strong>HOOK:</strong> 1. <em>&quot;Se teu cabelo fica lindo no salão e feio em casa, o erro é depois da escova.&quot;</em> · 2. <em>&quot;Parei de refazer meu cabelo toda manhã com 3 coisas simples.&quot;</em> · 3. <em>&quot;O segredo de cabelo que dura não é produto caro.&quot;</em></li><li><strong>Hipótese:</strong> Se Larissa rodar o ângulo vencedor em budget de entrada, então produz sinal com ROAS ≥ 1,8 e hook_rate ≥ 12% nos 1os R$ 300, porque a estrutura já é validada; o teste é da CRIADORA, não do ângulo.</li><li><strong>Parada:</strong> matar se hook_rate &lt; 8% após R$ 200 OU ROAS &lt; 1,2 após R$ 400.</li></ul>
+<h4>Roteiro L2 — &quot;Entrada em UGC&quot; (menor risco para criadora nova)</h4>
+<ul><li><strong>Pilar:</strong> UGC · <strong>Produto:</strong> Kit Queridinhos</li><li><strong>HOOK:</strong> 1. <em>&quot;Primeira vez testando — vou mostrar o resultado real, sem filtro.&quot;</em> · 2. <em>&quot;Comprei com o meu dinheiro pra provar pra vocês.&quot;</em> · 3. <em>&quot;Meu cabelo antes e depois de 1 semana. Julga você mesma.&quot;</em></li><li><strong>Parada:</strong> matar se hold &lt; 1,5% após R$ 200 OU ROAS &lt; 1,2 após R$ 400.</li></ul>
+<hr class='rule' style='margin:18px 0'>
+<h3>Guia rápido de priorização de budget</h3>
+<p>1. <strong>Raquel</strong> — maior confiança. Escalar R1/R2 agressivo. Budget principal.</p>
+<p>2. <strong>Arathy</strong> — validar o pico com volume (A1). Budget médio-crescente condicionado a ROAS ≥ 2,8.</p>
+<p>3. <strong>Giovanna</strong> — realocar para UGC/Conceito, <strong>cortar Full Funnel</strong>. Budget médio.</p>
+<p>4. <strong>Larissa</strong> — teste de entrada low-budget. Gerar sinal antes de escalar.</p>
+<div class="callout"><div class="cb"><strong>Escassez honesta (Hormozi):</strong> usar apenas &quot;combinação exclusiva desta página&quot;. <strong>Nunca</strong> &quot;últimas unidades&quot; ou contador falso.</div></div></div>
+</div></section>
+<section id="loja"><div class="wrap">
+  <div class="sec-head rv"><span class="no">09</span><h2>Loja &amp; influenciadoras</h2><span class="tag">NUVEMSHOP · VERDADE</span></div>
+  <p class="lead rv">A queda de receita é concentrada: <b>Kit Nutri Frizz + Leave-in −R$ 35.236</b> (fim do pico de lançamento). O único crescimento orgânico relevante é o <b>Kit Noturno</b> (+R$ 1.019). Nos cupons de parceira, <span class="hl">Raquel (JULEMER5) faturou R$ 450,20, Giovanna (JULEMEG5) R$ 189,81; Arathy (JULEMEA5) não registrou vendas no período</span>.</p>
+  <div class="grid2">
+    <div class="card rv" data-chart="products">
+      <div class="chd"><h3>Top produtos — receita</h3></div>
+      <canvas id="cv-prod" height="300"></canvas>
+    </div>
+    <div class="two" style="display:block">
+      <div class="tbl-wrap rv"><table><thead><tr><th>Produto</th><th class="sortable">Receita</th><th class="sortable">Unid.</th><th class="sortable">Δ vs ant.</th></tr></thead><tbody><tr><td>Kit Faixa + Fix + Touca</td>
+  <td class="num" data-sort="65367.3">R$ 65.367</td>
+  <td class="num" data-sort="327">327</td>
+  <td class="num" data-sort="-8795.6"><span class="d-dn">R$ -8.796</span></td></tr><tr><td>Touca de Banho</td>
+  <td class="num" data-sort="25936.7">R$ 25.937</td>
+  <td class="num" data-sort="433">433</td>
+  <td class="num" data-sort="-7068.2"><span class="d-dn">R$ -7.068</span></td></tr><tr><td>Touca de Cetim</td>
+  <td class="num" data-sort="21803.6">R$ 21.804</td>
+  <td class="num" data-sort="364">364</td>
+  <td class="num" data-sort="-2575.7"><span class="d-dn">R$ -2.576</span></td></tr><tr><td>Kit Queridinhos - Faixa + Fix + Touca + Óleo</td>
+  <td class="num" data-sort="16494.5">R$ 16.494</td>
+  <td class="num" data-sort="55">55</td>
+  <td class="num" data-sort="-4498.5"><span class="d-dn">R$ -4.498</span></td></tr><tr><td>Kit Nutri Frizz + Leave-in</td>
+  <td class="num" data-sort="10745.7">R$ 10.746</td>
+  <td class="num" data-sort="43">43</td>
+  <td class="num" data-sort="-35235.9"><span class="d-dn">R$ -35.236</span></td></tr><tr><td>Spray Leave-in Multifuncional 200ml</td>
+  <td class="num" data-sort="9169.8">R$ 9.170</td>
+  <td class="num" data-sort="102">102</td>
+  <td class="num" data-sort="-449.5"><span class="d-dn">R$ -450</span></td></tr><tr><td>Kit Noturno - Touca de Cetim + Óleo Capilar</td>
+  <td class="num" data-sort="7815.4">R$ 7.815</td>
+  <td class="num" data-sort="46">46</td>
+  <td class="num" data-sort="1019.4"><span class="d-up">+R$ 1.019</span></td></tr><tr><td>Stick Antifrizz Cera Ju Leme Hair 15g</td>
+  <td class="num" data-sort="6793.2">R$ 6.793</td>
+  <td class="num" data-sort="68">68</td>
+  <td class="num" data-sort="-4095.9"><span class="d-dn">R$ -4.096</span></td></tr><tr><td>Bloom Oil - Óleo Capilar</td>
+  <td class="num" data-sort="6114.9">R$ 6.115</td>
+  <td class="num" data-sort="51">51</td>
+  <td class="num" data-sort="-3836.8"><span class="d-dn">R$ -3.837</span></td></tr><tr><td>Fix Power - Fixador de cachos</td>
+  <td class="num" data-sort="5194.8">R$ 5.195</td>
+  <td class="num" data-sort="52">52</td>
+  <td class="num" data-sort="-299.7"><span class="d-dn">R$ -300</span></td></tr><tr><td>Faixa Babyliss Ju Leme Hair (Lilas)</td>
+  <td class="num" data-sort="3893.5">R$ 3.894</td>
+  <td class="num" data-sort="65">65</td>
+  <td class="num" data-sort="-539.1"><span class="d-dn">R$ -539</span></td></tr><tr><td>Escova Desembaraçadora Anti Frizz Soft Brush Ju Leme Hair</td>
+  <td class="num" data-sort="3634.8">R$ 3.635</td>
+  <td class="num" data-sort="52">52</td>
+  <td class="num" data-sort="-4194.0"><span class="d-dn">R$ -4.194</span></td></tr></tbody></table></div>
+    </div>
+  </div>
+  <h3 style="margin:24px 0 12px;font-size:16px">Cupons de parceira / influenciadora (padrão NOME5 · *JUHAIR)</h3>
+  <div class="tbl-wrap rv"><div class="tbl-tools"><input placeholder="Filtrar cupom…"></div>
+    <table><thead><tr><th>Cupom</th><th class="sortable">Pedidos</th><th class="sortable">Receita</th></tr></thead><tbody><tr><td>MADRUGADA</td><td class="num" data-sort="19">19</td><td class="num" data-sort="4376.94">R$ 4.377</td></tr><tr><td>ALANNA5</td><td class="num" data-sort="17">17</td><td class="num" data-sort="3262.56">R$ 3.263</td></tr><tr><td>LIOMARJUHAIR</td><td class="num" data-sort="13">13</td><td class="num" data-sort="3086.62">R$ 3.087</td></tr><tr><td>LUA5</td><td class="num" data-sort="13">13</td><td class="num" data-sort="2707.7">R$ 2.708</td></tr><tr><td>SUZANNA5</td><td class="num" data-sort="8">8</td><td class="num" data-sort="1597.96">R$ 1.598</td></tr><tr><td>JESSIKAJUHAIR</td><td class="num" data-sort="4">4</td><td class="num" data-sort="1093.64">R$ 1.094</td></tr><tr><td>CRISJUHAIR</td><td class="num" data-sort="5">5</td><td class="num" data-sort="966.06">R$ 966</td></tr><tr><td>DANIALBINO5</td><td class="num" data-sort="3">3</td><td class="num" data-sort="664.7">R$ 665</td></tr><tr><td>GABRIELLAJUHAIR</td><td class="num" data-sort="1">1</td><td class="num" data-sort="645.71">R$ 646</td></tr><tr><td>BRUNAT5</td><td class="num" data-sort="5">5</td><td class="num" data-sort="462.35">R$ 462</td></tr><tr><td>JULEMER5</td><td class="num" data-sort="3">3</td><td class="num" data-sort="450.2">R$ 450</td></tr><tr><td>BRUFAIS</td><td class="num" data-sort="2">2</td><td class="num" data-sort="429.31">R$ 429</td></tr><tr><td>ALEKRUG5</td><td class="num" data-sort="1">1</td><td class="num" data-sort="341.62">R$ 342</td></tr><tr><td>KAROLRESENDE5</td><td class="num" data-sort="1">1</td><td class="num" data-sort="340.67">R$ 341</td></tr><tr><td>AGNETEJUHAIR100</td><td class="num" data-sort="1">1</td><td class="num" data-sort="279.7">R$ 280</td></tr></tbody></table>
+  </div>
+  <p class="mono" style="margin-top:12px;color:var(--ink-3)">Cupom é sinal autoritativo de parceria; institucionais (BEMVINDA5, JULEME, PIXDAY…) e códigos de sistema (CB-, DRAFT-ORDER) foram excluídos desta lista.</p>
+</div></section>
+
+
+<footer><div class="wrap">
+  <span class="mono">INFINITY · STEVE (ACCOUNT-AUDITOR) · GERADO 2026-09-17</span>
+  <span class="mono">FONTE: NUVEMSHOP (VERDADE) · META GRAPH v23 · GA4 · GOOGLE ADS</span>
+  <span class="mono">plataforma=hermes · session_ref=julemhair-weekly-1117set</span>
+</div></footer>
+<script>window.__DATA={"meta": {"periodo": {"current": ["2026-09-11", "2026-09-17"], "previous": ["2026-09-04", "2026-09-10"]}, "account": {"cur": {"spend": 60088.51, "impr": 2207678, "clicks": 38958, "ctr": 1.765, "cpc": 1.542, "cpm": 27.22, "reach": 555117, "freq": 3.98, "link_clicks": 31644, "lpv": 29026, "atc": 9914, "ic": 2759, "purch": 899.0, "rev": 166977.07, "roas": 2.78, "cpa": 66.84, "ticket": 185.74, "video_plays": 1567078, "video_p25": 131226, "video_p50": 87229, "video_p75": 62551, "video_p100": 35681, "thruplay": 103950, "hook_rate": 8.4, "hold_rate": 2.3, "date_start": "2026-09-11", "date_stop": "2026-09-17"}, "prev": {"spend": 66391.14, "impr": 2318390, "clicks": 44846, "ctr": 1.934, "cpc": 1.48, "cpm": 28.64, "reach": 619811, "freq": 3.74, "link_clicks": 35492, "lpv": 28273, "atc": 6235, "ic": 3333, "purch": 1137.0, "rev": 219147.53, "roas": 3.3, "cpa": 58.39, "ticket": 192.74, "video_plays": 1631911, "video_p25": 137667, "video_p50": 93419, "video_p75": 68714, "video_p100": 40815, "thruplay": 112459, "hook_rate": 8.4, "hold_rate": 2.5, "date_start": "2026-09-04", "date_stop": "2026-09-10"}}}, "ga4": {"cur": {"sessions": 44681, "tx": 982, "rev": 175874.12, "users": 37185}, "prev": {"sessions": 58108, "tx": 1371, "rev": 258116.12, "users": 47666}, "channels": [["Paid Social", "26448", "472", "80146.509971999985"], ["Organic Social", "11110", "202", "38129.639978"], ["Direct", "3382", "159", "30112.279992999996"], ["Email", "896", "53", "11953.849994"], ["Paid Search", "864", "45", "7402.0700029999989"], ["Organic Search", "504", "19", "2383.110009"], ["Referral", "79", "5", "1632.5400020000002"], ["Unassigned", "160", "7", "1361.189999"], ["Paid Shopping", "284", "9", "1195.9999990000001"], ["Cross-network", "337", "8", "974.709998"], ["Organic Shopping", "61", "3", "582.219997"], ["Paid Other", "83", "0", "0"], ["AI Assistant", "3", "0", "0"], ["Organic Video", "1", "0", "0"]]}, "google_ads": {"cur": [{"name": "[P][Shopping][ROAS]", "ch": "SHOPPING", "cost": 766.49, "conv": 20.0, "val": 3365.71, "clicks": 267, "impr": 20148}, {"name": "[P][Institucional]", "ch": "SEARCH", "cost": 708.46, "conv": 117.0, "val": 24645.83, "clicks": 706, "impr": 3094}, {"name": "[Remarketing] [Youtube] [Classe A]", "ch": "DEMAND_GEN", "cost": 691.97, "conv": 26.2, "val": 5149.09, "clicks": 523, "impr": 44742}, {"name": "PMax: [P][Shopping][ROAS]", "ch": "PMAX", "cost": 203.91, "conv": 8.0, "val": 891.28, "clicks": 75, "impr": 5001}, {"name": "[P][P.Max][Produtos 09/26]", "ch": "PMAX", "cost": 20.14, "conv": 1.0, "val": 131.0, "clicks": 28, "impr": 588}], "prev": [{"name": "[P][Institucional]", "ch": "SEARCH", "cost": 768.78, "conv": 196.6, "val": 42379.83, "clicks": 813, "impr": 2729}, {"name": "[P][Shopping][ROAS]", "ch": "SHOPPING", "cost": 763.45, "conv": 14.1, "val": 2267.54, "clicks": 180, "impr": 11978}, {"name": "[Remarketing] [Youtube] [Classe A]", "ch": "DEMAND_GEN", "cost": 742.11, "conv": 38.0, "val": 8174.25, "clicks": 1063, "impr": 47234}], "spend_cur": 2390.97, "spend_prev": 2274.34}, "store": {"cur": {"orders": 1040, "rev": 193315.15, "ticket": 185.88}, "prev": {"orders": 1408, "rev": 273489.57, "ticket": 194.24}}, "products": [{"name": "Kit Faixa + Fix + Touca", "units": 327, "rev": 65367.3, "prev_rev": 74162.9, "delta": -8795.6}, {"name": "Touca de Banho", "units": 433, "rev": 25936.7, "prev_rev": 33004.9, "delta": -7068.2}, {"name": "Touca de Cetim", "units": 364, "rev": 21803.6, "prev_rev": 24379.3, "delta": -2575.7}, {"name": "Kit Queridinhos - Faixa + Fix + Touca + Óleo", "units": 55, "rev": 16494.5, "prev_rev": 20993.0, "delta": -4498.5}, {"name": "Kit Nutri Frizz + Leave-in", "units": 43, "rev": 10745.7, "prev_rev": 45981.6, "delta": -35235.9}, {"name": "Spray Leave-in Multifuncional 200ml", "units": 102, "rev": 9169.8, "prev_rev": 9619.3, "delta": -449.5}, {"name": "Kit Noturno - Touca de Cetim + Óleo Capilar", "units": 46, "rev": 7815.4, "prev_rev": 6796.0, "delta": 1019.4}, {"name": "Stick Antifrizz Cera Ju Leme Hair 15g", "units": 68, "rev": 6793.2, "prev_rev": 10889.1, "delta": -4095.9}, {"name": "Bloom Oil - Óleo Capilar", "units": 51, "rev": 6114.9, "prev_rev": 9951.7, "delta": -3836.8}, {"name": "Fix Power - Fixador de cachos", "units": 52, "rev": 5194.8, "prev_rev": 5494.5, "delta": -299.7}, {"name": "Faixa Babyliss Ju Leme Hair (Lilas)", "units": 65, "rev": 3893.5, "prev_rev": 4432.6, "delta": -539.1}, {"name": "Escova Desembaraçadora Anti Frizz Soft Brush Ju Leme Hair", "units": 52, "rev": 3634.8, "prev_rev": 7828.8, "delta": -4194.0}, {"name": "Kit Nutrição Anti-Frizz Shampoo + Condicionador + Máscara", "units": 10, "rev": 2899.0, "prev_rev": 4348.5, "delta": -1449.5}, {"name": "Brinde Escova Mágica", "units": 109, "rev": 2169.1, "prev_rev": 0.0, "delta": 2169.1}, {"name": "Perfume Capilar Essence", "units": 21, "rev": 1677.9, "prev_rev": 1598.0, "delta": 79.9}, {"name": "Body Splash Melancia Edição Limitada 200 ml", "units": 19, "rev": 1328.1, "prev_rev": 1817.4, "delta": -489.3}, {"name": "Spray Leave-in Multifuncional 200ml - SALE", "units": 12, "rev": 1078.8, "prev_rev": 6113.2, "delta": -5034.4}, {"name": "Mascara Nutritiva Anti-Frizz 200g - Nutri Frizz", "units": 10, "rev": 999.0, "prev_rev": 1398.6, "delta": -399.6}, {"name": "Kit Presente", "units": 4, "rev": 799.6, "prev_rev": 999.5, "delta": -199.9}, {"name": "Condicionador Nutritivo Anti-Frizz 250ml - Nutri Frizz", "units": 8, "rev": 719.2, "prev_rev": 809.1, "delta": -89.9}, {"name": "Shampo Nutritivo Anti-Frizz 250 ml - Nutri Frizz", "units": 8, "rev": 639.2, "prev_rev": 719.1, "delta": -79.9}, {"name": "Pente Ju Leme Hair", "units": 46, "rev": 455.4, "prev_rev": 29.7, "delta": 425.7}, {"name": "Kit Flash - COMPRE KIT QUERIDINHO E GANHE TOUCA DE BANHO", "units": 1, "rev": 299.9, "prev_rev": 2399.2, "delta": -2099.3}, {"name": "Kit 2x Leave-in Multifuncional 200ml + Escova Desembaraçadora", "units": 1, "rev": 229.7, "prev_rev": 1378.2, "delta": -1148.5}, {"name": "Kit Banho + Noite - OFERTA", "units": 2, "rev": 219.8, "prev_rev": 0.0, "delta": 219.8}], "coupons": [{"code": "MADRUGADA", "orders": 19, "rev": 4376.94}, {"code": "ALANNA5", "orders": 17, "rev": 3262.56}, {"code": "LIOMARJUHAIR", "orders": 13, "rev": 3086.62}, {"code": "LUA5", "orders": 13, "rev": 2707.7}, {"code": "SUZANNA5", "orders": 8, "rev": 1597.96}, {"code": "JESSIKAJUHAIR", "orders": 4, "rev": 1093.64}, {"code": "CRISJUHAIR", "orders": 5, "rev": 966.06}, {"code": "DANIALBINO5", "orders": 3, "rev": 664.7}, {"code": "GABRIELLAJUHAIR", "orders": 1, "rev": 645.71}, {"code": "BRUNAT5", "orders": 5, "rev": 462.35}, {"code": "JULEMER5", "orders": 3, "rev": 450.2}, {"code": "BRUFAIS", "orders": 2, "rev": 429.31}, {"code": "ALEKRUG5", "orders": 1, "rev": 341.62}, {"code": "KAROLRESENDE5", "orders": 1, "rev": 340.67}, {"code": "AGNETEJUHAIR100", "orders": 1, "rev": 279.7}, {"code": "LARALAWISCH5", "orders": 1, "rev": 246.71}, {"code": "TAISJUHAIR100", "orders": 1, "rev": 203.51}, {"code": "CAMIJUHAIR", "orders": 1, "rev": 189.9}, {"code": "PAOLABORELLI5", "orders": 1, "rev": 189.9}, {"code": "JULEMEG5", "orders": 1, "rev": 189.81}, {"code": "LORENAJUHAIR", "orders": 1, "rev": 184.2}, {"code": "NATIARAMELO25", "orders": 1, "rev": 138.99}, {"code": "RUBIAJUHAIR100", "orders": 1, "rev": 112.55}, {"code": "FAISJUHAIR100", "orders": 1, "rev": 111.76}, {"code": "ALLANASANT5", "orders": 1, "rev": 104.88}, {"code": "BIAROSA100", "orders": 1, "rev": 78.34}, {"code": "VOLTEI", "orders": 1, "rev": 70.11}, {"code": "JULIANEJUHAIR100", "orders": 1, "rev": 68.36}, {"code": "ELAINEJUHAIR100", "orders": 1, "rev": 40.1}, {"code": "POLYJUHAIR100", "orders": 1, "rev": 38.98}, {"code": "PRIJUHAIR100", "orders": 1, "rev": 30.04}, {"code": "FERNANDAJUHAIR100", "orders": 1, "rev": 30.04}, {"code": "MAYNEJUHAIR100", "orders": 1, "rev": 27.49}, {"code": "LIVIAJUHAIR100", "orders": 1, "rev": 19.76}, {"code": "JUHAIREDEBORA100", "orders": 1, "rev": 19.76}, {"code": "ISADORAJUHAIR100", "orders": 1, "rev": 19.58}, {"code": "DUTRAJUHAIR100", "orders": 1, "rev": 19.58}, {"code": "BICANTARIM100", "orders": 1, "rev": 16.76}, {"code": "EDUARDAJUHAIR100", "orders": 1, "rev": 16.66}, {"code": "JGALAQUIEJUHAIR100", "orders": 1, "rev": 0.41}], "utm": [{"src": "meta", "med": "cpc", "orders": 449, "rev": 81676.5}, {"src": "(sem utm)", "med": "-", "orders": 255, "rev": 47833.98}, {"src": "Link da Bio do RD Station", "med": "social", "orders": 113, "rev": 21155.41}, {"src": "google", "med": "cpc", "orders": 88, "rev": 16066.65}, {"src": "ig", "med": "paid_social", "orders": 24, "rev": 5195.41}, {"src": "meta", "med": "01 - ADVANTAGE+", "orders": 33, "rev": 4868.36}, {"src": "RD Station", "med": "email", "orders": 19, "rev": 4341.2}, {"src": "meta", "med": "CJ01 | MADRUGADA", "orders": 10, "rev": 2336.18}, {"src": "facebook", "med": "cpc-AS-NOVA1 | Prospecção | Mulheres 18-65 BR | Advantage+ Aud", "orders": 10, "rev": 1860.25}, {"src": "instagram", "med": "story", "orders": 4, "rev": 1218.11}, {"src": "facebook", "med": "cpc-01 - ENGAJAMENTO 365D", "orders": 4, "rev": 1039.31}, {"src": "crm", "med": "Email", "orders": 4, "rev": 930.54}, {"src": "facebook", "med": "cpc-CJ2 | Kit Nutri Frizz | 29/08", "orders": 4, "rev": 904.22}, {"src": "Instagram Bio", "med": "social", "orders": 5, "rev": 796.57}, {"src": "instagram", "med": "social", "orders": 2, "rev": 530.2}], "consolidado": {"verba_total": 62479.48, "verba_total_prev": 68665.48, "meta_spend": 60088.51, "gads_spend": 2390.97, "store_rev": 193315.15, "store_rev_prev": 273489.57, "mer": 3.09, "mer_prev": 3.98, "pct_receita_midia": 32.3}, "daily": [{"date": "2026-09-11", "spend": 7624.44, "rev": 20329.17, "purch": 106.0, "roas": 2.67, "store_rev": 24626.84, "store_orders": 129}, {"date": "2026-09-12", "spend": 7359.86, "rev": 23872.51, "purch": 126.0, "roas": 3.24, "store_rev": 26256.89, "store_orders": 140}, {"date": "2026-09-13", "spend": 10743.79, "rev": 33995.79, "purch": 183.0, "roas": 3.16, "store_rev": 40290.44, "store_orders": 213}, {"date": "2026-09-14", "spend": 8294.65, "rev": 23002.1, "purch": 122.0, "roas": 2.77, "store_rev": 27282.36, "store_orders": 148}, {"date": "2026-09-15", "spend": 9901.52, "rev": 25385.14, "purch": 145.0, "roas": 2.56, "store_rev": 29960.03, "store_orders": 169}, {"date": "2026-09-16", "spend": 9481.02, "rev": 21242.65, "purch": 118.0, "roas": 2.24, "store_rev": 25251.37, "store_orders": 146}, {"date": "2026-09-17", "spend": 6723.51, "rev": 19149.71, "purch": 99.0, "roas": 2.85, "store_rev": 19647.22, "store_orders": 95}], "campaigns": [{"campaign_id": "120241512889100430", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "spend": 12225.75, "rev": 47597.0, "roas": 3.89, "purch": 215.0, "cpa": 56.86, "freq": 2.31, "ctr": 2.087, "ticket": 221.38, "prev_roas": 3.64, "prev_spend": 15094.98, "prev_rev": 54888.35, "marginal_roas": null}, {"campaign_id": "120249459695200430", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "spend": 8224.03, "rev": 22095.61, "roas": 2.69, "purch": 98.0, "cpa": 83.92, "freq": 2.61, "ctr": 1.362, "ticket": 225.47, "prev_roas": 3.09, "prev_spend": 8857.09, "prev_rev": 27351.09, "marginal_roas": null}, {"campaign_id": "120217370962380430", "campaign_name": "C9 | VENDAS | Catalogo | Prod Diversos", "spend": 6556.01, "rev": 15814.93, "roas": 2.41, "purch": 94.0, "cpa": 69.74, "freq": 3.09, "ctr": 1.914, "ticket": 168.24, "prev_roas": 3.35, "prev_spend": 7328.55, "prev_rev": 24559.61, "marginal_roas": null}, {"campaign_id": "120249702111870430", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "spend": 4935.19, "rev": 10907.5, "roas": 2.21, "purch": 57.0, "cpa": 86.58, "freq": 2.77, "ctr": 1.483, "ticket": 191.36, "prev_roas": null, "prev_spend": null, "prev_rev": null, "marginal_roas": 2.21}, {"campaign_id": "120241753446030430", "campaign_name": "C3 | VENDAS | Classe A | Prod Diversos", "spend": 4290.45, "rev": 8583.71, "roas": 2.0, "purch": 70.0, "cpa": 61.29, "freq": 1.25, "ctr": 1.585, "ticket": 122.62, "prev_roas": 3.72, "prev_spend": 4700.01, "prev_rev": 17469.3, "marginal_roas": null}, {"campaign_id": "120249420545920430", "campaign_name": "C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)", "spend": 3966.23, "rev": 10229.72, "roas": 2.58, "purch": 56.0, "cpa": 70.83, "freq": 1.65, "ctr": 1.706, "ticket": 182.67, "prev_roas": 2.95, "prev_spend": 4330.45, "prev_rev": 12764.74, "marginal_roas": null}, {"campaign_id": "120249310499730430", "campaign_name": "C10 | ASC | Vendas amplo + Advantage+", "spend": 3933.57, "rev": 8662.64, "roas": 2.2, "purch": 67.0, "cpa": 58.71, "freq": 1.3, "ctr": 1.62, "ticket": 129.29, "prev_roas": 2.72, "prev_spend": 4439.7, "prev_rev": 12079.81, "marginal_roas": null}, {"campaign_id": "120234147456870430", "campaign_name": "C8 | VENDAS | UGC + Influenciadoras", "spend": 3333.69, "rev": 7817.63, "roas": 2.35, "purch": 32.0, "cpa": 104.18, "freq": 2.02, "ctr": 1.461, "ticket": 244.3, "prev_roas": 4.34, "prev_spend": 3891.5, "prev_rev": 16890.66, "marginal_roas": null}, {"campaign_id": "120238256374900430", "campaign_name": "C7 | VENDAS | REMARKETING", "spend": 2781.95, "rev": 8214.32, "roas": 2.95, "purch": 62.0, "cpa": 44.87, "freq": 1.55, "ctr": 1.85, "ticket": 132.49, "prev_roas": 3.66, "prev_spend": 3074.85, "prev_rev": 11240.63, "marginal_roas": null}, {"campaign_id": "120249512832360430", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "spend": 2338.53, "rev": 6352.05, "roas": 2.72, "purch": 29.0, "cpa": 80.64, "freq": 2.77, "ctr": 1.304, "ticket": 219.04, "prev_roas": 4.88, "prev_spend": 2644.48, "prev_rev": 12904.21, "marginal_roas": null}, {"campaign_id": "120241680871050430", "campaign_name": "C4 | VENDAS | Touca Banho | Prod Diversos", "spend": 2336.95, "rev": 3435.54, "roas": 1.47, "purch": 32.0, "cpa": 73.03, "freq": 1.13, "ctr": 2.806, "ticket": 107.36, "prev_roas": 2.51, "prev_spend": 2534.54, "prev_rev": 6369.52, "marginal_roas": null}, {"campaign_id": "120249514866690430", "campaign_name": "C4 [lp] | VENDAS | Touca Banho | ISOLADA | 29/08", "spend": 1603.98, "rev": 4711.41, "roas": 2.94, "purch": 29.0, "cpa": 55.31, "freq": 1.21, "ctr": 2.246, "ticket": 162.46, "prev_roas": 2.2, "prev_spend": 2868.33, "prev_rev": 6321.72, "marginal_roas": null}, {"campaign_id": "120249712259930430", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "spend": 1354.34, "rev": 3964.52, "roas": 2.93, "purch": 19.0, "cpa": 71.28, "freq": 2.22, "ctr": 1.973, "ticket": 208.66, "prev_roas": null, "prev_spend": null, "prev_rev": null, "marginal_roas": 2.93}, {"campaign_id": "120243494204970430", "campaign_name": "C1 | VENDAS | BloomOil | Criativos Variados", "spend": 1310.34, "rev": 3154.65, "roas": 2.41, "purch": 16.0, "cpa": 81.9, "freq": 1.96, "ctr": 2.246, "ticket": 197.17, "prev_roas": 4.13, "prev_spend": 1432.25, "prev_rev": 5915.34, "marginal_roas": null}, {"campaign_id": "120249515753780430", "campaign_name": "CX | Madrugada", "spend": 551.53, "rev": 4096.46, "roas": 7.43, "purch": 18.0, "cpa": 30.64, "freq": 1.63, "ctr": 2.097, "ticket": 227.58, "prev_roas": 6.86, "prev_spend": 947.4, "prev_rev": 6501.87, "marginal_roas": null}, {"campaign_id": "120249681918540430", "campaign_name": "[LIVE] [11-09] venda", "spend": 345.97, "rev": 1339.38, "roas": 3.87, "purch": 5.0, "cpa": 69.19, "freq": 1.47, "ctr": 2.109, "ticket": 267.88, "prev_roas": null, "prev_spend": null, "prev_rev": null, "marginal_roas": 3.87}], "ads": [{"ad_name": "AD127 [AS21] [C9] | CAT | [CATALOGO] | Catálogo+ {cr945710}", "campaign_name": "C9 | VENDAS | Catalogo | Prod Diversos", "adset_name": "AS21 [C9] | Catálogo | Todos 18-65 BR | A+Aud", "spend": 6556.01, "rev": 15814.93, "roas": 2.41, "purch": 94.0, "cpa": 69.74, "freq": 3.09, "ctr": 1.914, "hook_rate": 3.0, "hold_rate": 0.5, "thruplay": 219, "video_plays": 9154}, {"ad_name": "AD58 [AS3] [C3] | ADV | [TOUCA-CETIM] | Touca de cetim 01 - Vídeo {cr114711}", "campaign_name": "C3 | VENDAS | Classe A | Prod Diversos", "adset_name": "AS3 [C3] | Rótulo Classe A | Mulheres 18-65 BR | A+Aud (público amplo)", "spend": 4100.48, "rev": 8139.68, "roas": 1.99, "purch": 67.0, "cpa": 61.2, "freq": 1.24, "ctr": 1.607, "hook_rate": 3.0, "hold_rate": 0.4, "thruplay": 8886, "video_plays": 212697}, {"ad_name": "AD77 [AS7] [C6] | INFL | [KIT-FAIXA] | Kit faixa - Colab Ju leme {cr489118}", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "adset_name": "AS7 [C6] | Colab Ju Leme | Mulheres 25-54 BR | A+Aud", "spend": 3986.47, "rev": 14645.06, "roas": 3.67, "purch": 65.0, "cpa": 61.33, "freq": 1.43, "ctr": 2.12, "hook_rate": 9.1, "hold_rate": 5.1, "thruplay": 13087, "video_plays": 147698}, {"ad_name": "PROSP | ADV | [TOUCA-CETIM] | ToucaCetim vídeo {cr495164}", "campaign_name": "C10 | ASC | Vendas amplo + Advantage+", "adset_name": "AS-NOVA1 | Prospecção | Mulheres 18-65 BR | Advantage+ Aud", "spend": 3571.82, "rev": 8329.03, "roas": 2.33, "purch": 64.0, "cpa": 55.81, "freq": 1.26, "ctr": 1.568, "hook_rate": 22.9, "hold_rate": 4.7, "thruplay": 6478, "video_plays": 98006}, {"ad_name": "AD78 [AS8] [C6] | INFL | [KIT-NOTURNO] | Kit noturno - colab Lua Andrade 10/06/26 {cr598406}", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "adset_name": "AS8 [C6] | Colab Lua Andrade | Mulheres 25-54 BR | A+Aud", "spend": 3073.17, "rev": 9512.36, "roas": 3.1, "purch": 44.0, "cpa": 69.84, "freq": 1.22, "ctr": 2.646, "hook_rate": 9.0, "hold_rate": 3.3, "thruplay": 9897, "video_plays": 79236}, {"ad_name": "AD93 [AS17] [C7] | ADV | [TOUCA-BANHO] | Video 01 - Chegou a touca de banho {cr779874}", "campaign_name": "C7 | VENDAS | REMARKETING", "adset_name": "AS17 [C7] | Retarget | Engaj IG 365D + Visit 180D (excl. compradores) | Todos 18-65 BR", "spend": 2602.69, "rev": 7870.77, "roas": 3.02, "purch": 60.0, "cpa": 43.38, "freq": 1.55, "ctr": 1.776, "hook_rate": 9.4, "hold_rate": 2.2, "thruplay": 2576, "video_plays": 42983}, {"ad_name": "AD82 [AS12] [C6] | INFL | [KIT-FAIXA] | Kit Faixa - Colab Fe Tumas - 29/07/2026 {cr832258}", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "adset_name": "AS12 [C6] | Colab Fe Tumas | Mulheres 25-54 BR | A+Aud", "spend": 2369.4, "rev": 10086.04, "roas": 4.26, "purch": 45.0, "cpa": 52.65, "freq": 1.44, "ctr": 1.561, "hook_rate": 5.5, "hold_rate": 1.1, "thruplay": 5073, "video_plays": 77639}, {"ad_name": "AD60 [AS4] [C4] | ADV | [TOUCA-BANHO] | Touca de Banho - Carol Castilho - 4/08 {cr329577}", "campaign_name": "C4 | VENDAS | Touca Banho | Prod Diversos", "adset_name": "AS4 [C4] | Touca Banho | Mulheres 20-56 BR | A+Aud", "spend": 2336.95, "rev": 3435.54, "roas": 1.47, "purch": 32.0, "cpa": 73.03, "freq": 1.13, "ctr": 2.806, "hook_rate": 17.7, "hold_rate": 1.5, "thruplay": 6969, "video_plays": 46961}, {"ad_name": "MATRIZ_X | ANGULO | Paula Froner {cr107026}", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "adset_name": "AS 01 - Angulo-KitFaixaFixTouca", "spend": 1640.09, "rev": 3915.27, "roas": 2.39, "purch": 19.0, "cpa": 86.32, "freq": 1.27, "ctr": 1.297, "hook_rate": 5.9, "hold_rate": 2.1, "thruplay": 3113, "video_plays": 43066}, {"ad_name": "MATRIZ_X | DSB | Alanna CPA12 {cr322323}", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "adset_name": "AS 02 - DSB-KitFaixaFixTouca", "spend": 1639.53, "rev": 3700.09, "roas": 2.26, "purch": 15.0, "cpa": 109.3, "freq": 1.86, "ctr": 0.871, "hook_rate": 3.3, "hold_rate": 0.7, "thruplay": 1609, "video_plays": 64335}, {"ad_name": "MATRIZ_X | UGC | UGC ROTINA {cr512656}", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "adset_name": "AS 04 - UGC-KitFaixaFixTouca", "spend": 1559.01, "rev": 4984.35, "roas": 3.2, "purch": 20.0, "cpa": 77.95, "freq": 1.66, "ctr": 1.28, "hook_rate": 9.4, "hold_rate": 2.5, "thruplay": 2363, "video_plays": 41630}, {"ad_name": "AD125 [AS19] [C8] | ADV | [BLOOM] | Bloom Oil Óleo Capilar ANA LIDIA 14/05 {cr491247}", "campaign_name": "C8 | VENDAS | UGC + Influenciadoras", "adset_name": "AS19 [C8] | Aberto | Mulheres 25-54 BR | A+Aud", "spend": 1524.25, "rev": 3780.33, "roas": 2.48, "purch": 15.0, "cpa": 101.62, "freq": 1.67, "ctr": 1.211, "hook_rate": 4.4, "hold_rate": 0.8, "thruplay": 2388, "video_plays": 61104}, {"ad_name": "AD02 [AS22] [C11] | ADV | [TOUCA-CETIM] | Touca de cetim 01 - Vídeo {cr114711}", "campaign_name": "C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)", "adset_name": "AS22 [C11] | ADV+ | [TOUCA-CETIM] | Mulheres 18-65 BR | A+Aud", "spend": 1313.91, "rev": 3275.9, "roas": 2.49, "purch": 22.0, "cpa": 59.72, "freq": 1.12, "ctr": 2.069, "hook_rate": 3.9, "hold_rate": 0.5, "thruplay": 3168, "video_plays": 59768}, {"ad_name": "AD15 [AS1] [C1] | ADV | [BLOOM] | CIUMES DE INDICAR - 05/06/2026 {cr766359}", "campaign_name": "C1 | VENDAS | BloomOil | Criativos Variados", "adset_name": "AS1 [C1] | Aquisição | Mulheres 18-65 BR | A+Aud", "spend": 1299.59, "rev": 3154.65, "roas": 2.43, "purch": 16.0, "cpa": 81.22, "freq": 1.96, "ctr": 2.256, "hook_rate": 8.1, "hold_rate": 2.0, "thruplay": 38, "video_plays": 544}, {"ad_name": "AD34 [AS27] [C11] | INFL | [KIT-NOTURNO] | Kit Noturno colab Vitória Jansen {cr354621}", "campaign_name": "C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)", "adset_name": "AS27 [C11] | ADV+ | [KIT-NOTURNO] | Mulheres 18-65 BR | A+Aud", "spend": 1152.6, "rev": 2206.46, "roas": 1.91, "purch": 11.0, "cpa": 104.78, "freq": 2.19, "ctr": 1.206, "hook_rate": 3.3, "hold_rate": 0.7, "thruplay": 1346, "video_plays": 43056}, {"ad_name": "V02 | Raquel | Kit Queridinhos | Conceitos", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P02 | Conceitos |  Purchase | R$200", "spend": 1144.93, "rev": 2865.08, "roas": 2.5, "purch": 17.0, "cpa": 67.35, "freq": 1.95, "ctr": 2.383, "hook_rate": 14.8, "hold_rate": 3.2, "thruplay": 135, "video_plays": 3395}, {"ad_name": "V01 | Raquel | Kit Queridinhos | Ângulos", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P01 | Ângulos | Purchase | R$200", "spend": 1071.88, "rev": 3603.17, "roas": 3.36, "purch": 16.0, "cpa": 66.99, "freq": 1.55, "ctr": 1.798, "hook_rate": 16.6, "hold_rate": 4.4, "thruplay": 1295, "video_plays": 15767}, {"ad_name": "AD23 [AS26] [C11] | INFL | [KIT-FAIXA] | Kit Faixa colab Ju Leme {cr489118}", "campaign_name": "C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)", "adset_name": "AS26 [C11] | ADV+ | [KIT-FAIXA] | Mulheres 18-65 BR | A+Aud", "spend": 1054.81, "rev": 3368.27, "roas": 3.19, "purch": 16.0, "cpa": 65.93, "freq": 1.32, "ctr": 1.854, "hook_rate": 8.4, "hold_rate": 4.4, "thruplay": 3222, "video_plays": 40247}, {"ad_name": "AD76 [AS6] [C6] | INFL | [KIT-FAIXA] | [R01] Kit Faixa - Colab Suzana - 27/05/2026 {cr598596}", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "adset_name": "AS6 [C6] | Colab Suzana | Mulheres 25-54 BR | A+Aud", "spend": 1028.06, "rev": 5328.91, "roas": 5.18, "purch": 25.0, "cpa": 41.12, "freq": 1.53, "ctr": 1.861, "hook_rate": 4.6, "hold_rate": 1.2, "thruplay": 2385, "video_plays": 42892}, {"ad_name": "MATRIZ_X | CONCEITO | Alanna Copia {cr324316}", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "adset_name": "AS 05 - Conceito-KitFaixaFixTouca", "spend": 991.31, "rev": 1000.44, "roas": 1.01, "purch": 5.0, "cpa": 198.26, "freq": 1.77, "ctr": 0.802, "hook_rate": 3.2, "hold_rate": 0.7, "thruplay": 1080, "video_plays": 43872}, {"ad_name": "MATRIZ_X | FULLFUNNEL | Dani Albino Atualiz {cr738310}", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "adset_name": "AS 03 - FullFunnel-KitFaixaFixTouca", "spend": 914.97, "rev": 3346.59, "roas": 3.66, "purch": 17.0, "cpa": 53.82, "freq": 1.36, "ctr": 2.249, "hook_rate": 10.2, "hold_rate": 5.6, "thruplay": 4823, "video_plays": 36672}, {"ad_name": "AD47 [LP] - Video -  Quem inventou essa touca — Cópia — Cópia", "campaign_name": "C4 [lp] | VENDAS | Touca Banho | ISOLADA | 29/08", "adset_name": "CJ1 | Touca de Banho | 29/06 {REVIEW}", "spend": 800.98, "rev": 2379.65, "roas": 2.97, "purch": 13.0, "cpa": 61.61, "freq": 1.14, "ctr": 2.343, "hook_rate": 12.4, "hold_rate": 2.6, "thruplay": 1819, "video_plays": 22730}, {"ad_name": "AD07 [AS23] [C11] [LP] | ADV | [TOUCA-BANHO] | Video 01 - Chegou a touca de banho {cr779874} — Cópia", "campaign_name": "C4 [lp] | VENDAS | Touca Banho | ISOLADA | 29/08", "adset_name": "CJ3 | Touca de Banho | 29/03", "spend": 799.41, "rev": 2331.76, "roas": 2.92, "purch": 16.0, "cpa": 49.96, "freq": 1.16, "ctr": 2.147, "hook_rate": 11.8, "hold_rate": 2.6, "thruplay": 1330, "video_plays": 17453}, {"ad_name": "V10 | Giovanna | Kit Queridinhos | P04 Full Funnel | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P04 | Full Funnel | Purchase | R$200", "spend": 784.36, "rev": 774.7, "roas": 0.99, "purch": 3.0, "cpa": 261.45, "freq": 1.21, "ctr": 0.912, "hook_rate": 16.5, "hold_rate": 2.2, "thruplay": 1442, "video_plays": 29959}, {"ad_name": "AD110 [AS20] [C8] | ADV | [STICK] | {PDP} LINHA ANTI-FRIZZ 23/06 {cr606874} — Cópia", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "adset_name": "CJ2 | Kit Nutri Frizz | 02/09", "spend": 776.28, "rev": 1894.12, "roas": 2.44, "purch": 12.0, "cpa": 64.69, "freq": 2.02, "ctr": 1.236, "hook_rate": 8.9, "hold_rate": 2.8, "thruplay": 40, "video_plays": 676}, {"ad_name": "ad 04-10 kit nutri frizz [atatic]01", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "adset_name": "CJ3 | Kit Nutri Frizz | 04 /09 [static]", "spend": 751.15, "rev": 2419.15, "roas": 3.22, "purch": 11.0, "cpa": 68.29, "freq": 2.09, "ctr": 1.275, "hook_rate": 0.4, "hold_rate": 0.4, "thruplay": 3, "video_plays": 255}, {"ad_name": "AD39 [AS29] [C11] | ADV | [KIT-ANTIFRIZZ] | PDP Kit Antifrizz Beatriz Clarão {cr977263}", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "adset_name": "CJ1 | Kit Nutri Frizz | 02/09", "spend": 734.7, "rev": 2038.78, "roas": 2.77, "purch": 6.0, "cpa": 122.45, "freq": 1.82, "ctr": 1.476, "hook_rate": 28.6, "hold_rate": 8.1, "thruplay": 1163, "video_plays": 14489}, {"ad_name": "MATRIZ_X | FULLFUNNEL | Ju Leme volume {cr489118}", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "adset_name": "AS 03 - FullFunnel-KitFaixaFixTouca", "spend": 733.65, "rev": 2763.91, "roas": 3.77, "purch": 10.0, "cpa": 73.36, "freq": 1.18, "ctr": 1.974, "hook_rate": 9.5, "hold_rate": 4.9, "thruplay": 2097, "video_plays": 23326}, {"ad_name": "AD116 [AS19] [C8] | ADV | [BLOOM] | {PDP} Bloom - Iris Felicio - 14/07 {cr869844}", "campaign_name": "C8 | VENDAS | UGC + Influenciadoras", "adset_name": "AS19 [C8] | Aberto | Mulheres 25-54 BR | A+Aud", "spend": 706.13, "rev": 2102.36, "roas": 2.98, "purch": 10.0, "cpa": 70.61, "freq": 1.34, "ctr": 1.773, "hook_rate": 6.1, "hold_rate": 0.9, "thruplay": 920, "video_plays": 18412}, {"ad_name": "AD101 [AS20] [C8] | ADV | [BLOOM] | {PDP} Bloom - Iris Felicio - 14/07 {cr869844}", "campaign_name": "C8 | VENDAS | UGC + Influenciadoras", "adset_name": "AS20 [C8] | Testes | Mulheres 25-54 BR | A+Aud", "spend": 669.9, "rev": 1048.09, "roas": 1.56, "purch": 4.0, "cpa": 167.47, "freq": 1.37, "ctr": 1.72, "hook_rate": 5.9, "hold_rate": 1.1, "thruplay": 833, "video_plays": 17751}, {"ad_name": "AD79 [AS9] [C6] | INFL | [KIT-FAIXA] | Kit Faixa - colab Bianca Rodrigues - 29/05/2026 {cr136366}", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "adset_name": "AS9 [C6] | Colab Bianca Rodrigues | Mulheres 25-54 BR | A+Aud", "spend": 655.92, "rev": 3007.84, "roas": 4.59, "purch": 14.0, "cpa": 46.85, "freq": 1.59, "ctr": 1.526, "hook_rate": 2.5, "hold_rate": 0.4, "thruplay": 1082, "video_plays": 27592}, {"ad_name": "MATRIZ_X | CONCEITO | PDP Lua Andrade {cr910672}", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "adset_name": "AS 05 - Conceito-KitFaixaFixTouca", "spend": 642.21, "rev": 2191.06, "roas": 3.41, "purch": 11.0, "cpa": 58.38, "freq": 1.12, "ctr": 2.387, "hook_rate": 7.4, "hold_rate": 3.4, "thruplay": 1464, "video_plays": 13719}, {"ad_name": "AD85 [AS15] [C6] | ADV | [KIT-FAIXA] | [PDP] Kit Faixa - Lua Andrade - 29/07 {cr910672}", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "adset_name": "AS15 [C6] | Colab Lua Andrade 02 | Mulheres 25-54 BR | A+Aud", "spend": 633.78, "rev": 2990.18, "roas": 4.72, "purch": 13.0, "cpa": 48.75, "freq": 1.28, "ctr": 2.016, "hook_rate": 4.9, "hold_rate": 2.2, "thruplay": 1222, "video_plays": 15833}, {"ad_name": "V12 | Giovanna | Kit Queridinhos | P05 Creator/UGC | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P05 | Creator/UGC | Purchase | R$200", "spend": 618.35, "rev": 1374.22, "roas": 2.22, "purch": 6.0, "cpa": 103.06, "freq": 1.39, "ctr": 1.052, "hook_rate": 7.5, "hold_rate": 1.7, "thruplay": 747, "video_plays": 16530}, {"ad_name": "C20 | P02 | Imagem do Codex 9 de set. de 2026, 09_07_04", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "spend": 539.6, "rev": 1591.79, "roas": 2.95, "purch": 7.0, "cpa": 77.09, "freq": 1.77, "ctr": 2.091, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "AD - Madrugada", "campaign_name": "CX | Madrugada", "adset_name": "CJ01 | MADRUGADA", "spend": 534.82, "rev": 4096.46, "roas": 7.66, "purch": 18.0, "cpa": 29.71, "freq": 1.6, "ctr": 2.035, "hook_rate": 0.0, "hold_rate": 0.0, "thruplay": 0, "video_plays": 63}, {"ad_name": "V08 | Giovanna | Kit Queridinhos | P03 DSB | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P03 | DSB | Purchase | R$200", "spend": 524.73, "rev": 818.48, "roas": 1.56, "purch": 5.0, "cpa": 104.95, "freq": 1.39, "ctr": 0.966, "hook_rate": 16.1, "hold_rate": 2.7, "thruplay": 912, "video_plays": 19781}, {"ad_name": "AD86 [AS16] [C6] | INFL | [KIT-NUTRI] | [AD CODE] Colab Lua Andrade - 14/08 {cr665106}", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "adset_name": "AS16 [C6] | Colab Lua Andrade 03 | Mulheres 25-54 BR | A+Aud", "spend": 478.95, "rev": 1789.21, "roas": 3.74, "purch": 8.0, "cpa": 59.87, "freq": 1.41, "ctr": 3.095, "hook_rate": 11.6, "hold_rate": 2.4, "thruplay": 2244, "video_plays": 15681}, {"ad_name": "C20 | Vídeo | React", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P01 | Advantage+ | Brasil | Purchase | Vídeos", "spend": 459.21, "rev": 1704.04, "roas": 3.71, "purch": 9.0, "cpa": 51.02, "freq": 1.26, "ctr": 2.09, "hook_rate": 13.2, "hold_rate": 3.0, "thruplay": 2481, "video_plays": 19917}, {"ad_name": "Novo anúncio de Vendas", "campaign_name": "[LIVE] [11-09] venda", "adset_name": "Novo conjunto de anúncios de Vendas", "spend": 345.97, "rev": 1339.38, "roas": 3.87, "purch": 5.0, "cpa": 69.19, "freq": 1.47, "ctr": 2.109, "hook_rate": 0.0, "hold_rate": 0.0, "thruplay": 204, "video_plays": 6589}, {"ad_name": "V07 | Arathy | Kit Queridinhos | P03 DSB | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P03 | DSB | Purchase | R$200", "spend": 300.39, "rev": 199.9, "roas": 0.67, "purch": 1.0, "cpa": 300.39, "freq": 1.39, "ctr": 1.052, "hook_rate": 12.3, "hold_rate": 2.3, "thruplay": 324, "video_plays": 10133}, {"ad_name": "C20 | P02 | Ad 02 - Storie - Lançamento - LeaveIn - 0909", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "spend": 237.0, "rev": 429.7, "roas": 1.81, "purch": 1.0, "cpa": 237.0, "freq": 1.43, "ctr": 1.527, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "V11 | Arathy | Kit Queridinhos | P05 Creator/UGC | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P05 | Creator/UGC | Purchase | R$200", "spend": 231.0, "rev": 362.2, "roas": 1.57, "purch": 2.0, "cpa": 115.5, "freq": 1.2, "ctr": 1.044, "hook_rate": 15.1, "hold_rate": 2.5, "thruplay": 224, "video_plays": 7195}, {"ad_name": "AD22 [AS26] [C11] | INFL | [KIT-FAIXA] | Kit Faixa colab Fe Tumas {cr832258}", "campaign_name": "C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)", "adset_name": "AS26 [C11] | ADV+ | [KIT-FAIXA] | Mulheres 18-65 BR | A+Aud", "spend": 228.98, "rev": 669.58, "roas": 2.92, "purch": 3.0, "cpa": 76.33, "freq": 1.2, "ctr": 1.576, "hook_rate": 5.3, "hold_rate": 1.2, "thruplay": 499, "video_plays": 8004}, {"ad_name": "PROSP | ADV | [test $ 04-09] [TOUCA-BANHO] | ToucaBanho vídeo {cr779874}", "campaign_name": "C10 | ASC | Vendas amplo + Advantage+", "adset_name": "AS-NOVA1 | Prospecção | Mulheres 18-65 BR | Advantage+ Aud", "spend": 217.2, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.18, "ctr": 2.341, "hook_rate": 6.2, "hold_rate": 1.4, "thruplay": 214, "video_plays": 3313}, {"ad_name": "AD114 [AS19] [C8] | ADV | [BLOOM] | [PDP] Bloom Oil - Carol Lourenço - 27/07 {cr720052}", "campaign_name": "C8 | VENDAS | UGC + Influenciadoras", "adset_name": "AS19 [C8] | Aberto | Mulheres 25-54 BR | A+Aud", "spend": 187.67, "rev": 636.95, "roas": 3.39, "purch": 2.0, "cpa": 93.83, "freq": 1.39, "ctr": 1.639, "hook_rate": 3.4, "hold_rate": 0.6, "thruplay": 136, "video_plays": 4021}, {"ad_name": "AD46 [AS3] [C3] [ test $ 04-09] | INFL | [KIT-FAIXA] | COLAB ALANNA - 06/04/2026 {cr322323}", "campaign_name": "C3 | VENDAS | Classe A | Prod Diversos", "adset_name": "AS3 [C3] | Rótulo Classe A | Mulheres 18-65 BR | A+Aud (público amplo)", "spend": 172.82, "rev": 444.03, "roas": 2.57, "purch": 3.0, "cpa": 57.61, "freq": 1.13, "ctr": 0.883, "hook_rate": 3.9, "hold_rate": 1.0, "thruplay": 220, "video_plays": 7088}, {"ad_name": "AD33 [AS27] [C11] | INFL | [KIT-NOTURNO] | Kit noturno colab Beatriz Dias {cr101458}", "campaign_name": "C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)", "adset_name": "AS27 [C11] | ADV+ | [KIT-NOTURNO] | Mulheres 18-65 BR | A+Aud", "spend": 160.39, "rev": 509.61, "roas": 3.18, "purch": 3.0, "cpa": 53.46, "freq": 1.8, "ctr": 1.082, "hook_rate": 4.5, "hold_rate": 0.9, "thruplay": 300, "video_plays": 8943}, {"ad_name": "AD92 [AS17] [C7] | CAT | [MARCA] | [CAT] MOSTRANDO ENVIO - 11/06/26 {cr385533}", "campaign_name": "C7 | VENDAS | REMARKETING", "adset_name": "AS17 [C7] | Retarget | Engaj IG 365D + Visit 180D (excl. compradores) | Todos 18-65 BR", "spend": 153.56, "rev": 343.55, "roas": 2.24, "purch": 2.0, "cpa": 76.78, "freq": 1.24, "ctr": 3.168, "hook_rate": 15.4, "hold_rate": 7.5, "thruplay": 574, "video_plays": 4325}, {"ad_name": "PROSP | CAT | [CATALOGO] | Catálogo+ {cr945710}", "campaign_name": "C10 | ASC | Vendas amplo + Advantage+", "adset_name": "AS-NOVA1 | Prospecção | Mulheres 18-65 BR | Advantage+ Aud", "spend": 143.12, "rev": 333.61, "roas": 2.33, "purch": 3.0, "cpa": 47.71, "freq": 1.47, "ctr": 2.202, "hook_rate": 1.8, "hold_rate": 0.0, "thruplay": 2, "video_plays": 166}, {"ad_name": "V03 | Arathy | Kit Queridinho | Angulos", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P01 | Ângulos | Purchase | R$200", "spend": 124.58, "rev": 798.67, "roas": 6.41, "purch": 6.0, "cpa": 20.76, "freq": 1.34, "ctr": 2.101, "hook_rate": 8.9, "hold_rate": 1.5, "thruplay": 21, "video_plays": 740}, {"ad_name": "AD100 [AS20] [C8] | ADV | [BLOOM] | {PDP} Bloom - Flavia Santana - 14/07 {cr641634}", "campaign_name": "C8 | VENDAS | UGC + Influenciadoras", "adset_name": "AS20 [C8] | Testes | Mulheres 25-54 BR | A+Aud", "spend": 102.61, "rev": 249.9, "roas": 2.44, "purch": 1.0, "cpa": 102.61, "freq": 1.34, "ctr": 1.447, "hook_rate": 5.6, "hold_rate": 0.8, "thruplay": 76, "video_plays": 2070}, {"ad_name": "C20 | Vídeos + Estáticos | Lançamento Leave-in", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P01 | Advantage+ | Brasil | Purchase | Vídeos", "spend": 93.56, "rev": 238.99, "roas": 2.55, "purch": 2.0, "cpa": 46.78, "freq": 1.2, "ctr": 1.682, "hook_rate": 14.6, "hold_rate": 2.7, "thruplay": 335, "video_plays": 3860}, {"ad_name": "MATRIZ_X | UGC | KIT UGC {cr787626}", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "adset_name": "AS 04 - UGC-KitFaixaFixTouca", "spend": 76.98, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.15, "ctr": 2.468, "hook_rate": 6.8, "hold_rate": 1.8, "thruplay": 116, "video_plays": 1586}, {"ad_name": "AD35 [AS28] [C11] | ADV | [KIT-NUTRI] | PDP Kit Nutrifrizz Karol Almeida {cr840660} — Cópia", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "adset_name": "CJ1 | Kit Nutri Frizz | 02/09", "spend": 76.4, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.5, "ctr": 2.189, "hook_rate": 4.0, "hold_rate": 1.4, "thruplay": 40, "video_plays": 999}, {"ad_name": "AD119 [AS19] [C8] | ADV | [BLOOM] | [PDP] Beatriz Clarão 02 - 14/07 {cr990689}", "campaign_name": "C8 | VENDAS | UGC + Influenciadoras", "adset_name": "AS19 [C8] | Aberto | Mulheres 25-54 BR | A+Aud", "spend": 70.89, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.3, "ctr": 2.709, "hook_rate": 9.3, "hold_rate": 0.9, "thruplay": 155, "video_plays": 2238}, {"ad_name": "AD21 [AS26] [C11] | INFL | [KIT-FAIXA] | Kit Faixa colab Bianca Rodrigues {cr136366}", "campaign_name": "C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)", "adset_name": "AS26 [C11] | ADV+ | [KIT-FAIXA] | Mulheres 18-65 BR | A+Aud", "spend": 52.87, "rev": 199.9, "roas": 3.78, "purch": 1.0, "cpa": 52.87, "freq": 1.15, "ctr": 1.829, "hook_rate": 2.2, "hold_rate": 0.3, "thruplay": 77, "video_plays": 2298}, {"ad_name": "V05 | Arathy | Kit Queridinhos | P02 Conceitos | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P02 | Conceitos |  Purchase | R$200", "spend": 52.85, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.07, "ctr": 0.631, "hook_rate": 14.1, "hold_rate": 2.9, "thruplay": 62, "video_plays": 1350}, {"ad_name": "V09 | Arathy | Kit Queridinhos | P04 Full Funnel | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P04 | Full Funnel | Purchase | R$200", "spend": 52.67, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.14, "ctr": 0.958, "hook_rate": 11.5, "hold_rate": 2.4, "thruplay": 57, "video_plays": 1645}, {"ad_name": "AD117 [AS19] [C8] | ADV | [BLOOM] | {PDP} Bloom - Flavia Santana - 14/07 {cr641634}", "campaign_name": "C8 | VENDAS | UGC + Influenciadoras", "adset_name": "AS19 [C8] | Aberto | Mulheres 25-54 BR | A+Aud", "spend": 38.04, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.21, "ctr": 1.976, "hook_rate": 9.8, "hold_rate": 1.7, "thruplay": 73, "video_plays": 1012}, {"ad_name": "AD120 [AS19] [C8] | ADV | [BLOOM] | BLOOM OIL DUDA 23/06 {cr234669}", "campaign_name": "C8 | VENDAS | UGC + Influenciadoras", "adset_name": "AS19 [C8] | Aberto | Mulheres 25-54 BR | A+Aud", "spend": 26.21, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.22, "ctr": 0.53, "hook_rate": 6.8, "hold_rate": 0.7, "thruplay": 24, "video_plays": 731}, {"ad_name": "AD94 [AS17] [C7] | CAT | [MARCA] | [CAT] [test $ 04-09]EMBALANDO PEDIDO - 11/06/26 {cr453852}", "campaign_name": "C7 | VENDAS | REMARKETING", "adset_name": "AS17 [C7] | Retarget | Engaj IG 365D + Visit 180D (excl. compradores) | Todos 18-65 BR", "spend": 24.35, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.14, "ctr": 2.162, "hook_rate": 15.6, "hold_rate": 9.3, "thruplay": 108, "video_plays": 852}, {"ad_name": "MATRIZ_X | DSB | Jennifer Delfini PDP {cr226307}", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "adset_name": "AS 02 - DSB-KitFaixaFixTouca", "spend": 23.39, "rev": 193.9, "roas": 8.29, "purch": 1.0, "cpa": 23.39, "freq": 1.32, "ctr": 1.524, "hook_rate": 4.7, "hold_rate": 1.4, "thruplay": 50, "video_plays": 1082}, {"ad_name": "V06 | Giovanna | Kit Queridinhos | P02 Conceitos | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P02 | Conceitos |  Purchase | R$200", "spend": 18.4, "rev": 111.08, "roas": 6.04, "purch": 1.0, "cpa": 18.4, "freq": 1.12, "ctr": 0.478, "hook_rate": 19.4, "hold_rate": 1.8, "thruplay": 11, "video_plays": 392}, {"ad_name": "AD - Madruga 10", "campaign_name": "CX | Madrugada", "adset_name": "CJ01 | MADRUGADA", "spend": 16.71, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.19, "ctr": 4.878, "hook_rate": 0.0, "hold_rate": 0.0, "thruplay": 0, "video_plays": 15}, {"ad_name": "AD44 [AS3] [C3] | CAT | [MARCA] | [CAT] MOSTRANDO ENVIO - 11/06/26 {cr385533}", "campaign_name": "C3 | VENDAS | Classe A | Prod Diversos", "adset_name": "AS3 [C3] | Rótulo Classe A | Mulheres 18-65 BR | A+Aud (público amplo)", "spend": 12.78, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.04, "ctr": 2.479, "hook_rate": 15.7, "hold_rate": 7.8, "thruplay": 51, "video_plays": 345}, {"ad_name": "AD109 [AS20] [C8] | ADV | [BLOOM] | [PDP] Bloom Oil - Carol Lourenço - 27/07 {cr720052}", "campaign_name": "C8 | VENDAS | UGC + Influenciadoras", "adset_name": "AS20 [C8] | Testes | Mulheres 25-54 BR | A+Aud", "spend": 7.99, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.05, "ctr": 0.725, "hook_rate": 4.7, "hold_rate": 0.8, "thruplay": 5, "video_plays": 129}, {"ad_name": "V04 | Giovanna | Kit Queridinhos | P01 Ângulos | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P01 | Ângulos | Purchase | R$200", "spend": 7.57, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.1, "ctr": 0.495, "hook_rate": 15.6, "hold_rate": 2.7, "thruplay": 17, "video_plays": 186}, {"ad_name": "AD7 [AS1] [C1] | ADV | [BLOOM] | BLOOM OIL dudapiassi 23/06 {cr182076}", "campaign_name": "C1 | VENDAS | BloomOil | Criativos Variados", "adset_name": "AS1 [C1] | Aquisição | Mulheres 18-65 BR | A+Aud", "spend": 6.29, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.14, "ctr": 1.618, "hook_rate": 3.7, "hold_rate": 0.3, "thruplay": 4, "video_plays": 299}, {"ad_name": "C20 | P02 | Ad 02 - Feed - Lançamento - LeaveIn - 0909", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "spend": 6.07, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.09, "ctr": 0.529, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "C20 | Vídeo | Tela dividida", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P01 | Advantage+ | Brasil | Purchase | Vídeos", "spend": 5.61, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.08, "ctr": 1.293, "hook_rate": 10.0, "hold_rate": 2.3, "thruplay": 15, "video_plays": 219}, {"ad_name": "C20 | P02 | Ad 01 - Storie - Lançamento - LeaveIn - 0909", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "spend": 5.26, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.09, "ctr": 1.887, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "V03 | Arathy | Kit Queridinhos | P01 Ângulos | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P01 | Ângulos | Purchase | R$200", "spend": 3.48, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.03, "ctr": 1.081, "hook_rate": 12.4, "hold_rate": 1.2, "thruplay": 9, "video_plays": 170}, {"ad_name": "AD54 [AS3] [C3] | ADV | [TOUCA-CETIM] | Vídeo - Touca de Cetim - 22/04/2026 {cr495164}", "campaign_name": "C3 | VENDAS | Classe A | Prod Diversos", "adset_name": "AS3 [C3] | Rótulo Classe A | Mulheres 18-65 BR | A+Aud (público amplo)", "spend": 3.46, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.0, "ctr": 0.0, "hook_rate": 28.8, "hold_rate": 2.9, "thruplay": 6, "video_plays": 104}, {"ad_name": "C20 | Vídeo | ASMR", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P01 | Advantage+ | Brasil | Purchase | Vídeos", "spend": 3.33, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.01, "ctr": 1.13, "hook_rate": 10.5, "hold_rate": 2.9, "thruplay": 16, "video_plays": 171}, {"ad_name": "ADV - [LP] PROMETE NÃO MOLHAR TOUCA DE BANHO (2) 13/05 — Cópia — Cópia", "campaign_name": "C4 [lp] | VENDAS | Touca Banho | ISOLADA | 29/08", "adset_name": "CJ1 | Touca de Banho | 29/06 {REVIEW}", "spend": 3.29, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.06, "ctr": 1.389, "hook_rate": 16.4, "hold_rate": 3.0, "thruplay": 8, "video_plays": 67}, {"ad_name": "AD16 [AS1] [C1] | ADV | [BLOOM] | Bloom Oil Você Sabia - 06/05/2025 {cr701776}", "campaign_name": "C1 | VENDAS | BloomOil | Criativos Variados", "adset_name": "AS1 [C1] | Aquisição | Mulheres 18-65 BR | A+Aud", "spend": 3.06, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.07, "ctr": 0.0, "hook_rate": 5.7, "hold_rate": 0.0, "thruplay": 3, "video_plays": 88}, {"ad_name": "MATRIZ_X | FULLFUNNEL | Suzana R01 {cr598596}", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "adset_name": "AS 03 - FullFunnel-KitFaixaFixTouca", "spend": 2.87, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.06, "ctr": 0.0, "hook_rate": 1.7, "hold_rate": 0.9, "thruplay": 2, "video_plays": 115}, {"ad_name": "C20 | P02 | Ad 03 - Storie- Lançamento - LeaveIn - 0909", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "spend": 2.44, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.04, "ctr": 0.99, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "AD01 [AS22] [C11] | ADV | [TOUCA-CETIM] | Vídeo - Touca de Cetim {cr495164}", "campaign_name": "C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)", "adset_name": "AS22 [C11] | ADV+ | [TOUCA-CETIM] | Mulheres 18-65 BR | A+Aud", "spend": 2.24, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.0, "ctr": 6.522, "hook_rate": 30.2, "hold_rate": 2.3, "thruplay": 3, "video_plays": 43}, {"ad_name": "C20 | P02 | Ad 03 - Feed - Lançamento - LeaveIn - 0909", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "spend": 1.66, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.23, "ctr": 0.0, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "PROSP | INFL | [KIT-FAIXA] | Kit Faixa Fe Tumas {cr832258}", "campaign_name": "C10 | ASC | Vendas amplo + Advantage+", "adset_name": "AS-NOVA1 | Prospecção | Mulheres 18-65 BR | Advantage+ Aud", "spend": 1.43, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.0, "ctr": 1.818, "hook_rate": 5.6, "hold_rate": 1.9, "thruplay": 4, "video_plays": 54}, {"ad_name": "AD8 [AS1] [C1] | ADV | [BLOOM] | {PDP} BLOOM OIL 23/06 {cr115370}", "campaign_name": "C1 | VENDAS | BloomOil | Criativos Variados", "adset_name": "AS1 [C1] | Aquisição | Mulheres 18-65 BR | A+Aud", "spend": 1.4, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.06, "ctr": 0.0, "hook_rate": 5.1, "hold_rate": 2.6, "thruplay": 2, "video_plays": 39}, {"ad_name": "AD95 [AS17] [C7] | CAT | [MARCA] | [CAT] EXPEDIÇÃO JU LEME - 11/06/26 {cr739278}", "campaign_name": "C7 | VENDAS | REMARKETING", "adset_name": "AS17 [C7] | Retarget | Engaj IG 365D + Visit 180D (excl. compradores) | Todos 18-65 BR", "spend": 1.1, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.03, "ctr": 8.571, "hook_rate": 12.1, "hold_rate": 9.1, "thruplay": 4, "video_plays": 33}, {"ad_name": "ADV - COLAB SUZANE - 06/04/2026", "campaign_name": "C3 | VENDAS | Classe A | Prod Diversos", "adset_name": "AS3 [C3] | Rótulo Classe A | Mulheres 18-65 BR | A+Aud (público amplo)", "spend": 0.91, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.11, "ctr": 1.471, "hook_rate": 1.6, "hold_rate": 0.0, "thruplay": 2, "video_plays": 63}, {"ad_name": "C20 | P02 | Ad 01 - Feed - Lançamento - LeaveIn - 0909", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "spend": 0.6, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.0, "ctr": 4.348, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "AD25 [AS26] [C11] | ADV | [KIT-FAIXA] | PDP Kit Faixa Lua Andrade {cr910672}", "campaign_name": "C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)", "adset_name": "AS26 [C11] | ADV+ | [KIT-FAIXA] | Mulheres 18-65 BR | A+Aud", "spend": 0.33, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.0, "ctr": 0.0, "hook_rate": 0.0, "hold_rate": 0.0, "thruplay": 0, "video_plays": 16}, {"ad_name": "[LP] UCG Vídeo - Estilo de video da Ju — Cópia — Cópia — Cópia", "campaign_name": "C4 [lp] | VENDAS | Touca Banho | ISOLADA | 29/08", "adset_name": "CJ4 | Touca de Banho | 02/09", "spend": 0.3, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.0, "ctr": 14.286, "hook_rate": 0.0, "hold_rate": 0.0, "thruplay": 0, "video_plays": 7}, {"ad_name": "AD89 [AS17] [C7] | DEPO | [FIX] | Avaliação Fix Power - 29/07 {cr108583}", "campaign_name": "C7 | VENDAS | REMARKETING", "adset_name": "AS17 [C7] | Retarget | Engaj IG 365D + Visit 180D (excl. compradores) | Todos 18-65 BR", "spend": 0.17, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.0, "ctr": 0.0, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "AD03 [AS22] [C11] | UGC | [TOUCA-CETIM] | UGC Fernanda Rezende {cr029933}", "campaign_name": "C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)", "adset_name": "AS22 [C11] | ADV+ | [TOUCA-CETIM] | Mulheres 18-65 BR | A+Aud", "spend": 0.1, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.0, "ctr": 0.0, "hook_rate": 0.0, "hold_rate": 0.0, "thruplay": 0, "video_plays": 2}, {"ad_name": "AD91 [AS17] [C7] | DEPO | [BLOOM] | Avaliação Bloom Oil - 29/07 {cr960051}", "campaign_name": "C7 | VENDAS | REMARKETING", "adset_name": "AS17 [C7] | Retarget | Engaj IG 365D + Visit 180D (excl. compradores) | Todos 18-65 BR", "spend": 0.04, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.0, "ctr": 0.0, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "MATRIZ_X | ANGULO | KIT CACHOS JOVEM {cr213334}", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "adset_name": "AS 01 - Angulo-KitFaixaFixTouca", "spend": 0.02, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.0, "ctr": 0.0, "hook_rate": 0.0, "hold_rate": 0.0, "thruplay": 0, "video_plays": 1}, {"ad_name": "AD90 [AS17] [C7] | DEPO | [KIT-NUTRI] | Avaliação Kit Nutrição - 29/07 {cr894967}", "campaign_name": "C7 | VENDAS | REMARKETING", "adset_name": "AS17 [C7] | Retarget | Engaj IG 365D + Visit 180D (excl. compradores) | Todos 18-65 BR", "spend": 0.01, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 2.0, "ctr": 0.0, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}], "adsets": [{"adset_name": "AS21 [C9] | Catálogo | Todos 18-65 BR | A+Aud", "campaign_name": "C9 | VENDAS | Catalogo | Prod Diversos", "campaign_id": "120217370962380430", "spend": 6556.01, "rev": 15814.93, "roas": 2.41, "purch": 94.0, "cpa": 69.74, "freq": 3.09, "ctr": 1.914}, {"adset_name": "AS3 [C3] | Rótulo Classe A | Mulheres 18-65 BR | A+Aud (público amplo)", "campaign_name": "C3 | VENDAS | Classe A | Prod Diversos", "campaign_id": "120241753446030430", "spend": 4290.45, "rev": 8583.71, "roas": 2.0, "purch": 70.0, "cpa": 61.29, "freq": 1.25, "ctr": 1.585}, {"adset_name": "AS7 [C6] | Colab Ju Leme | Mulheres 25-54 BR | A+Aud", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "campaign_id": "120241512889100430", "spend": 3986.47, "rev": 14645.06, "roas": 3.67, "purch": 65.0, "cpa": 61.33, "freq": 1.43, "ctr": 2.12}, {"adset_name": "AS-NOVA1 | Prospecção | Mulheres 18-65 BR | Advantage+ Aud", "campaign_name": "C10 | ASC | Vendas amplo + Advantage+", "campaign_id": "120249310499730430", "spend": 3933.57, "rev": 8662.64, "roas": 2.2, "purch": 67.0, "cpa": 58.71, "freq": 1.3, "ctr": 1.62}, {"adset_name": "AS8 [C6] | Colab Lua Andrade | Mulheres 25-54 BR | A+Aud", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "campaign_id": "120241512889100430", "spend": 3073.17, "rev": 9512.36, "roas": 3.1, "purch": 44.0, "cpa": 69.84, "freq": 1.22, "ctr": 2.646}, {"adset_name": "AS17 [C7] | Retarget | Engaj IG 365D + Visit 180D (excl. compradores) | Todos 18-65 BR", "campaign_name": "C7 | VENDAS | REMARKETING", "campaign_id": "120238256374900430", "spend": 2781.95, "rev": 8214.32, "roas": 2.95, "purch": 62.0, "cpa": 44.87, "freq": 1.55, "ctr": 1.85}, {"adset_name": "AS19 [C8] | Aberto | Mulheres 25-54 BR | A+Aud", "campaign_name": "C8 | VENDAS | UGC + Influenciadoras", "campaign_id": "120234147456870430", "spend": 2553.19, "rev": 6519.64, "roas": 2.55, "purch": 27.0, "cpa": 94.56, "freq": 1.93, "ctr": 1.407}, {"adset_name": "AS12 [C6] | Colab Fe Tumas | Mulheres 25-54 BR | A+Aud", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "campaign_id": "120241512889100430", "spend": 2369.4, "rev": 10086.04, "roas": 4.26, "purch": 45.0, "cpa": 52.65, "freq": 1.44, "ctr": 1.561}, {"adset_name": "AS4 [C4] | Touca Banho | Mulheres 20-56 BR | A+Aud", "campaign_name": "C4 | VENDAS | Touca Banho | Prod Diversos", "campaign_id": "120241680871050430", "spend": 2336.95, "rev": 3435.54, "roas": 1.47, "purch": 32.0, "cpa": 73.03, "freq": 1.13, "ctr": 2.806}, {"adset_name": "AS 02 - DSB-KitFaixaFixTouca", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "campaign_id": "120249459695200430", "spend": 1662.92, "rev": 3893.99, "roas": 2.34, "purch": 16.0, "cpa": 103.93, "freq": 1.88, "ctr": 0.882}, {"adset_name": "AS 03 - FullFunnel-KitFaixaFixTouca", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "campaign_id": "120249459695200430", "spend": 1651.49, "rev": 6110.5, "roas": 3.7, "purch": 27.0, "cpa": 61.17, "freq": 1.46, "ctr": 2.138}, {"adset_name": "AS 01 - Angulo-KitFaixaFixTouca", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "campaign_id": "120249459695200430", "spend": 1640.11, "rev": 3915.27, "roas": 2.39, "purch": 19.0, "cpa": 86.32, "freq": 1.27, "ctr": 1.297}, {"adset_name": "AS 04 - UGC-KitFaixaFixTouca", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "campaign_id": "120249459695200430", "spend": 1635.99, "rev": 4984.35, "roas": 3.05, "purch": 20.0, "cpa": 81.8, "freq": 1.69, "ctr": 1.322}, {"adset_name": "AS 05 - Conceito-KitFaixaFixTouca", "campaign_name": "C14 I VENDA I KitFaixa I Matriz X -Ago26", "campaign_id": "120249459695200430", "spend": 1633.52, "rev": 3191.5, "roas": 1.95, "purch": 16.0, "cpa": 102.09, "freq": 1.65, "ctr": 1.181}, {"adset_name": "AS26 [C11] | ADV+ | [KIT-FAIXA] | Mulheres 18-65 BR | A+Aud", "campaign_name": "C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)", "campaign_id": "120249420545920430", "spend": 1336.99, "rev": 4237.75, "roas": 3.17, "purch": 20.0, "cpa": 66.85, "freq": 1.38, "ctr": 1.809}, {"adset_name": "AS22 [C11] | ADV+ | [TOUCA-CETIM] | Mulheres 18-65 BR | A+Aud", "campaign_name": "C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)", "campaign_id": "120249420545920430", "spend": 1316.25, "rev": 3275.9, "roas": 2.49, "purch": 22.0, "cpa": 59.83, "freq": 1.12, "ctr": 2.073}, {"adset_name": "AS27 [C11] | ADV+ | [KIT-NOTURNO] | Mulheres 18-65 BR | A+Aud", "campaign_name": "C11 | TESTE DIH | Test Suite por Produto (ADV+ ASC)", "campaign_id": "120249420545920430", "spend": 1312.99, "rev": 2716.07, "roas": 2.07, "purch": 14.0, "cpa": 93.78, "freq": 2.47, "ctr": 1.186}, {"adset_name": "AS1 [C1] | Aquisição | Mulheres 18-65 BR | A+Aud", "campaign_name": "C1 | VENDAS | BloomOil | Criativos Variados", "campaign_id": "120243494204970430", "spend": 1310.34, "rev": 3154.65, "roas": 2.41, "purch": 16.0, "cpa": 81.9, "freq": 1.96, "ctr": 2.246}, {"adset_name": "P02 | Conceitos |  Purchase | R$200", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "campaign_id": "120249702111870430", "spend": 1216.18, "rev": 2976.16, "roas": 2.45, "purch": 18.0, "cpa": 67.57, "freq": 1.99, "ctr": 2.298}, {"adset_name": "P01 | Ângulos | Purchase | R$200", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "campaign_id": "120249702111870430", "spend": 1207.51, "rev": 4401.84, "roas": 3.65, "purch": 22.0, "cpa": 54.89, "freq": 1.65, "ctr": 1.818}, {"adset_name": "AS6 [C6] | Colab Suzana | Mulheres 25-54 BR | A+Aud", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "campaign_id": "120241512889100430", "spend": 1028.06, "rev": 5328.91, "roas": 5.18, "purch": 25.0, "cpa": 41.12, "freq": 1.53, "ctr": 1.861}, {"adset_name": "P05 | Creator/UGC | Purchase | R$200", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "campaign_id": "120249702111870430", "spend": 849.35, "rev": 1736.42, "roas": 2.04, "purch": 8.0, "cpa": 106.17, "freq": 1.49, "ctr": 1.05}, {"adset_name": "P04 | Full Funnel | Purchase | R$200", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "campaign_id": "120249702111870430", "spend": 837.03, "rev": 774.7, "roas": 0.93, "purch": 3.0, "cpa": 279.01, "freq": 1.24, "ctr": 0.914}, {"adset_name": "P03 | DSB | Purchase | R$200", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "campaign_id": "120249702111870430", "spend": 825.12, "rev": 1018.38, "roas": 1.23, "purch": 6.0, "cpa": 137.52, "freq": 1.65, "ctr": 0.995}, {"adset_name": "CJ1 | Kit Nutri Frizz | 02/09", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "campaign_id": "120249512832360430", "spend": 811.1, "rev": 2038.78, "roas": 2.51, "purch": 6.0, "cpa": 135.18, "freq": 1.92, "ctr": 1.525}, {"adset_name": "CJ1 | Touca de Banho | 29/06 {REVIEW}", "campaign_name": "C4 [lp] | VENDAS | Touca Banho | ISOLADA | 29/08", "campaign_id": "120249514866690430", "spend": 804.27, "rev": 2379.65, "roas": 2.96, "purch": 13.0, "cpa": 61.87, "freq": 1.14, "ctr": 2.34}, {"adset_name": "CJ3 | Touca de Banho | 29/03", "campaign_name": "C4 [lp] | VENDAS | Touca Banho | ISOLADA | 29/08", "campaign_id": "120249514866690430", "spend": 799.41, "rev": 2331.76, "roas": 2.92, "purch": 16.0, "cpa": 49.96, "freq": 1.16, "ctr": 2.147}, {"adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "campaign_id": "120249712259930430", "spend": 792.63, "rev": 2021.49, "roas": 2.55, "purch": 8.0, "cpa": 99.08, "freq": 2.13, "ctr": 1.947}, {"adset_name": "AS20 [C8] | Testes | Mulheres 25-54 BR | A+Aud", "campaign_name": "C8 | VENDAS | UGC + Influenciadoras", "campaign_id": "120234147456870430", "spend": 780.5, "rev": 1297.99, "roas": 1.66, "purch": 5.0, "cpa": 156.1, "freq": 1.47, "ctr": 1.687}, {"adset_name": "CJ2 | Kit Nutri Frizz | 02/09", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "campaign_id": "120249512832360430", "spend": 776.28, "rev": 1894.12, "roas": 2.44, "purch": 12.0, "cpa": 64.69, "freq": 2.02, "ctr": 1.236}, {"adset_name": "CJ3 | Kit Nutri Frizz | 04 /09 [static]", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "campaign_id": "120249512832360430", "spend": 751.15, "rev": 2419.15, "roas": 3.22, "purch": 11.0, "cpa": 68.29, "freq": 2.09, "ctr": 1.275}, {"adset_name": "AS9 [C6] | Colab Bianca Rodrigues | Mulheres 25-54 BR | A+Aud", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "campaign_id": "120241512889100430", "spend": 655.92, "rev": 3007.84, "roas": 4.59, "purch": 14.0, "cpa": 46.85, "freq": 1.59, "ctr": 1.526}, {"adset_name": "AS15 [C6] | Colab Lua Andrade 02 | Mulheres 25-54 BR | A+Aud", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "campaign_id": "120241512889100430", "spend": 633.78, "rev": 2990.18, "roas": 4.72, "purch": 13.0, "cpa": 48.75, "freq": 1.28, "ctr": 2.016}, {"adset_name": "P01 | Advantage+ | Brasil | Purchase | Vídeos", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "campaign_id": "120249712259930430", "spend": 561.71, "rev": 1943.03, "roas": 3.46, "purch": 11.0, "cpa": 51.06, "freq": 1.4, "ctr": 2.009}, {"adset_name": "CJ01 | MADRUGADA", "campaign_name": "CX | Madrugada", "campaign_id": "120249515753780430", "spend": 551.53, "rev": 4096.46, "roas": 7.43, "purch": 18.0, "cpa": 30.64, "freq": 1.63, "ctr": 2.097}, {"adset_name": "AS16 [C6] | Colab Lua Andrade 03 | Mulheres 25-54 BR | A+Aud", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "campaign_id": "120241512889100430", "spend": 478.95, "rev": 1789.21, "roas": 3.74, "purch": 8.0, "cpa": 59.87, "freq": 1.41, "ctr": 3.095}, {"adset_name": "Novo conjunto de anúncios de Vendas", "campaign_name": "[LIVE] [11-09] venda", "campaign_id": "120249681918540430", "spend": 345.97, "rev": 1339.38, "roas": 3.87, "purch": 5.0, "cpa": 69.19, "freq": 1.47, "ctr": 2.109}, {"adset_name": "CJ4 | Touca de Banho | 02/09", "campaign_name": "C4 [lp] | VENDAS | Touca Banho | ISOLADA | 29/08", "campaign_id": "120249514866690430", "spend": 0.3, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.0, "ctr": 14.286}], "abo_test": {"campaign": {"campaign_id": "120249702111870430", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "spend": 4935.19, "rev": 10907.5, "roas": 2.21, "purch": 57.0, "cpa": 86.58, "freq": 2.77, "ctr": 1.483, "ticket": 191.36, "prev_roas": null, "prev_spend": null, "prev_rev": null, "marginal_roas": 2.21}, "adsets": [{"adset_name": "P02 | Conceitos |  Purchase | R$200", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "campaign_id": "120249702111870430", "spend": 1216.18, "rev": 2976.16, "roas": 2.45, "purch": 18.0, "cpa": 67.57, "freq": 1.99, "ctr": 2.298}, {"adset_name": "P01 | Ângulos | Purchase | R$200", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "campaign_id": "120249702111870430", "spend": 1207.51, "rev": 4401.84, "roas": 3.65, "purch": 22.0, "cpa": 54.89, "freq": 1.65, "ctr": 1.818}, {"adset_name": "P05 | Creator/UGC | Purchase | R$200", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "campaign_id": "120249702111870430", "spend": 849.35, "rev": 1736.42, "roas": 2.04, "purch": 8.0, "cpa": 106.17, "freq": 1.49, "ctr": 1.05}, {"adset_name": "P04 | Full Funnel | Purchase | R$200", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "campaign_id": "120249702111870430", "spend": 837.03, "rev": 774.7, "roas": 0.93, "purch": 3.0, "cpa": 279.01, "freq": 1.24, "ctr": 0.914}, {"adset_name": "P03 | DSB | Purchase | R$200", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "campaign_id": "120249702111870430", "spend": 825.12, "rev": 1018.38, "roas": 1.23, "purch": 6.0, "cpa": 137.52, "freq": 1.65, "ctr": 0.995}], "ads": [{"ad_name": "V02 | Raquel | Kit Queridinhos | Conceitos", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P02 | Conceitos |  Purchase | R$200", "spend": 1144.93, "rev": 2865.08, "roas": 2.5, "purch": 17.0, "cpa": 67.35, "freq": 1.95, "ctr": 2.383, "hook_rate": 14.8, "hold_rate": 3.2, "thruplay": 135, "video_plays": 3395}, {"ad_name": "V01 | Raquel | Kit Queridinhos | Ângulos", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P01 | Ângulos | Purchase | R$200", "spend": 1071.88, "rev": 3603.17, "roas": 3.36, "purch": 16.0, "cpa": 66.99, "freq": 1.55, "ctr": 1.798, "hook_rate": 16.6, "hold_rate": 4.4, "thruplay": 1295, "video_plays": 15767}, {"ad_name": "V10 | Giovanna | Kit Queridinhos | P04 Full Funnel | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P04 | Full Funnel | Purchase | R$200", "spend": 784.36, "rev": 774.7, "roas": 0.99, "purch": 3.0, "cpa": 261.45, "freq": 1.21, "ctr": 0.912, "hook_rate": 16.5, "hold_rate": 2.2, "thruplay": 1442, "video_plays": 29959}, {"ad_name": "V12 | Giovanna | Kit Queridinhos | P05 Creator/UGC | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P05 | Creator/UGC | Purchase | R$200", "spend": 618.35, "rev": 1374.22, "roas": 2.22, "purch": 6.0, "cpa": 103.06, "freq": 1.39, "ctr": 1.052, "hook_rate": 7.5, "hold_rate": 1.7, "thruplay": 747, "video_plays": 16530}, {"ad_name": "V08 | Giovanna | Kit Queridinhos | P03 DSB | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P03 | DSB | Purchase | R$200", "spend": 524.73, "rev": 818.48, "roas": 1.56, "purch": 5.0, "cpa": 104.95, "freq": 1.39, "ctr": 0.966, "hook_rate": 16.1, "hold_rate": 2.7, "thruplay": 912, "video_plays": 19781}, {"ad_name": "V07 | Arathy | Kit Queridinhos | P03 DSB | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P03 | DSB | Purchase | R$200", "spend": 300.39, "rev": 199.9, "roas": 0.67, "purch": 1.0, "cpa": 300.39, "freq": 1.39, "ctr": 1.052, "hook_rate": 12.3, "hold_rate": 2.3, "thruplay": 324, "video_plays": 10133}, {"ad_name": "V11 | Arathy | Kit Queridinhos | P05 Creator/UGC | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P05 | Creator/UGC | Purchase | R$200", "spend": 231.0, "rev": 362.2, "roas": 1.57, "purch": 2.0, "cpa": 115.5, "freq": 1.2, "ctr": 1.044, "hook_rate": 15.1, "hold_rate": 2.5, "thruplay": 224, "video_plays": 7195}, {"ad_name": "V03 | Arathy | Kit Queridinho | Angulos", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P01 | Ângulos | Purchase | R$200", "spend": 124.58, "rev": 798.67, "roas": 6.41, "purch": 6.0, "cpa": 20.76, "freq": 1.34, "ctr": 2.101, "hook_rate": 8.9, "hold_rate": 1.5, "thruplay": 21, "video_plays": 740}, {"ad_name": "V05 | Arathy | Kit Queridinhos | P02 Conceitos | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P02 | Conceitos |  Purchase | R$200", "spend": 52.85, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.07, "ctr": 0.631, "hook_rate": 14.1, "hold_rate": 2.9, "thruplay": 62, "video_plays": 1350}, {"ad_name": "V09 | Arathy | Kit Queridinhos | P04 Full Funnel | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P04 | Full Funnel | Purchase | R$200", "spend": 52.67, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.14, "ctr": 0.958, "hook_rate": 11.5, "hold_rate": 2.4, "thruplay": 57, "video_plays": 1645}, {"ad_name": "V06 | Giovanna | Kit Queridinhos | P02 Conceitos | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P02 | Conceitos |  Purchase | R$200", "spend": 18.4, "rev": 111.08, "roas": 6.04, "purch": 1.0, "cpa": 18.4, "freq": 1.12, "ctr": 0.478, "hook_rate": 19.4, "hold_rate": 1.8, "thruplay": 11, "video_plays": 392}, {"ad_name": "V04 | Giovanna | Kit Queridinhos | P01 Ângulos | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P01 | Ângulos | Purchase | R$200", "spend": 7.57, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.1, "ctr": 0.495, "hook_rate": 15.6, "hold_rate": 2.7, "thruplay": 17, "video_plays": 186}, {"ad_name": "V03 | Arathy | Kit Queridinhos | P01 Ângulos | Vídeo", "campaign_name": "TESTE [GPT] [11-09] | VENDAS | ABO | Kit Queridinhos | Raquel", "adset_name": "P01 | Ângulos | Purchase | R$200", "spend": 3.48, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.03, "ctr": 1.081, "hook_rate": 12.4, "hold_rate": 1.2, "thruplay": 9, "video_plays": 170}]}, "nutrifreez": {"adsets": [{"adset_name": "CJ1 | Kit Nutri Frizz | 02/09", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "campaign_id": "120249512832360430", "spend": 811.1, "rev": 2038.78, "roas": 2.51, "purch": 6.0, "cpa": 135.18, "freq": 1.92, "ctr": 1.525}, {"adset_name": "CJ2 | Kit Nutri Frizz | 02/09", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "campaign_id": "120249512832360430", "spend": 776.28, "rev": 1894.12, "roas": 2.44, "purch": 12.0, "cpa": 64.69, "freq": 2.02, "ctr": 1.236}, {"adset_name": "CJ3 | Kit Nutri Frizz | 04 /09 [static]", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "campaign_id": "120249512832360430", "spend": 751.15, "rev": 2419.15, "roas": 3.22, "purch": 11.0, "cpa": 68.29, "freq": 2.09, "ctr": 1.275}, {"adset_name": "P01 | Advantage+ | Brasil | Purchase | Vídeos", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "campaign_id": "120249712259930430", "spend": 561.71, "rev": 1943.03, "roas": 3.46, "purch": 11.0, "cpa": 51.06, "freq": 1.4, "ctr": 2.009}, {"adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "campaign_id": "120249712259930430", "spend": 792.63, "rev": 2021.49, "roas": 2.55, "purch": 8.0, "cpa": 99.08, "freq": 2.13, "ctr": 1.947}], "ads": [{"ad_name": "AD110 [AS20] [C8] | ADV | [STICK] | {PDP} LINHA ANTI-FRIZZ 23/06 {cr606874} — Cópia", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "adset_name": "CJ2 | Kit Nutri Frizz | 02/09", "spend": 776.28, "rev": 1894.12, "roas": 2.44, "purch": 12.0, "cpa": 64.69, "freq": 2.02, "ctr": 1.236, "hook_rate": 8.9, "hold_rate": 2.8, "thruplay": 40, "video_plays": 676}, {"ad_name": "ad 04-10 kit nutri frizz [atatic]01", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "adset_name": "CJ3 | Kit Nutri Frizz | 04 /09 [static]", "spend": 751.15, "rev": 2419.15, "roas": 3.22, "purch": 11.0, "cpa": 68.29, "freq": 2.09, "ctr": 1.275, "hook_rate": 0.4, "hold_rate": 0.4, "thruplay": 3, "video_plays": 255}, {"ad_name": "AD39 [AS29] [C11] | ADV | [KIT-ANTIFRIZZ] | PDP Kit Antifrizz Beatriz Clarão {cr977263}", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "adset_name": "CJ1 | Kit Nutri Frizz | 02/09", "spend": 734.7, "rev": 2038.78, "roas": 2.77, "purch": 6.0, "cpa": 122.45, "freq": 1.82, "ctr": 1.476, "hook_rate": 28.6, "hold_rate": 8.1, "thruplay": 1163, "video_plays": 14489}, {"ad_name": "AD86 [AS16] [C6] | INFL | [KIT-NUTRI] | [AD CODE] Colab Lua Andrade - 14/08 {cr665106}", "campaign_name": "C6 | VENDAS | Colab Influenciadoras | AD CODE", "adset_name": "AS16 [C6] | Colab Lua Andrade 03 | Mulheres 25-54 BR | A+Aud", "spend": 478.95, "rev": 1789.21, "roas": 3.74, "purch": 8.0, "cpa": 59.87, "freq": 1.41, "ctr": 3.095, "hook_rate": 11.6, "hold_rate": 2.4, "thruplay": 2244, "video_plays": 15681}, {"ad_name": "C20 | P02 | Ad 02 - Storie - Lançamento - LeaveIn - 0909", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "spend": 237.0, "rev": 429.7, "roas": 1.81, "purch": 1.0, "cpa": 237.0, "freq": 1.43, "ctr": 1.527, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "C20 | Vídeos + Estáticos | Lançamento Leave-in", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P01 | Advantage+ | Brasil | Purchase | Vídeos", "spend": 93.56, "rev": 238.99, "roas": 2.55, "purch": 2.0, "cpa": 46.78, "freq": 1.2, "ctr": 1.682, "hook_rate": 14.6, "hold_rate": 2.7, "thruplay": 335, "video_plays": 3860}, {"ad_name": "AD35 [AS28] [C11] | ADV | [KIT-NUTRI] | PDP Kit Nutrifrizz Karol Almeida {cr840660} — Cópia", "campaign_name": "C2 | VENDAS | Kit Nutri Frizz", "adset_name": "CJ1 | Kit Nutri Frizz | 02/09", "spend": 76.4, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.5, "ctr": 2.189, "hook_rate": 4.0, "hold_rate": 1.4, "thruplay": 40, "video_plays": 999}, {"ad_name": "C20 | P02 | Ad 02 - Feed - Lançamento - LeaveIn - 0909", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "spend": 6.07, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.09, "ctr": 0.529, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "C20 | P02 | Ad 01 - Storie - Lançamento - LeaveIn - 0909", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "spend": 5.26, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.09, "ctr": 1.887, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "C20 | P02 | Ad 03 - Storie- Lançamento - LeaveIn - 0909", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "spend": 2.44, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.04, "ctr": 0.99, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "C20 | P02 | Ad 03 - Feed - Lançamento - LeaveIn - 0909", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "spend": 1.66, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.23, "ctr": 0.0, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "C20 | P02 | Ad 01 - Feed - Lançamento - LeaveIn - 0909", "campaign_name": "C20 | VENDAS | Aniversário Nutri Frizz + Leave-in | Advantage+", "adset_name": "P02 | Advantage+ | Brasil | Purchase | Estáticos", "spend": 0.6, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 1.0, "ctr": 4.348, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}, {"ad_name": "AD90 [AS17] [C7] | DEPO | [KIT-NUTRI] | Avaliação Kit Nutrição - 29/07 {cr894967}", "campaign_name": "C7 | VENDAS | REMARKETING", "adset_name": "AS17 [C7] | Retarget | Engaj IG 365D + Visit 180D (excl. compradores) | Todos 18-65 BR", "spend": 0.01, "rev": 0.0, "roas": 0.0, "purch": 0.0, "cpa": 0, "freq": 2.0, "ctr": 0.0, "hook_rate": 0, "hold_rate": 0, "thruplay": 0, "video_plays": 0}]}};</script>
+<script>/* ===== engine.js — animação + gráficos canvas self-contained (sem CDN) ===== */
+(function(){
+"use strict";
+const RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+const EASE = t => 1 - Math.pow(1 - t, 3);              // ease-out cubic
+const ACCENT = "#8E6BA8", ACCENT2="#C9B6DC", INK="#0B0B0F", GRID="#ECECF1", INK3="#9A9AA6";
+const POS="#1F8A54", NEG="#C4384A";
+const BRL = v => "R$ "+ (v||0).toLocaleString("pt-BR",{minimumFractionDigits:0,maximumFractionDigits:0});
+const BRL2 = v => "R$ "+ (v||0).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
+const NUM = v => (v||0).toLocaleString("pt-BR");
+const X = (v,f)=> f==="brl"?BRL(v): f==="x"? (v||0).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2})+"x"
+  : f==="pct"? (v||0).toLocaleString("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1})+"%" : NUM(v);
+
+function hidpi(cv,w,h){const d=window.devicePixelRatio||1;cv.width=w*d;cv.height=h*d;cv.style.height=h+"px";
+  const c=cv.getContext("2d");c.setTransform(d,0,0,d,0,0);return c;}
+
+/* ---------- animated count-up ---------- */
+function countUp(el){
+  const raw = parseFloat(el.dataset.val), fmt = el.dataset.fmt||"num";
+  if(isNaN(raw)){return;}
+  if(RM){el.textContent = X(raw,fmt);return;}
+  const dur=800, t0=performance.now();
+  function step(t){const p=Math.min(1,(t-t0)/dur), v=raw*EASE(p);
+    el.textContent = X(v,fmt); if(p<1) requestAnimationFrame(step); else el.textContent=X(raw,fmt);}
+  requestAnimationFrame(step);
+}
+
+/* ---------- line/area chart with animation, multi-series ---------- */
+function lineChart(cv, cfg){
+  // cfg: {labels:[], series:[{name,color,data,fmt,dash}], h, yfmt}
+  const W = cv.clientWidth||cv.parentElement.clientWidth, H = cfg.h||260;
+  const c = hidpi(cv,W,H);
+  const padL=54,padR=16,padT=16,padB=30;
+  const allv = cfg.series.flatMap(s=>s.data);
+  let mx = Math.max(...allv, 0), mn = Math.min(...allv,0);
+  if(mx===mn) mx=mn+1; const range=mx-mn||1;
+  const plotW=W-padL-padR, plotH=H-padT-padB;
+  const xAt = i => padL + (cfg.labels.length<2?plotW/2: i*plotW/(cfg.labels.length-1));
+  const yAt = v => padT + plotH - ((v-mn)/range)*plotH;
+  function frame(prog){
+    c.clearRect(0,0,W,H);
+    // grid + y labels (<=5 ticks)
+    c.font="11px -apple-system,Inter,sans-serif";c.textBaseline="middle";
+    for(let t=0;t<=4;t++){const v=mn+range*t/4, y=yAt(v);
+      c.strokeStyle=GRID;c.lineWidth=1;c.beginPath();c.moveTo(padL,y);c.lineTo(W-padR,y);c.stroke();
+      c.fillStyle=INK3;c.textAlign="right";c.fillText(cfg.yfmt?cfg.yfmt(v):NUM(Math.round(v)),padL-8,y);}
+    // x labels
+    c.textAlign="center";c.fillStyle=INK3;
+    cfg.labels.forEach((lb,i)=>{ if(cfg.labels.length>10 && i%2) return; c.fillText(lb,xAt(i),H-padB+15);});
+    // series
+    cfg.series.forEach(s=>{
+      const n=s.data.length, upto=prog*(n-1);
+      c.lineWidth=2.4;c.strokeStyle=s.color;c.setLineDash(s.dash||[]);
+      c.beginPath();
+      for(let i=0;i<n;i++){ if(i>upto+0.0001) break; const x=xAt(i),y=yAt(s.data[i]);
+        i===0?c.moveTo(x,y):c.lineTo(x,y);}
+      // partial last segment
+      const fi=Math.floor(upto);
+      if(fi<n-1){const f=upto-fi,x0=xAt(fi),y0=yAt(s.data[fi]),x1=xAt(fi+1),y1=yAt(s.data[fi+1]);
+        c.lineTo(x0+(x1-x0)*f,y0+(y1-y0)*f);}
+      c.stroke();c.setLineDash([]);
+      // fill (first series only, subtle)
+      if(s.fill){const grad=c.createLinearGradient(0,padT,0,padT+plotH);
+        grad.addColorStop(0,s.color+"22");grad.addColorStop(1,s.color+"00");
+        c.lineTo(xAt(Math.min(fi+1,n-1)),padT+plotH);c.lineTo(padL,padT+plotH);c.closePath();
+        c.fillStyle=grad;c.fill();}
+      // dots
+      c.fillStyle=s.color;
+      for(let i=0;i<n;i++){ if(i>upto+0.0001) break; c.beginPath();c.arc(xAt(i),yAt(s.data[i]),3,0,7);c.fill();}
+    });
+  }
+  if(RM){frame(1);return;}
+  const dur=900,t0=performance.now();
+  (function an(t){const p=Math.min(1,(t-t0)/dur);frame(EASE(p));if(p<1)requestAnimationFrame(an);})(t0);
+}
+
+/* ---------- horizontal bars ---------- */
+function barsH(cv,cfg){
+  // cfg:{items:[{label,val,color?}], h, fmt}
+  const W=cv.clientWidth||cv.parentElement.clientWidth, H=cfg.h||(cfg.items.length*34+16);
+  const c=hidpi(cv,W,H);
+  const mx=Math.max(...cfg.items.map(i=>Math.abs(i.val)),1);
+  const labW=Math.min(180, W*0.42), gap=6, rowH=(H-8)/cfg.items.length;
+  function frame(p){
+    c.clearRect(0,0,W,H);c.font="12px -apple-system,Inter,sans-serif";c.textBaseline="middle";
+    cfg.items.forEach((it,i)=>{
+      const y=4+i*rowH+rowH/2;
+      c.fillStyle=INK3;c.textAlign="left";
+      const lbl = it.label.length>26? it.label.slice(0,25)+"…":it.label;
+      c.fillText(lbl,0,y);
+      const bx=labW, bw=(W-labW-70)*(Math.abs(it.val)/mx)*p;
+      c.fillStyle=it.color||ACCENT;
+      const bh=Math.min(16,rowH-8);
+      roundRect(c,bx,y-bh/2,Math.max(bw,1),bh,4);c.fill();
+      c.fillStyle=INK;c.textAlign="left";
+      c.fillText(cfg.fmt?cfg.fmt(it.val):NUM(it.val), bx+bw+8, y);
+    });
+  }
+  if(RM){frame(1);return;}
+  const dur=800,t0=performance.now();
+  (function an(t){const p=Math.min(1,(t-t0)/dur);frame(EASE(p));if(p<1)requestAnimationFrame(an);})(t0);
+}
+function roundRect(c,x,y,w,h,r){r=Math.min(r,h/2,w/2);c.beginPath();
+  c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);
+  c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
+
+/* ---------- donut ---------- */
+function donut(cv,cfg){
+  const W=cv.clientWidth||cv.parentElement.clientWidth,H=cfg.h||220;
+  const c=hidpi(cv,W,H);const cx=H/2+6,cy=H/2,R=H/2-14,r=R*0.6;
+  const tot=cfg.items.reduce((a,b)=>a+b.val,0)||1;
+  function frame(p){
+    c.clearRect(0,0,W,H);let a0=-Math.PI/2;
+    cfg.items.forEach(it=>{const a1=a0+(it.val/tot)*Math.PI*2*p;
+      c.beginPath();c.moveTo(cx,cy);c.arc(cx,cy,R,a0,a1);c.closePath();c.fillStyle=it.color;c.fill();a0=a1;});
+    c.beginPath();c.arc(cx,cy,r,0,7);c.fillStyle="#fff";c.fill();
+    // legend
+    c.font="12px -apple-system,Inter,sans-serif";c.textBaseline="middle";let ly=20;
+    cfg.items.forEach(it=>{const lx=H+18;c.fillStyle=it.color;roundRect(c,lx,ly-5,10,10,3);c.fill();
+      c.fillStyle=INK;c.textAlign="left";c.fillText(it.label,lx+16,ly);
+      c.fillStyle=INK3;c.textAlign="right";c.fillText((100*it.val/tot).toFixed(0)+"%",W-4,ly);ly+=22;});
+  }
+  if(RM){frame(1);return;}
+  const dur=850,t0=performance.now();
+  (function an(t){const p=Math.min(1,(t-t0)/dur);frame(EASE(p));if(p<1)requestAnimationFrame(an);})(t0);
+}
+
+/* ---------- expose + boot ---------- */
+window.CH={lineChart,barsH,donut,countUp};
+
+function boot(){
+  // scroll progress
+  const prog=document.querySelector(".progress");
+  if(prog&&!RM){const on=()=>{const h=document.documentElement;
+    prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%";};
+    document.addEventListener("scroll",on,{passive:true});on();}
+  // reveal + count-up + lazy chart via IntersectionObserver
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(!e.isIntersecting)return;
+    const el=e.target;el.classList.add("in");
+    el.querySelectorAll?.("[data-val]").forEach(countUp);
+    if(el.dataset.chart&&!el.dataset.drawn){el.dataset.drawn="1";
+      try{window.DRAW&&window.DRAW(el);}catch(err){console.warn("chart",el.dataset.chart,err);}}
+    io.unobserve(el);});},{rootMargin:"0px 0px -8% 0px",threshold:.12});
+  document.querySelectorAll(".rv,[data-chart]").forEach(el=>io.observe(el));
+  // nav active on scroll
+  const links=[...document.querySelectorAll(".nav a")];
+  const secs=links.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  const nio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){
+    links.forEach(l=>l.classList.toggle("on",l.getAttribute("href")==="#"+e.target.id));}});},
+    {rootMargin:"-40% 0px -55% 0px"});
+  secs.forEach(s=>nio.observe(s));
+  // table sort + search
+  document.querySelectorAll(".tbl-wrap").forEach(w=>{
+    const inp=w.querySelector("input"),tb=w.querySelector("tbody"),tbl=w.querySelector("table");
+    if(inp)inp.addEventListener("input",()=>{const q=inp.value.toLowerCase();
+      tb.querySelectorAll("tr").forEach(tr=>{tr.style.display=tr.textContent.toLowerCase().includes(q)?"":"none";});});
+    tbl.querySelectorAll("th.sortable").forEach((th,ci)=>{let dir=1;
+      th.addEventListener("click",()=>{dir=-dir;const rows=[...tb.querySelectorAll("tr")];
+        rows.sort((a,b)=>{const av=a.children[ci].dataset.sort??a.children[ci].textContent,
+          bv=b.children[ci].dataset.sort??b.children[ci].textContent;
+          const an=parseFloat(av),bn=parseFloat(bv);
+          return ((isNaN(an)||isNaN(bn))? String(av).localeCompare(bv):an-bn)*dir;});
+        rows.forEach(r=>tb.appendChild(r));});});
+  });
+}
+if(document.readyState!=="loading")boot();else document.addEventListener("DOMContentLoaded",boot);
+})();
+</script>
+<script>
+(function(){
+const D=window.__DATA, C=window.CH;
+const AC="#8E6BA8", AC2="#C9B6DC", GRN="#1F8A54", RED="#C4384A", AMB="#B5852A", INK="#0B0B0F", GRY="#C9C9D2";
+const BRL=v=>"R$ "+Math.round(v).toLocaleString("pt-BR");
+const money=v=>"R$ "+v.toLocaleString("pt-BR",{maximumFractionDigits:0});
+const dayLabels=D.daily.map(d=>d.date.slice(8,10)+"/"+d.date.slice(5,7));
+
+function drawDaily(metric){
+  const cv=document.getElementById("cv-daily"); if(!cv)return;
+  const map={store_rev:["store_rev","brl","Faturamento loja (R$)"],spend:["spend","brl","Investimento Meta (R$)"],
+    roas:["roas","x","ROAS Meta"],purch:["purch","num","Compras Meta"],store_orders:["store_orders","num","Pedidos loja"]};
+  const [k,fmt,name]=map[metric]||map.store_rev;
+  const data=D.daily.map(d=>d[k]||0);
+  const yf = fmt==="brl"? (v=>v>=1000?("R$"+(v/1000).toFixed(0)+"k"):("R$"+Math.round(v)))
+           : fmt==="x"? (v=>v.toFixed(1).replace(".",",")+"x") : (v=>Math.round(v).toLocaleString("pt-BR"));
+  C.lineChart(cv,{labels:dayLabels,h:280,yfmt:yf,series:[{name,color:AC,data,fill:true}]});
+}
+
+window.DRAW=function(el){
+  const c=el.dataset.chart;
+  if(c==="daily"){ drawDaily("store_rev");
+    const box=document.getElementById("mp-daily");
+    box.querySelectorAll(".mp").forEach(b=>b.addEventListener("click",()=>{
+      box.querySelectorAll(".mp").forEach(x=>x.classList.remove("on"));
+      b.classList.add("on"); drawDaily(b.dataset.m);
+    }));
+  }
+  else if(c==="channels"){
+    C.donut(document.getElementById("cv-channels"),{h:220,items:[
+      {label:"Meta Ads",val:D.consolidado.meta_spend,color:AC},
+      {label:"Google Ads",val:D.consolidado.gads_spend,color:AC2}]});
+  }
+  else if(c==="gads"){
+    const g=D.google_ads.cur.slice().sort((a,b)=>b.val-a.val);
+    C.barsH(document.getElementById("cv-gads"),{h:200,fmt:BRL,
+      items:g.map(x=>({label:x.name.replace(/[\[\]]/g," ").replace(/\s+/g," ").trim().slice(0,22),val:x.val,
+        color:(x.ch==="SHOPPING"||x.ch==="PMAX")?GRN:(x.ch==="SEARCH"?GRY:AC2)}))});
+  }
+  else if(c==="topads"){
+    const ads=D.ads.filter(a=>a.spend>=300||a.purch>=15).sort((a,b)=>b.roas-a.roas).slice(0,10);
+    C.barsH(document.getElementById("cv-topads"),{h:300,fmt:v=>v.toFixed(2).replace(".",",")+"x",
+      items:ads.map(a=>({label:a.ad_name.replace(/\|/g," ").slice(0,26),val:a.roas,
+        color:a.roas>=3.2?GRN:(a.roas>=2.8?AC:(a.roas>=2.5?AMB:RED))}))});
+  }
+  else if(c==="hookbubble"){
+    const cv=document.getElementById("cv-hook");const ctx=cv.getContext("2d");
+    const W=cv.clientWidth,H=300,dpr=window.devicePixelRatio||1;cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+"px";ctx.setTransform(dpr,0,0,dpr,0,0);
+    const ads=D.ads.filter(a=>a.video_plays>=1000&&a.spend>=100);
+    const padL=44,padB=30,padT=12,padR=12;const pw=W-padL-padR,ph=H-padT-padB;
+    const mxHook=Math.max(...ads.map(a=>a.hook_rate),20),mxHold=Math.max(...ads.map(a=>a.hold_rate),6);
+    const mxSp=Math.max(...ads.map(a=>a.spend),1);
+    ctx.font="11px -apple-system,Inter";ctx.fillStyle="#9A9AA6";
+    for(let t=0;t<=4;t++){const y=padT+ph-ph*t/4;ctx.strokeStyle="#ECECF1";ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+      ctx.textAlign="right";ctx.fillText((mxHold*t/4).toFixed(1)+"%",padL-6,y);}
+    ctx.textAlign="center";ctx.fillText("hook →",W/2,H-6);
+    ctx.save();ctx.translate(12,H/2);ctx.rotate(-Math.PI/2);ctx.fillText("hold →",0,0);ctx.restore();
+    ads.forEach(a=>{const x=padL+pw*(a.hook_rate/mxHook),y=padT+ph-ph*(a.hold_rate/mxHold);
+      const r=4+14*(a.spend/mxSp);
+      ctx.beginPath();ctx.arc(x,y,r,0,7);
+      ctx.fillStyle=(a.roas>=3?GRN:(a.roas>=2.5?AC:RED))+"cc";ctx.fill();});
+  }
+  else if(c==="abopillars"){
+    const abo=D.abo_test.adsets.map(s=>({label:(s.adset_name.match(/P0\d[^|]*/)||[s.adset_name])[0].trim().slice(0,20),val:s.roas}));
+    C.barsH(document.getElementById("cv-abo"),{h:240,fmt:v=>v.toFixed(2).replace(".",",")+"x",
+      items:abo.map(a=>({...a,color:a.val>=2.8?GRN:(a.val>=1.5?AMB:RED)}))});
+  }
+  else if(c==="aboinflu"){
+    const agg={};D.abo_test.ads.forEach(a=>{const m=a.ad_name.match(/\|\s*(Raquel|Giovanna|Arathy)/i);
+      const who=m?m[1]:"?";agg[who]=agg[who]||{sp:0,rev:0};agg[who].sp+=a.spend;agg[who].rev+=a.rev;});
+    const items=Object.entries(agg).filter(([k])=>k!=="?").map(([k,v])=>({label:k,val:v.sp?v.rev/v.sp:0}))
+      .sort((a,b)=>b.val-a.val);
+    C.barsH(document.getElementById("cv-influ"),{h:240,fmt:v=>v.toFixed(2).replace(".",",")+"x",
+      items:items.map(a=>({...a,color:a.val>=2.8?GRN:(a.val>=1.5?AMB:RED)}))});
+  }
+  else if(c==="products"){
+    const p=D.products.slice(0,8);
+    C.barsH(document.getElementById("cv-prod"),{h:300,fmt:BRL,
+      items:p.map(x=>({label:x.name.slice(0,24),val:x.rev,color:AC}))});
+  }
+};
+})();
+</script>
+</body></html>
