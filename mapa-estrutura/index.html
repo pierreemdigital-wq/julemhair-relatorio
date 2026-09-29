@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Mapa de estrutura · Ju Leme Hair</title>
+<!-- Gate de senha. O relatório (data/report.enc) é AES-256-GCM; a chave deriva da senha (PBKDF2-SHA256, 310k).
+     Nada dos números é carregado antes do desbloqueio. Senha própria deste relatório. Repositório público:
+     sem a senha correta o AES-GCM falha na autenticação e nada é revelado. -->
+<style>
+  :root{--bg:#F5F5F7;--card:#FFFFFF;--bd:#E5E5EA;--t1:#1D1D1F;--t2:#6E6E73;--brand:#8E6BA8;--neg:#FF3B30}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:-apple-system,"SF Pro Text",Inter,system-ui,sans-serif;background:var(--bg);color:var(--t1);-webkit-font-smoothing:antialiased}
+  #gate{min-height:100%;display:grid;place-items:center;padding:24px}
+  .box{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:32px 30px;max-width:360px;width:100%;box-shadow:0 8px 24px rgba(0,0,0,.06);text-align:center}
+  .mk{width:44px;height:44px;border-radius:11px;background:var(--brand);color:#fff;font-size:14px;font-weight:700;display:grid;place-items:center;margin:0 auto 16px;letter-spacing:.02em}
+  .box h1{font-size:16px;font-weight:600;letter-spacing:-.01em;margin-bottom:5px}
+  .box p{font-size:12.5px;color:var(--t2);line-height:1.5;margin-bottom:20px}
+  #gate-form{display:flex;flex-direction:column;gap:10px}
+  input{font:inherit;font-size:14px;border:1px solid var(--bd);border-radius:10px;padding:11px 13px;outline:none;text-align:center}
+  input:focus{border-color:var(--brand)}
+  button{font:inherit;font-size:14px;font-weight:600;background:var(--brand);color:#fff;border:none;border-radius:10px;padding:11px;cursor:pointer}
+  button:disabled{opacity:.6;cursor:default}
+  .err{font-size:12px;color:var(--neg);min-height:16px}
+  .lock{font-size:11px;color:#AEAEB2;margin-top:14px}
+  iframe{border:none;width:100%;height:100vh;display:block}
+</style></head>
+<body>
+<div id="gate">
+  <div class="box">
+    <div class="mk">JLH</div>
+    <h1>Mapa de estrutura · Ju Leme Hair</h1>
+    <p>Conteúdo restrito · mapa operacional da estrutura Meta Ads.<br>Digite a senha para acessar.</p>
+    <form id="gate-form">
+      <input type="password" id="gate-pw" placeholder="Senha" autofocus autocomplete="current-password">
+      <button type="submit" id="gate-btn">Entrar</button>
+      <div class="err" id="gate-err"></div>
+    </form>
+    <div class="lock">Dados criptografados (AES-256). Publicado em 29/09/2026.</div>
+  </div>
+</div>
+<script>
+(function () {
+  'use strict';
+  const HASH = 'cd0e9708f25eb0cae9d927382d01f07062e542ed0b272a4455b97b4879602f34';
+  const DATA = 'data/report.enc';
+  const $ = id => document.getElementById(id);
+  const form = $('gate-form'), pw = $('gate-pw'), btn = $('gate-btn'), err = $('gate-err');
+  const enc = new TextEncoder();
+  const hex = b => Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2, '0')).join('');
+  const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+  async function decrypt(pkg, pass) {
+    const km = await crypto.subtle.importKey('raw', enc.encode(pass), 'PBKDF2', false, ['deriveKey']);
+    const key = await crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: b64(pkg.salt), iterations: pkg.iter }, km, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(pkg.iv), additionalData: enc.encode(pkg.aad) }, key, b64(pkg.ct));
+    const stream = new Blob([plain]).stream().pipeThrough(new DecompressionStream('gzip'));
+    return await new Response(stream).text();
+  }
+  let busy = false;
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); if (busy) return;
+    const pass = pw.value; err.textContent = '';
+    if (!pass) return;
+    const h = hex(await crypto.subtle.digest('SHA-256', enc.encode(pass)));
+    if (h !== HASH) { err.textContent = 'Senha incorreta.'; pw.value = ''; pw.focus(); return; }
+    busy = true; btn.disabled = true; btn.textContent = 'Abrindo…';
+    try {
+      const r = await fetch(DATA, { cache: 'no-store' }); if (!r.ok) throw new Error('dados indisponíveis (' + r.status + ')');
+      const html = await decrypt(await r.json(), pass);
+      pw.value = '';
+      const frame = document.createElement('iframe');
+      frame.setAttribute('sandbox', 'allow-scripts allow-popups');
+      frame.srcdoc = html;
+      document.body.innerHTML = '';
+      document.body.appendChild(frame);
+    } catch (ex) {
+      console.warn('[gate]', ex);
+      err.textContent = 'Não foi possível abrir: ' + ex.message; busy = false; btn.disabled = false; btn.textContent = 'Entrar';
+    }
+  });
+})();
+</script>
+</body></html>
